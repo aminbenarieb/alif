@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FCB8E51D1BC63E5100D72450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E51C1BC63E5100D72450 /* AppDelegate.swift */; };
-		FCB8E51F1BC63E5100D72450 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E51E1BC63E5100D72450 /* ViewController.swift */; };
-		FCB8E5221BC63E5100D72450 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5201BC63E5100D72450 /* Main.storyboard */; };
-		FCB8E5251BC63E5100D72450 /* Alif.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E5231BC63E5100D72450 /* Alif.xcdatamodeld */; };
-		FCB8E5271BC63E5100D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5261BC63E5100D72450 /* Assets.xcassets */; };
-		FCB8E52A1BC63E5100D72450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5281BC63E5100D72450 /* LaunchScreen.storyboard */; };
+		E25B2F1FA3883BC5F2DEADB0 /* Pods_Alif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */; };
+		FC1F295F1C5C0C0E003E7441 /* JF Flat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC1F295E1C5C0C0E003E7441 /* JF Flat.ttf */; };
+		FCB8E53E1BC64C5300D72450 /* Amin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53B1BC64C5300D72450 /* Amin.swift */; };
+		FCB8E53F1BC64C5300D72450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */; };
+		FCB8E5401BC64C5300D72450 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* ViewController.swift */; };
+		FCB8E54A1BC64C8500D72450 /* Alif.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E5421BC64C8500D72450 /* Alif.xcdatamodeld */; };
+		FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5441BC64C8500D72450 /* Assets.xcassets */; };
+		FCB8E54C1BC64C8500D72450 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5451BC64C8500D72450 /* LaunchScreen.storyboard */; };
+		FCB8E54D1BC64C8500D72450 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5471BC64C8500D72450 /* Main.storyboard */; };
+		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
+		FCF447E61C601C7100840396 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF447E51C601C7100840396 /* bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alif.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF5F46A8C7EDFE24908E4D2 /* Pods-Alif.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alif.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alif/Pods-Alif.debug.xcconfig"; sourceTree = "<group>"; };
+		911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alif.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alif/Pods-Alif.release.xcconfig"; sourceTree = "<group>"; };
+		FC1F295E1C5C0C0E003E7441 /* JF Flat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JF Flat.ttf"; sourceTree = "<group>"; };
 		FCB8E5191BC63E5100D72450 /* Alif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alif.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCB8E51C1BC63E5100D72450 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCB8E51E1BC63E5100D72450 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FCB8E5211BC63E5100D72450 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FCB8E5241BC63E5100D72450 /* Alif.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alif.xcdatamodel; sourceTree = "<group>"; };
-		FCB8E5261BC63E5100D72450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FCB8E5291BC63E5100D72450 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FCB8E52B1BC63E5100D72450 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCB8E53B1BC64C5300D72450 /* Amin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amin.swift; sourceTree = "<group>"; };
+		FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCB8E53D1BC64C5300D72450 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCB8E5431BC64C8500D72450 /* Alif.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alif.xcdatamodel; sourceTree = "<group>"; };
+		FCB8E5441BC64C8500D72450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCB8E5461BC64C8500D72450 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FCB8E5481BC64C8500D72450 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		FCF447E51C601C7100840396 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25B2F1FA3883BC5F2DEADB0 /* Pods_Alif.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30487E42C2132210D38958F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8CF5F46A8C7EDFE24908E4D2 /* Pods-Alif.debug.xcconfig */,
+				911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C554D4F0F1CBF3C7FEF6FCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FCB8E5101BC63E5100D72450 = {
 			isa = PBXGroup;
 			children = (
-				FCB8E51B1BC63E5100D72450 /* Alif */,
+				FCB8E5391BC64C5300D72450 /* Code */,
+				FCB8E5411BC64C8500D72450 /* Resourses */,
 				FCB8E51A1BC63E5100D72450 /* Products */,
+				30487E42C2132210D38958F5 /* Pods */,
+				7C554D4F0F1CBF3C7FEF6FCB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,18 +86,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FCB8E51B1BC63E5100D72450 /* Alif */ = {
+		FCB8E5391BC64C5300D72450 /* Code */ = {
 			isa = PBXGroup;
 			children = (
-				FCB8E51C1BC63E5100D72450 /* AppDelegate.swift */,
-				FCB8E51E1BC63E5100D72450 /* ViewController.swift */,
-				FCB8E5201BC63E5100D72450 /* Main.storyboard */,
-				FCB8E5261BC63E5100D72450 /* Assets.xcassets */,
-				FCB8E5281BC63E5100D72450 /* LaunchScreen.storyboard */,
-				FCB8E52B1BC63E5100D72450 /* Info.plist */,
-				FCB8E5231BC63E5100D72450 /* Alif.xcdatamodeld */,
+				FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */,
+				FCB8E53D1BC64C5300D72450 /* ViewController.swift */,
+				FCB8E53B1BC64C5300D72450 /* Amin.swift */,
+				FCB8E54F1BC64CFD00D72450 /* Config.swift */,
 			);
-			path = Alif;
+			path = Code;
+			sourceTree = "<group>";
+		};
+		FCB8E5411BC64C8500D72450 /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				FCF447E51C601C7100840396 /* bg.jpg */,
+				FCB8E5421BC64C8500D72450 /* Alif.xcdatamodeld */,
+				FC1F295E1C5C0C0E003E7441 /* JF Flat.ttf */,
+				FCB8E5441BC64C8500D72450 /* Assets.xcassets */,
+				FCB8E5451BC64C8500D72450 /* LaunchScreen.storyboard */,
+				FCB8E5471BC64C8500D72450 /* Main.storyboard */,
+				FCB8E5491BC64C8500D72450 /* Info.plist */,
+			);
+			path = Resourses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +118,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB8E52E1BC63E5100D72450 /* Build configuration list for PBXNativeTarget "Alif" */;
 			buildPhases = (
+				35EA49BE1F6E5585079F4C35 /* Check Pods Manifest.lock */,
 				FCB8E5151BC63E5100D72450 /* Sources */,
 				FCB8E5161BC63E5100D72450 /* Frameworks */,
 				FCB8E5171BC63E5100D72450 /* Resources */,
+				C57615FE0E5CEB1D6BD63104 /* Copy Pods Resources */,
+				FC9DA6ED1BC6563300C5D935 /* ShellScript */,
+				DFCAC04028CF84084997C11C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -93,11 +141,13 @@
 		FCB8E5111BC63E5100D72450 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amin Benarieb";
 				TargetAttributes = {
 					FCB8E5181BC63E5100D72450 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 5P8935L6RT;
 					};
 				};
 			};
@@ -124,42 +174,107 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB8E52A1BC63E5100D72450 /* LaunchScreen.storyboard in Resources */,
-				FCB8E5271BC63E5100D72450 /* Assets.xcassets in Resources */,
-				FCB8E5221BC63E5100D72450 /* Main.storyboard in Resources */,
+				FCF447E61C601C7100840396 /* bg.jpg in Resources */,
+				FCB8E54D1BC64C8500D72450 /* Main.storyboard in Resources */,
+				FC1F295F1C5C0C0E003E7441 /* JF Flat.ttf in Resources */,
+				FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */,
+				FCB8E54C1BC64C8500D72450 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35EA49BE1F6E5585079F4C35 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C57615FE0E5CEB1D6BD63104 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alif/Pods-Alif-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFCAC04028CF84084997C11C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alif/Pods-Alif-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC9DA6ED1BC6563300C5D935 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" c6e1bd9bc0f2f24e5eb63c5eec830602024dd7be 56ec55c202f633ec35f57d14a9c24000c81d98c42216fa36210a8438f329fdf3";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCB8E5151BC63E5100D72450 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB8E51F1BC63E5100D72450 /* ViewController.swift in Sources */,
-				FCB8E5251BC63E5100D72450 /* Alif.xcdatamodeld in Sources */,
-				FCB8E51D1BC63E5100D72450 /* AppDelegate.swift in Sources */,
+				FCB8E5401BC64C5300D72450 /* ViewController.swift in Sources */,
+				FCB8E54A1BC64C8500D72450 /* Alif.xcdatamodeld in Sources */,
+				FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */,
+				FCB8E53F1BC64C5300D72450 /* AppDelegate.swift in Sources */,
+				FCB8E53E1BC64C5300D72450 /* Amin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FCB8E5201BC63E5100D72450 /* Main.storyboard */ = {
+		FCB8E5451BC64C8500D72450 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCB8E5211BC63E5100D72450 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FCB8E5281BC63E5100D72450 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FCB8E5291BC63E5100D72450 /* Base */,
+				FCB8E5461BC64C8500D72450 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FCB8E5471BC64C8500D72450 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCB8E5481BC64C8500D72450 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -182,7 +297,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -227,7 +343,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -250,23 +367,36 @@
 		};
 		FCB8E52F1BC63E5100D72450 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CF5F46A8C7EDFE24908E4D2 /* Pods-Alif.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Alif/Info.plist;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "$(SRCROOT)/Resourses/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amin.benarieb.Alif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		FCB8E5301BC63E5100D72450 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = Alif/Info.plist;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
+				INFOPLIST_FILE = "$(SRCROOT)/Resourses/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amin.benarieb.Alif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -289,16 +419,17 @@
 				FCB8E5301BC63E5100D72450 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FCB8E5231BC63E5100D72450 /* Alif.xcdatamodeld */ = {
+		FCB8E5421BC64C8500D72450 /* Alif.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FCB8E5241BC63E5100D72450 /* Alif.xcdatamodel */,
+				FCB8E5431BC64C8500D72450 /* Alif.xcdatamodel */,
 			);
-			currentVersion = FCB8E5241BC63E5100D72450 /* Alif.xcdatamodel */;
+			currentVersion = FCB8E5431BC64C8500D72450 /* Alif.xcdatamodel */;
 			path = Alif.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
