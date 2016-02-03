@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E25B2F1FA3883BC5F2DEADB0 /* Pods_Alif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */; };
 		FC1F295F1C5C0C0E003E7441 /* JF Flat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC1F295E1C5C0C0E003E7441 /* JF Flat.ttf */; };
+		FC521D9F1C61D3400039C609 /* AlifUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC521D9E1C61D3400039C609 /* AlifUITests.swift */; };
 		FCB8E53E1BC64C5300D72450 /* Amin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53B1BC64C5300D72450 /* Amin.swift */; };
 		FCB8E53F1BC64C5300D72450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */; };
 		FCB8E5401BC64C5300D72450 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* ViewController.swift */; };
@@ -18,13 +19,64 @@
 		FCB8E54D1BC64C8500D72450 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5471BC64C8500D72450 /* Main.storyboard */; };
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
 		FCF447E61C601C7100840396 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF447E51C601C7100840396 /* bg.jpg */; };
+		FCF447EA1C61290F00840396 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */; };
+		FCF447EF1C6129C000840396 /* GTLDrive_Sources.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */; };
+		FCF448041C612C9500840396 /* GTL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF447FD1C612C7200840396 /* GTL.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC521DA11C61D3400039C609 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCB8E5111BC63E5100D72450 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCB8E5181BC63E5100D72450;
+			remoteInfo = Alif;
+		};
+		FCF447FA1C612C7200840396 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4F38F6A60B66E91D00B24B81;
+			remoteInfo = GTLOSXCore;
+		};
+		FCF447FC1C612C7200840396 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4469DB41C40229D00BCFAA1;
+			remoteInfo = GTLiOSCore;
+		};
+		FCF447FE1C612C7200840396 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F4368F721B8233BF00E17643;
+			remoteInfo = GTLiOSUnitTests;
+		};
+		FCF448001C612C7200840396 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4F12027D11A4CA2F00BEB470;
+			remoteInfo = GTLOSXUnitTests;
+		};
+		FCF448021C612C7200840396 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4F1AD9020B71603F00DC0485;
+			remoteInfo = OSXDevTool;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alif.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF5F46A8C7EDFE24908E4D2 /* Pods-Alif.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alif.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Alif/Pods-Alif.debug.xcconfig"; sourceTree = "<group>"; };
 		911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alif.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alif/Pods-Alif.release.xcconfig"; sourceTree = "<group>"; };
 		FC1F295E1C5C0C0E003E7441 /* JF Flat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JF Flat.ttf"; sourceTree = "<group>"; };
+		FC521D9C1C61D3400039C609 /* AlifUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlifUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC521D9E1C61D3400039C609 /* AlifUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlifUITests.swift; sourceTree = "<group>"; };
+		FC521DA01C61D3400039C609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E5191BC63E5100D72450 /* Alif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB8E53B1BC64C5300D72450 /* Amin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amin.swift; sourceTree = "<group>"; };
 		FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,13 +88,26 @@
 		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		FCF447E51C601C7100840396 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = "../../GitHub/google-api-objectivec-client/Deps/gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"; sourceTree = "<group>"; };
+		FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLDrive_Sources.m; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive_Sources.m"; sourceTree = "<group>"; };
+		FCF447EE1C6129C000840396 /* GTLDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDrive.h; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive.h"; sourceTree = "<group>"; };
+		FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alif-Bridging-Header.h"; sourceTree = "<group>"; };
+		FCF447F21C612C7200840396 /* GTLCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GTLCore.xcodeproj; path = "../../GitHub/google-api-objectivec-client/Source/GTLCore.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FC521D991C61D3400039C609 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FCB8E5161BC63E5100D72450 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF448041C612C9500840396 /* GTL.framework in Frameworks */,
 				E25B2F1FA3883BC5F2DEADB0 /* Pods_Alif.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +122,7 @@
 				911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		7C554D4F0F1CBF3C7FEF6FCB /* Frameworks */ = {
@@ -65,16 +131,25 @@
 				2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */,
 			);
 			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FC521D9D1C61D3400039C609 /* AlifUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FC521D9E1C61D3400039C609 /* AlifUITests.swift */,
+				FC521DA01C61D3400039C609 /* Info.plist */,
+			);
+			path = AlifUITests;
 			sourceTree = "<group>";
 		};
 		FCB8E5101BC63E5100D72450 = {
 			isa = PBXGroup;
 			children = (
 				FCB8E5391BC64C5300D72450 /* Code */,
+				FCF447EB1C61298D00840396 /* Google Drive */,
 				FCB8E5411BC64C8500D72450 /* Resourses */,
-				FCB8E51A1BC63E5100D72450 /* Products */,
-				30487E42C2132210D38958F5 /* Pods */,
-				7C554D4F0F1CBF3C7FEF6FCB /* Frameworks */,
+				FC521D9D1C61D3400039C609 /* AlifUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,13 +157,16 @@
 			isa = PBXGroup;
 			children = (
 				FCB8E5191BC63E5100D72450 /* Alif.app */,
+				FC521D9C1C61D3400039C609 /* AlifUITests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FCB8E5391BC64C5300D72450 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */,
 				FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */,
 				FCB8E53D1BC64C5300D72450 /* ViewController.swift */,
 				FCB8E53B1BC64C5300D72450 /* Amin.swift */,
@@ -100,6 +178,9 @@
 		FCB8E5411BC64C8500D72450 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				7C554D4F0F1CBF3C7FEF6FCB /* Frameworks */,
+				30487E42C2132210D38958F5 /* Pods */,
+				FCB8E51A1BC63E5100D72450 /* Products */,
 				FCF447E51C601C7100840396 /* bg.jpg */,
 				FCB8E5421BC64C8500D72450 /* Alif.xcdatamodeld */,
 				FC1F295E1C5C0C0E003E7441 /* JF Flat.ttf */,
@@ -111,9 +192,50 @@
 			path = Resourses;
 			sourceTree = "<group>";
 		};
+		FCF447EB1C61298D00840396 /* Google Drive */ = {
+			isa = PBXGroup;
+			children = (
+				FCF447F21C612C7200840396 /* GTLCore.xcodeproj */,
+				FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */,
+				FCF447EE1C6129C000840396 /* GTLDrive.h */,
+				FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */,
+			);
+			name = "Google Drive";
+			sourceTree = "<group>";
+		};
+		FCF447F31C612C7200840396 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCF447FB1C612C7200840396 /* GTL.framework */,
+				FCF447FD1C612C7200840396 /* GTL.framework */,
+				FCF447FF1C612C7200840396 /* GTLiOSUnitTests.xctest */,
+				FCF448011C612C7200840396 /* GTLUnitTests.xctest */,
+				FCF448031C612C7200840396 /* OSXDevTool */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FC521D9B1C61D3400039C609 /* AlifUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC521DAA1C61D3400039C609 /* Build configuration list for PBXNativeTarget "AlifUITests" */;
+			buildPhases = (
+				FC521D981C61D3400039C609 /* Sources */,
+				FC521D991C61D3400039C609 /* Frameworks */,
+				FC521D9A1C61D3400039C609 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC521DA21C61D3400039C609 /* PBXTargetDependency */,
+			);
+			name = AlifUITests;
+			productName = AlifUITests;
+			productReference = FC521D9C1C61D3400039C609 /* AlifUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		FCB8E5181BC63E5100D72450 /* Alif */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB8E52E1BC63E5100D72450 /* Build configuration list for PBXNativeTarget "Alif" */;
@@ -141,10 +263,14 @@
 		FCB8E5111BC63E5100D72450 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amin Benarieb";
 				TargetAttributes = {
+					FC521D9B1C61D3400039C609 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = FCB8E5181BC63E5100D72450;
+					};
 					FCB8E5181BC63E5100D72450 = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 5P8935L6RT;
@@ -162,18 +288,71 @@
 			mainGroup = FCB8E5101BC63E5100D72450;
 			productRefGroup = FCB8E51A1BC63E5100D72450 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FCF447F31C612C7200840396 /* Products */;
+					ProjectRef = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FCB8E5181BC63E5100D72450 /* Alif */,
+				FC521D9B1C61D3400039C609 /* AlifUITests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		FCF447FB1C612C7200840396 /* GTL.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GTL.framework;
+			remoteRef = FCF447FA1C612C7200840396 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FCF447FD1C612C7200840396 /* GTL.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GTL.framework;
+			remoteRef = FCF447FC1C612C7200840396 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FCF447FF1C612C7200840396 /* GTLiOSUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GTLiOSUnitTests.xctest;
+			remoteRef = FCF447FE1C612C7200840396 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FCF448011C612C7200840396 /* GTLUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GTLUnitTests.xctest;
+			remoteRef = FCF448001C612C7200840396 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FCF448031C612C7200840396 /* OSXDevTool */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = OSXDevTool;
+			remoteRef = FCF448021C612C7200840396 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
+		FC521D9A1C61D3400039C609 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FCB8E5171BC63E5100D72450 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF447EA1C61290F00840396 /* GTMOAuth2ViewTouch.xib in Resources */,
 				FCF447E61C601C7100840396 /* bg.jpg in Resources */,
 				FCB8E54D1BC64C8500D72450 /* Main.storyboard in Resources */,
 				FC1F295F1C5C0C0E003E7441 /* JF Flat.ttf in Resources */,
@@ -246,6 +425,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FC521D981C61D3400039C609 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC521D9F1C61D3400039C609 /* AlifUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FCB8E5151BC63E5100D72450 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,12 +440,21 @@
 				FCB8E5401BC64C5300D72450 /* ViewController.swift in Sources */,
 				FCB8E54A1BC64C8500D72450 /* Alif.xcdatamodeld in Sources */,
 				FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */,
+				FCF447EF1C6129C000840396 /* GTLDrive_Sources.m in Sources */,
 				FCB8E53F1BC64C5300D72450 /* AppDelegate.swift in Sources */,
 				FCB8E53E1BC64C5300D72450 /* Amin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC521DA21C61D3400039C609 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCB8E5181BC63E5100D72450 /* Alif */;
+			targetProxy = FC521DA11C61D3400039C609 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FCB8E5451BC64C8500D72450 /* LaunchScreen.storyboard */ = {
@@ -280,6 +476,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FC521DA31C61D3400039C609 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AlifUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.akagroup.halalguide.GreenBonus.AlifUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Alif;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FC521DA41C61D3400039C609 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = AlifUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.akagroup.halalguide.GreenBonus.AlifUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Alif;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		FCB8E52C1BC63E5100D72450 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -374,12 +598,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTL_BUILT_AS_FRAMEWORK=1",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Resourses/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amin.benarieb.Alif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code/Alif-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -391,18 +621,32 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"GTL_BUILT_AS_FRAMEWORK=1",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Resourses/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amin.benarieb.Alif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Code/Alif-Bridging-Header.h";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FC521DAA1C61D3400039C609 /* Build configuration list for PBXNativeTarget "AlifUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC521DA31C61D3400039C609 /* Debug */,
+				FC521DA41C61D3400039C609 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		FCB8E5141BC63E5100D72450 /* Build configuration list for PBXProject "Alif" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

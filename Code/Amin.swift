@@ -10,6 +10,8 @@ import Foundation
 import SystemConfiguration
 import UIKit
 import JTAlertView
+import JTFadingInfoView
+import ZAlertView
 
 var imageCache = [String : UIImage]()
 
@@ -24,11 +26,11 @@ class Amin {
         return _AminSharedInstance
     }
     
-    /** Showing alert message
+    /** Showing JTAlertView
     - parameter String: title
     - parameter String: message
     */
-    func showMessage(title: String, message: String) -> Void
+    func showJTAlertView(title: String, message: String) -> Void
     {
         if let alertView = JTAlertView(title: title, andImage: UIImage(named: "bg.jpg"))
         {
@@ -41,6 +43,42 @@ class Amin {
             })
             
             alertView.show()
+        }
+        
+    }
+    
+    /** Showing ZAlertView
+     - parameter String: title
+     - parameter String: message
+     */
+    func showZAlertView(title: String, message: String) -> Void
+    {
+//        ZAlertView(title: <#T##String?#>, message: <#T##String?#>, closeButtonText: <#T##String?#>, closeButtonHandler: <#T##TouchHandler?##TouchHandler?##(ZAlertView) -> ()#>)
+//        ZAlertView(title: <#T##String?#>, message: <#T##String?#>, isOkButtonLeft: <#T##Bool?#>, okButtonText: <#T##String?#>, cancelButtonText: <#T##String?#>, okButtonHandler: <#T##TouchHandler?##TouchHandler?##(ZAlertView) -> ()#>, cancelButtonHandler: <#T##TouchHandler?##TouchHandler?##(ZAlertView) -> ()#>)
+//        ZAlertView(title: <#T##String?#>, message: <#T##String?#>, okButtonText: <#T##String?#>, cancelButtonText: <#T##String?#>)
+        
+        let dialog = ZAlertView(title: title, message: message, alertType: .Alert)
+        dialog.show()
+        
+    }
+    
+    /** Showing info message view
+     - parameter String: message
+     */
+    func showInfoMessage(message: String) -> Void
+    {
+        if let view = UIApplication.sharedApplication().keyWindow
+        {
+            let infoViewSize = CGSizeMake(150,50)
+            let infoViewRect = CGRectMake((view.frame.width-infoViewSize.width)/2, infoViewSize.height+50, infoViewSize.width, infoViewSize.height)
+            
+            let infoView = JTFadingInfoView(frame: infoViewRect, label: message)
+            infoView.appearingDuration = 0.2
+            infoView.displayDuration = 1.5
+            infoView.fadeInDirection = JTFadeInDirectionFromAbove
+            infoView.fadeOutDirection = JTFadeOutDirectionToBelow
+            
+            view.addSubview(infoView)
         }
         
     }

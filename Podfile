@@ -13,5 +13,7 @@ pod "TextFieldEffects"
 pod "ASCFlatUIColor"
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'JTFadingInfoView'
+pod "ZAlertView"
 
 end

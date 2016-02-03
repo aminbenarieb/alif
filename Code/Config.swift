@@ -17,7 +17,9 @@ let OrangeColor = 0xFBE500
 let GrayColor = 0xEFEFF4
 let Identifier_GoogleAnalytics = ""
 let Identifier_VK = ""
+let Identifier_GoogleDrive = "706417818308-bofant9bu8lfsoo7a23qi1h5hqmgqqvq.apps.googleusercontent.com"
 let DeveloperMode = false
+
 
 // MARK: - Functions
 
