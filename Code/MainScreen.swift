@@ -8,12 +8,14 @@
 
 import Foundation
 import CHCSVParser
+import Material
+import SWTableViewCell
 
-class MainScreen : UITableViewController {
+class MainScreen : UITableViewController, SWTableViewCellDelegate {
     
     private let RowHeight : CGFloat = 75.0
     private var topics = [String]()
-        
+    
     //MARK: - Events
     
     override func viewDidLoad() {
@@ -32,13 +34,14 @@ class MainScreen : UITableViewController {
         buttonAdd.addTarget(self, action: "addAction", forControlEvents: UIControlEvents.TouchUpInside)
         buttonAdd.frame = CGRectMake(0, 0, 25, 25)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonAdd)
-        
+    
         
         tableView.separatorColor = .clearColor()
         tableView.registerNib(UINib(nibName: "SetCell", bundle: nil), forCellReuseIdentifier: "SetCell")
         /* Setup delegates */
         tableView.delegate = self
         tableView.dataSource = self
+
         
         
     }
@@ -122,9 +125,11 @@ class MainScreen : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetCell") as! SetCell
         
+        cell.rightUtilityButtons = rightButtons() as [AnyObject]
+        cell.delegate = self
+        
         let str = topics[indexPath.row]
         let identifier = str.substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(0), end: str.endIndex.advancedBy(-4)))
-            
         if let name = NSUserDefaults.standardUserDefaults().stringForKey(identifier)
         {
             cell.titleLabel.text = name
@@ -150,8 +155,7 @@ class MainScreen : UITableViewController {
         let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("AddSet")
         self.navigationController?.pushViewController(unlockScreen, animated: true)
     }
-    func loadFiles()
-    {
+    func loadFiles(){
         // We need just to get the documents folder url
         let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
 
@@ -174,6 +178,52 @@ class MainScreen : UITableViewController {
             
             Amin.sharedInstance.showZAlertView("Error", message: error.localizedDescription)
         }
+    }
+    
+    //MARK: - Button
+    
+    func rightButtons() -> NSArray
+    {
+        //cell buttons
+        let rightButtons = NSMutableArray()
+        rightButtons.sw_addUtilityButtonWithColor(MaterialColor.red.darken1, title: "Delete")
+        
+        return rightButtons
+    }
+    
+    func swipeableTableViewCell(cell: SWTableViewCell!, canSwipeToState state: SWCellState) -> Bool {
+        return true
+    }
+    
+    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
+        
+        switch(index)
+        {
+        case (0):
+                if let cellIndexPath = tableView.indexPathForCell(cell)
+                {
+                    if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
+                    {
+                        let path = dir.stringByAppendingPathComponent(topics[index]);
+                        let fileManager = NSFileManager.defaultManager()
+                        
+                        do {
+                            try fileManager.removeItemAtPath(path)
+                            topics.removeAtIndex(cellIndexPath.row)
+                            self.tableView.deleteRowsAtIndexPaths([cellIndexPath], withRowAnimation: .Automatic)
+                            Amin.sharedInstance.showInfoMessage("Saved")
+                        }
+                        catch let error as NSError {
+                            
+                            Amin.sharedInstance.showZAlertView("Ooops! Something went wrong", message: error.localizedDescription)
+                        }
+                    }
+                }
+                break;
+        default:
+            break;
+        }
+        
     }
     
 }

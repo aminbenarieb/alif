@@ -7,9 +7,18 @@
 //
 
 import Foundation
+import Material
 
 class Unlock : UIViewController
 {
+    
+    @IBOutlet var buttonUnlock : FlatButton!
+    
+    override func viewDidLoad() {
+        buttonUnlock.setTitleColor(.whiteColor(), forState: .Normal)
+        buttonUnlock.pulseColor = MaterialColor.white
+    }
+    
     
     @IBAction func dissmiss()
     {

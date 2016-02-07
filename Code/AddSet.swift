@@ -167,7 +167,7 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Construct a query to get names and IDs of 10 files using the Google Drive API
     func fetchFiles() {
-        print("Getting files...")
+        setLoading(true)
         let query = GTLQueryDrive.queryForFilesList()
         query.pageSize = 10
         query.fields = "nextPageToken, files(id, name, folderColorRgb, explicitlyTrashed, mimeType)"
@@ -182,6 +182,8 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
     func displayResultWithTicket(ticket : GTLServiceTicket,
         finishedWithObject response : GTLDriveFileList,
         error : NSError?) {
+            
+            setLoading(false)
             
             if let error = error {
                 Amin.sharedInstance.showZAlertView("Error", message: error.localizedDescription)
@@ -249,6 +251,7 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setLoading(flag : Bool){
+        
         if (flag)
         {
             progressView.startAnimating()
@@ -257,6 +260,7 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
         {
             progressView.stopAnimating()
         }
+        tableView.userInteractionEnabled = !flag
     }
     
 }

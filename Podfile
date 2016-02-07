@@ -17,5 +17,6 @@ pod "ZAlertView"
 pod 'CHCSVParser'
 pod 'UIColor_Hex_Swift', '~> 1.8'
 pod 'GSIndeterminateProgressBar', '~> 0.1'
+pod 'SWTableViewCell', '~> 0.3.7'
 
 end

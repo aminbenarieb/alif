@@ -98,6 +98,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="buttonUnlock" destination="XwG-A4-5l1" id="dHa-hR-Xoi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sl7-aG-QTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

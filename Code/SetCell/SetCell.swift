@@ -7,21 +7,12 @@
 //
 
 import Foundation
+import SWTableViewCell
 
-class SetCell : UITableViewCell
+class SetCell : SWTableViewCell
 {
     @IBOutlet var pictureView : UIImageView!
     @IBOutlet var titleLabel : UILabel!
-    
-    private let inset : CGFloat = 5
-    
-//    var newRect = rect
-//        newRect.origin.x += inset;
-//        newRect.size.width -= 2 * inset;
-//        newRect.origin.y += inset/2;
-//        newRect.size.height -= 2 * inset/2;
-//        rect = newRect
-    
-
+     
     
 }
