@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Material
 
 // MARK: - Constants
 
@@ -20,6 +21,10 @@ let Identifier_VK = ""
 let Identifier_GoogleDrive = "706417818308-bofant9bu8lfsoo7a23qi1h5hqmgqqvq.apps.googleusercontent.com"
 let DeveloperMode = false
 
+let Identifier_My_Speadsheet = "1QFLz3amkLcvUfP7abk56pmJFpioea5nTxo_foL-682Y"
+let Identifier_Arabic = ""
+let Identifier_English = "814005167"
+
 
 // MARK: - Functions
 
@@ -27,6 +32,25 @@ let DeveloperMode = false
 extension String {
     var localized: String {
         return NSLocalizedString(self, tableName: Amin.sharedInstance.currentLanguage(), bundle: NSBundle.mainBundle(), value: "", comment: "")
+    }
+}
+
+// Random range
+extension Int
+{
+    static func random(range: Range<Int> ) -> Int
+    {
+        var offset = 0
+        
+        if range.startIndex < 0   // allow negative ranges
+        {
+            offset = abs(range.startIndex)
+        }
+        
+        let mini = UInt32(range.startIndex + offset)
+        let maxi = UInt32(range.endIndex   + offset)
+        
+        return Int(mini + arc4random_uniform(maxi - mini)) - offset
     }
 }
 
@@ -38,7 +62,10 @@ func iOS(version: Float) -> Bool {
 }
 
 // Color with hex
+
+
 extension UIColor {
+    
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -50,5 +77,15 @@ extension UIColor {
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
+    
+    static func randomColor() -> UIColor {
+      
+        let colors = [MaterialColor.yellow.lighten3, MaterialColor.orange.lighten3, MaterialColor.green.lighten3, MaterialColor.blue.lighten3, MaterialColor.cyan.lighten3, MaterialColor.purple.lighten3, MaterialColor.pink.lighten3, MaterialColor.red.lighten3, MaterialColor.yellow.lighten3, MaterialColor.grey.lighten3]
+        
+        return colors[Int.random(0...(colors.count-1))]
+        
+    }
+    
+    
 }
 

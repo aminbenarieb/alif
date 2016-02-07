@@ -22,9 +22,13 @@ private let _AminSharedInstance = Amin()
 
 
 class Amin {
+    
     class var sharedInstance: Amin {
         return _AminSharedInstance
     }
+    
+    internal var targetWords = [String]()
+    internal var meaningWords = [String]()
     
     /** Showing JTAlertView
     - parameter String: title
@@ -57,7 +61,9 @@ class Amin {
 //        ZAlertView(title: <#T##String?#>, message: <#T##String?#>, isOkButtonLeft: <#T##Bool?#>, okButtonText: <#T##String?#>, cancelButtonText: <#T##String?#>, okButtonHandler: <#T##TouchHandler?##TouchHandler?##(ZAlertView) -> ()#>, cancelButtonHandler: <#T##TouchHandler?##TouchHandler?##(ZAlertView) -> ()#>)
 //        ZAlertView(title: <#T##String?#>, message: <#T##String?#>, okButtonText: <#T##String?#>, cancelButtonText: <#T##String?#>)
         
-        let dialog = ZAlertView(title: title, message: message, alertType: .Alert)
+        let dialog = ZAlertView(title: title, message: message, closeButtonText: "Close") { (alert : ZAlertView) -> () in
+            alert.dismiss()
+        }
         dialog.show()
         
     }
@@ -70,12 +76,12 @@ class Amin {
         if let view = UIApplication.sharedApplication().keyWindow
         {
             let infoViewSize = CGSizeMake(150,50)
-            let infoViewRect = CGRectMake((view.frame.width-infoViewSize.width)/2, infoViewSize.height+50, infoViewSize.width, infoViewSize.height)
+            let infoViewRect = CGRectMake((view.frame.width-infoViewSize.width)/2, view.frame.height-(infoViewSize.height+50), infoViewSize.width, infoViewSize.height)
             
             let infoView = JTFadingInfoView(frame: infoViewRect, label: message)
             infoView.appearingDuration = 0.2
             infoView.displayDuration = 1.5
-            infoView.fadeInDirection = JTFadeInDirectionFromAbove
+            infoView.fadeInDirection = JTFadeInDirectionFromBelow
             infoView.fadeOutDirection = JTFadeOutDirectionToBelow
             
             view.addSubview(infoView)
@@ -108,21 +114,21 @@ class Amin {
     - parameter NSData: data to parse
     - returns: NSDictionary object with json
     */
-    func parseJSONFromData(inputData: NSData) -> NSDictionary{
-
-        let boardsDictionary : NSDictionary
+//    func parseJSONFromData(inputData: NSData) -> NSDictionary{
+//
+//        let boardsDictionary : NSDictionary
+     
+//        do {
+//            boardsDictionary = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+//        }
+//        catch let error as NSError
+//        {
+//            boardsDictionary = [:]
+//            print("Unexpected error: \(error.localizedDescription). ");
+//        }
         
-        do {
-            boardsDictionary = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-        }
-        catch let error as NSError
-        {
-            boardsDictionary = [:]
-            print("Unexpected error: \(error.localizedDescription). ");
-        }
-        
-        return boardsDictionary
-    }
+//        return boardsDictionary
+//    }
     /** Creates Download image form url
     - warning: This function is not testes
     - parameter NSURL: source url
@@ -165,8 +171,7 @@ class Amin {
     }
     
     /**
-    Return all avialible fonts
-    - returns: String language key.
+    Print all avialible fonts
     */
     func allFonts(){
         for family in UIFont.familyNames(){
@@ -178,10 +183,37 @@ class Amin {
         }
     }
     
+    /**
+     Return JF Flat font with given size
+     - parameter Int: size of font
+     - returns: UIFont font
+     */
     func appFont(size : Int) -> UIFont
     {
         
         return UIFont(name: "JF Flat", size: 17) ?? UIFont.systemFontOfSize(17);
     }
+    /**
+     Return download link for speadsheet
+     - parameter String: identifier of speadsheet
+     - parameter String: gid of worksheet in speadsheet
+     - returns: String link
+     */
+    func spreadSheetLinkUrl(identifier : String, gid : String) -> String!
+    {
+        
+        var link = "https://docs.google.com/spreadsheets/d/\(identifier)/export?format=csv"
+        
+        if (gid != "")
+        {
+            link.appendContentsOf("&gid=\(gid)")
+        }
+        
+        return link
+        
+    }
+    
+    
+    
     
 }

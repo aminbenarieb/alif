@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearance().layer.cornerRadius = 3.0
         
         UINavigationBar.appearance().titleTextAttributes  = [NSFontAttributeName: Amin.sharedInstance.appFont(17), NSForegroundColorAttributeName:UIColor.whiteColor()]
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
