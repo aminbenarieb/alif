@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Material
+import SystemConfiguration
 
 // MARK: - Constants
 
@@ -26,16 +27,17 @@ let Identifier_Arabic = ""
 let Identifier_English = "814005167"
 
 
+
 // MARK: - Functions
 
-// Localization of String
+// Added localization of string
 extension String {
     var localized: String {
         return NSLocalizedString(self, tableName: Amin.sharedInstance.currentLanguage(), bundle: NSBundle.mainBundle(), value: "", comment: "")
     }
 }
 
-// Random range
+// Added random range
 extension Int
 {
     static func random(range: Range<Int> ) -> Int
@@ -54,16 +56,7 @@ extension Int
     }
 }
 
-// Check iOS version
-func iOS(version: Float) -> Bool {
-    
-    return (UIDevice.currentDevice().systemVersion as NSString).floatValue >= version
-    
-}
-
 // Color with hex
-
-
 extension UIColor {
     
     convenience init(red: Int, green: Int, blue: Int) {
@@ -80,7 +73,7 @@ extension UIColor {
     
     static func randomColor() -> UIColor {
       
-        let colors = [MaterialColor.yellow.lighten3, MaterialColor.orange.lighten3, MaterialColor.green.lighten3, MaterialColor.blue.lighten3, MaterialColor.cyan.lighten3, MaterialColor.purple.lighten3, MaterialColor.pink.lighten3, MaterialColor.red.lighten3, MaterialColor.yellow.lighten3, MaterialColor.grey.lighten3]
+        let colors = [MaterialColor.yellow.lighten3, MaterialColor.orange.lighten3, MaterialColor.green.lighten3, MaterialColor.blue.lighten3, MaterialColor.cyan.lighten3, MaterialColor.purple.lighten3, MaterialColor.pink.lighten3, MaterialColor.red.lighten3, MaterialColor.yellow.lighten3]
         
         return colors[Int.random(0...(colors.count-1))]
         
@@ -89,3 +82,43 @@ extension UIColor {
     
 }
 
+// Added UIColor support
+extension NSUserDefaults {
+    
+    func colorForKey(key: String) -> UIColor? {
+        var color: UIColor?
+        if let colorData = dataForKey(key) {
+            color = NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as? UIColor
+        }
+        return color
+    }
+    
+    func setColor(color: UIColor?, forKey key: String) {
+        var colorData: NSData?
+        if let color = color {
+            colorData = NSKeyedArchiver.archivedDataWithRootObject(color)
+        }
+        setObject(colorData, forKey: key)
+    }
+    
+}
+
+
+// Class for checking internet connection
+public class Reachability {
+    class func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        }
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+    }
+}

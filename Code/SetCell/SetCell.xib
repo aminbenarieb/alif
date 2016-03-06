@@ -35,12 +35,12 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdF-Ia-5gz">
-                        <rect key="frame" x="83" y="13" width="218" height="48"/>
+                        <rect key="frame" x="83" y="13" width="207" height="48"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="iFr-w7-Xvw"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="20"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -59,7 +59,7 @@
                     <constraint firstItem="sdF-Ia-5gz" firstAttribute="leading" secondItem="JIp-hx-otT" secondAttribute="trailing" constant="8" id="Krg-U5-z7J"/>
                     <constraint firstItem="JIp-hx-otT" firstAttribute="top" secondItem="09w-hH-Fp7" secondAttribute="top" id="Nps-Wf-gny"/>
                     <constraint firstAttribute="bottomMargin" secondItem="sdF-Ia-5gz" secondAttribute="bottom" constant="5" id="P74-P7-j5R"/>
-                    <constraint firstAttribute="trailing" secondItem="sdF-Ia-5gz" secondAttribute="trailing" constant="19" id="Tvh-fO-ziz"/>
+                    <constraint firstAttribute="trailing" secondItem="sdF-Ia-5gz" secondAttribute="trailing" constant="30" id="Tvh-fO-ziz"/>
                     <constraint firstItem="sdF-Ia-5gz" firstAttribute="leading" secondItem="JIp-hx-otT" secondAttribute="trailing" constant="8" id="X2Q-NH-kc7"/>
                     <constraint firstAttribute="bottomMargin" secondItem="JIp-hx-otT" secondAttribute="bottom" constant="-8" id="ZwA-HW-KuN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="sdF-Ia-5gz" secondAttribute="trailing" constant="11" id="akG-Mi-kea"/>

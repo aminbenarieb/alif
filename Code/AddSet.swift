@@ -12,6 +12,8 @@ import CHCSVParser
 import GSIndeterminateProgressBar
 import Material
 
+
+
 class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let RowHeight : CGFloat = 75.0
@@ -75,16 +77,25 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.title = "Add a new set"
         
-        if let authorizer = service.authorizer,
-            canAuth = authorizer.canAuthorize where canAuth {
-                fetchFiles()
-        } else {
-            presentViewController(
-                createAuthController(),
-                animated: true,
-                completion: nil
-            )
+        if (Reachability.isConnectedToNetwork() == true)
+        {
+            if let authorizer = service.authorizer,
+                canAuth = authorizer.canAuthorize where canAuth {
+                    fetchFiles()
+            } else {
+                
+                presentViewController(
+                    createAuthController(),
+                    animated: true,
+                    completion: nil
+                )
+                
+            }
         }
+        else {
+            Amin.sharedInstance.showZAlertView("Oops", message: "Internet connection appears to be offline.")
+        }
+        
         
     }
     
@@ -110,6 +121,7 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
                             if (data?.writeToFile(path, atomically: false) == true)
                             {
                                 NSUserDefaults.standardUserDefaults().setValue(file.name, forKey: file.identifier)
+                                NSUserDefaults.standardUserDefaults().setColor(UIColor.randomColor(), forKey: file.identifier+"_color")
                                 print("Successfully saved to path: "+path)
                                 Amin.sharedInstance.showInfoMessage("Saved")
                             }
@@ -239,7 +251,11 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             
             service.authorizer = authResult
-            dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true) { () -> Void in
+                print("dismissViewControllerAnimated")
+            }
+            
+            
     }
 
     

@@ -12,14 +12,14 @@ import UIKit
 import JTAlertView
 import JTFadingInfoView
 import ZAlertView
+import Parse
 
-var imageCache = [String : UIImage]()
 
 import Foundation
 import SystemConfiguration
+import Parse
 
 private let _AminSharedInstance = Amin()
-
 
 class Amin {
     
@@ -30,17 +30,28 @@ class Amin {
     internal var targetWords = [String]()
     internal var meaningWords = [String]()
     
+    
+    /** Registed Push Notification 
+    */
+    func registerPushNotification() -> Void
+    {
+        let application = UIApplication.sharedApplication()
+        let userNotificationTypes : UIUserNotificationType = [.Alert, .Badge, .Sound]
+        let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+    }
+    
     /** Showing JTAlertView
     - parameter String: title
-    - parameter String: message
+    - parameter String: image name
     */
-    func showJTAlertView(title: String, message: String) -> Void
+    func showJTAlertView(title: String, imageName: String) -> Void
     {
-        if let alertView = JTAlertView(title: title, andImage: UIImage(named: "bg.jpg"))
+        if let alertView = JTAlertView(title: title, andImage: UIImage(named: imageName))
         {
             alertView.size = CGSizeMake(280, 230);
-
-            alertView.addButtonWithTitle("OK", style: .Default, action: { (alertview: JTAlertView!) in
+            alertView.addButtonWithTitle("Later", style: .Default, action: { (alertview: JTAlertView!) in
                 
                 alertview.hide()
                 

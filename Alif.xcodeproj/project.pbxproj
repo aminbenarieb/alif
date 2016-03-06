@@ -13,14 +13,14 @@
 		FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A321C65E994003DBEAE /* Main.storyboard */; };
 		FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */; };
 		FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2E9A381C65F4F5003DBEAE /* Unlock.swift */; };
-		FC521D9F1C61D3400039C609 /* AlifUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC521D9E1C61D3400039C609 /* AlifUITests.swift */; };
 		FC5BE2111C66799500E15628 /* AddSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE2101C66799500E15628 /* AddSet.swift */; };
 		FC5BE21B1C66A06D00E15628 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE21A1C66A06D00E15628 /* Topic.swift */; };
 		FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5BE2241C66B40C00E15628 /* SetCell.xib */; };
 		FC5BE2271C66B41900E15628 /* SetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE2261C66B41900E15628 /* SetCell.swift */; };
+		FC5FA3781C6F973700B1D4D6 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */; };
 		FCB8E53E1BC64C5300D72450 /* Amin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53B1BC64C5300D72450 /* Amin.swift */; };
 		FCB8E53F1BC64C5300D72450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */; };
-		FCB8E5401BC64C5300D72450 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* ViewController.swift */; };
+		FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */; };
 		FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5441BC64C8500D72450 /* Assets.xcassets */; };
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
 		FCF447EA1C61290F00840396 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */; };
@@ -29,47 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FC521DA11C61D3400039C609 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCB8E5111BC63E5100D72450 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FCB8E5181BC63E5100D72450;
-			remoteInfo = Alif;
-		};
-		FCF447FA1C612C7200840396 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F38F6A60B66E91D00B24B81;
-			remoteInfo = GTLOSXCore;
-		};
 		FCF447FC1C612C7200840396 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F4469DB41C40229D00BCFAA1;
 			remoteInfo = GTLiOSCore;
-		};
-		FCF447FE1C612C7200840396 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F4368F721B8233BF00E17643;
-			remoteInfo = GTLiOSUnitTests;
-		};
-		FCF448001C612C7200840396 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F12027D11A4CA2F00BEB470;
-			remoteInfo = GTLOSXUnitTests;
-		};
-		FCF448021C612C7200840396 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F1AD9020B71603F00DC0485;
-			remoteInfo = OSXDevTool;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -82,17 +47,15 @@
 		FC2E9A321C65E994003DBEAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JF Flat.ttf"; sourceTree = "<group>"; };
 		FC2E9A381C65F4F5003DBEAE /* Unlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unlock.swift; sourceTree = "<group>"; };
-		FC521D9C1C61D3400039C609 /* AlifUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlifUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC521D9E1C61D3400039C609 /* AlifUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlifUITests.swift; sourceTree = "<group>"; };
-		FC521DA01C61D3400039C609 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC5BE2101C66799500E15628 /* AddSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSet.swift; sourceTree = "<group>"; };
 		FC5BE21A1C66A06D00E15628 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		FC5BE2241C66B40C00E15628 /* SetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCell.xib; sourceTree = "<group>"; };
 		FC5BE2261C66B41900E15628 /* SetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCell.swift; sourceTree = "<group>"; };
+		FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
 		FCB8E5191BC63E5100D72450 /* Alif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alif.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB8E53B1BC64C5300D72450 /* Amin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amin.swift; sourceTree = "<group>"; };
 		FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCB8E53D1BC64C5300D72450 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainScreen.swift; sourceTree = "<group>"; };
 		FCB8E5441BC64C8500D72450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -104,13 +67,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FC521D991C61D3400039C609 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FCB8E5161BC63E5100D72450 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -159,15 +115,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		FC521D9D1C61D3400039C609 /* AlifUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FC521D9E1C61D3400039C609 /* AlifUITests.swift */,
-				FC521DA01C61D3400039C609 /* Info.plist */,
-			);
-			path = AlifUITests;
-			sourceTree = "<group>";
-		};
 		FC5BE2231C66B40C00E15628 /* SetCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,7 +130,6 @@
 				FCB8E5391BC64C5300D72450 /* Code */,
 				FCF447EB1C61298D00840396 /* Google Drive */,
 				FCB8E5411BC64C8500D72450 /* Resourses */,
-				FC521D9D1C61D3400039C609 /* AlifUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				FCB8E5191BC63E5100D72450 /* Alif.app */,
-				FC521D9C1C61D3400039C609 /* AlifUITests.xctest */,
 			);
 			name = Products;
 			path = ..;
@@ -205,10 +150,11 @@
 				FC2E9A201C65E4DA003DBEAE /* MainScreen.swift */,
 				FC5BE2101C66799500E15628 /* AddSet.swift */,
 				FC5BE21A1C66A06D00E15628 /* Topic.swift */,
-				FCB8E53D1BC64C5300D72450 /* ViewController.swift */,
+				FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */,
 				FC2E9A381C65F4F5003DBEAE /* Unlock.swift */,
 				FCB8E53B1BC64C5300D72450 /* Amin.swift */,
 				FCB8E54F1BC64CFD00D72450 /* Config.swift */,
+				FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */,
 				FC5BE2231C66B40C00E15628 /* SetCell */,
 			);
 			path = Code;
@@ -242,11 +188,7 @@
 		FCF447F31C612C7200840396 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCF447FB1C612C7200840396 /* GTL.framework */,
 				FCF447FD1C612C7200840396 /* GTL.framework */,
-				FCF447FF1C612C7200840396 /* GTLiOSUnitTests.xctest */,
-				FCF448011C612C7200840396 /* GTLUnitTests.xctest */,
-				FCF448031C612C7200840396 /* OSXDevTool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,24 +196,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC521D9B1C61D3400039C609 /* AlifUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FC521DAA1C61D3400039C609 /* Build configuration list for PBXNativeTarget "AlifUITests" */;
-			buildPhases = (
-				FC521D981C61D3400039C609 /* Sources */,
-				FC521D991C61D3400039C609 /* Frameworks */,
-				FC521D9A1C61D3400039C609 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FC521DA21C61D3400039C609 /* PBXTargetDependency */,
-			);
-			name = AlifUITests;
-			productName = AlifUITests;
-			productReference = FC521D9C1C61D3400039C609 /* AlifUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		FCB8E5181BC63E5100D72450 /* Alif */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB8E52E1BC63E5100D72450 /* Build configuration list for PBXNativeTarget "Alif" */;
@@ -281,8 +205,8 @@
 				FCB8E5161BC63E5100D72450 /* Frameworks */,
 				FCB8E5171BC63E5100D72450 /* Resources */,
 				C57615FE0E5CEB1D6BD63104 /* Copy Pods Resources */,
-				FC9DA6ED1BC6563300C5D935 /* ShellScript */,
 				DFCAC04028CF84084997C11C /* Embed Pods Frameworks */,
+				FC81DDAF1C67D47100AE1DD2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -303,13 +227,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Amin Benarieb";
 				TargetAttributes = {
-					FC521D9B1C61D3400039C609 = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = FCB8E5181BC63E5100D72450;
-					};
 					FCB8E5181BC63E5100D72450 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 5P8935L6RT;
+						DevelopmentTeam = 46ZR8VFCV3;
 					};
 				};
 			};
@@ -333,19 +253,11 @@
 			projectRoot = "";
 			targets = (
 				FCB8E5181BC63E5100D72450 /* Alif */,
-				FC521D9B1C61D3400039C609 /* AlifUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		FCF447FB1C612C7200840396 /* GTL.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GTL.framework;
-			remoteRef = FCF447FA1C612C7200840396 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		FCF447FD1C612C7200840396 /* GTL.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -353,37 +265,9 @@
 			remoteRef = FCF447FC1C612C7200840396 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FCF447FF1C612C7200840396 /* GTLiOSUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GTLiOSUnitTests.xctest;
-			remoteRef = FCF447FE1C612C7200840396 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCF448011C612C7200840396 /* GTLUnitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GTLUnitTests.xctest;
-			remoteRef = FCF448001C612C7200840396 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FCF448031C612C7200840396 /* OSXDevTool */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = OSXDevTool;
-			remoteRef = FCF448021C612C7200840396 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FC521D9A1C61D3400039C609 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FCB8E5171BC63E5100D72450 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -445,7 +329,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alif/Pods-Alif-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FC9DA6ED1BC6563300C5D935 /* ShellScript */ = {
+		FC81DDAF1C67D47100AE1DD2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -456,25 +340,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" c6e1bd9bc0f2f24e5eb63c5eec830602024dd7be 56ec55c202f633ec35f57d14a9c24000c81d98c42216fa36210a8438f329fdf3";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" c6e1bd9bc0f2f24e5eb63c5eec830602024dd7be 56ec55c202f633ec35f57d14a9c24000c81d98c42216fa36210a8438f329fdf3";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FC521D981C61D3400039C609 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FC521D9F1C61D3400039C609 /* AlifUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FCB8E5151BC63E5100D72450 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FC5BE2271C66B41900E15628 /* SetCell.swift in Sources */,
-				FCB8E5401BC64C5300D72450 /* ViewController.swift in Sources */,
+				FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */,
 				FC5BE21B1C66A06D00E15628 /* Topic.swift in Sources */,
 				FC2E9A211C65E4DA003DBEAE /* MainScreen.swift in Sources */,
 				FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */,
@@ -482,49 +358,14 @@
 				FC5BE2111C66799500E15628 /* AddSet.swift in Sources */,
 				FCF447EF1C6129C000840396 /* GTLDrive_Sources.m in Sources */,
 				FCB8E53F1BC64C5300D72450 /* AppDelegate.swift in Sources */,
+				FC5FA3781C6F973700B1D4D6 /* LinearProgressView.swift in Sources */,
 				FCB8E53E1BC64C5300D72450 /* Amin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		FC521DA21C61D3400039C609 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FCB8E5181BC63E5100D72450 /* Alif */;
-			targetProxy = FC521DA11C61D3400039C609 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		FC521DA31C61D3400039C609 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = AlifUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.akagroup.halalguide.GreenBonus.AlifUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Alif;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		FC521DA41C61D3400039C609 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = AlifUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.akagroup.halalguide.GreenBonus.AlifUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Alif;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 		FCB8E52C1BC63E5100D72450 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -542,10 +383,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Airat Kasimov (A7P4XJ8TAN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Airat Kasimov (A7P4XJ8TAN)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_NS_ASSERTIONS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -562,7 +404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -588,8 +430,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Airat Kasimov (46ZR8VFCV3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Airat Kasimov (46ZR8VFCV3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -602,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -615,11 +457,11 @@
 			baseConfigurationReference = 8CF5F46A8C7EDFE24908E4D2 /* Pods-Alif.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Airat Kasimov (A7P4XJ8TAN)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -641,9 +483,9 @@
 			baseConfigurationReference = 911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -662,15 +504,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC521DAA1C61D3400039C609 /* Build configuration list for PBXNativeTarget "AlifUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FC521DA31C61D3400039C609 /* Debug */,
-				FC521DA41C61D3400039C609 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		FCB8E5141BC63E5100D72450 /* Build configuration list for PBXProject "Alif" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

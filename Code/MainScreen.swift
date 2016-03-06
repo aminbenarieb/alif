@@ -10,11 +10,14 @@ import Foundation
 import CHCSVParser
 import Material
 import SWTableViewCell
+import JTAlertView
 
-class MainScreen : UITableViewController, SWTableViewCellDelegate {
+class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate {
     
     private let RowHeight : CGFloat = 75.0
     private var topics = [String]()
+    
+    @IBOutlet var tableView : UITableView!
     
     //MARK: - Events
     
@@ -38,9 +41,30 @@ class MainScreen : UITableViewController, SWTableViewCellDelegate {
         
         tableView.separatorColor = .clearColor()
         tableView.registerNib(UINib(nibName: "SetCell", bundle: nil), forCellReuseIdentifier: "SetCell")
+        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         /* Setup delegates */
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //request push notification
+        
+        if (!NSUserDefaults.standardUserDefaults().boolForKey("Request Push Notificatios"))
+        {
+            if let alertView = JTAlertView(title: "Notify about new features and updates", andImage: UIImage(named: "Push Notifications Background"))
+            {
+                alertView.size = CGSizeMake(280, 230);
+                alertView.addButtonWithTitle("Later", style: .Destructive, action: { (alertview: JTAlertView!) in
+                    alertview.hide()
+                })
+                alertView.addButtonWithTitle("OK", action: { (alertview : JTAlertView!) -> Void in
+                    Amin.sharedInstance.registerPushNotification()
+                    alertview.hide()
+                })
+                alertView.show()
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "Request Push Notificatios")
+            }
+        }
+        
 
         
         
@@ -55,7 +79,7 @@ class MainScreen : UITableViewController, SWTableViewCellDelegate {
     
     //MARK: - Selection
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
         {
@@ -104,25 +128,25 @@ class MainScreen : UITableViewController, SWTableViewCellDelegate {
     
     //MARK: - Section
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
     
     //MARK: - Rows
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return RowHeight
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topics.count;
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetCell") as! SetCell
         
         cell.rightUtilityButtons = rightButtons() as [AnyObject]
@@ -133,7 +157,7 @@ class MainScreen : UITableViewController, SWTableViewCellDelegate {
         if let name = NSUserDefaults.standardUserDefaults().stringForKey(identifier)
         {
             cell.titleLabel.text = name
-            cell.pictureView.backgroundColor = UIColor.randomColor()
+            cell.pictureView.backgroundColor = NSUserDefaults.standardUserDefaults().colorForKey(identifier+"_color")
             
         }
         
@@ -172,7 +196,7 @@ class MainScreen : UITableViewController, SWTableViewCellDelegate {
                     topics.append(nameCsvFile)
                 }
             }
-            self.tableView.reloadData()
+            tableView.reloadData()
             
         } catch let error as NSError {
             
@@ -182,18 +206,14 @@ class MainScreen : UITableViewController, SWTableViewCellDelegate {
     
     //MARK: - Button
     
-    func rightButtons() -> NSArray
-    {
+    func rightButtons() -> NSArray{
         //cell buttons
         let rightButtons = NSMutableArray()
         rightButtons.sw_addUtilityButtonWithColor(MaterialColor.red.darken1, title: "Delete")
         
         return rightButtons
     }
-    
-    func swipeableTableViewCell(cell: SWTableViewCell!, canSwipeToState state: SWCellState) -> Bool {
-        return true
-    }
+
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
         
@@ -204,13 +224,13 @@ class MainScreen : UITableViewController, SWTableViewCellDelegate {
                 {
                     if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
                     {
-                        let path = dir.stringByAppendingPathComponent(topics[index]);
+                        let path = dir.stringByAppendingPathComponent(topics[cellIndexPath.row]);
                         let fileManager = NSFileManager.defaultManager()
                         
                         do {
                             try fileManager.removeItemAtPath(path)
                             topics.removeAtIndex(cellIndexPath.row)
-                            self.tableView.deleteRowsAtIndexPaths([cellIndexPath], withRowAnimation: .Automatic)
+                            tableView.deleteRowsAtIndexPaths([cellIndexPath], withRowAnimation: .Automatic)
                             Amin.sharedInstance.showInfoMessage("Saved")
                         }
                         catch let error as NSError {

@@ -10,7 +10,7 @@ import UIKit
 import Material
 import GSIndeterminateProgressBar
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class TrainScreen: UIViewController, UITextFieldDelegate {
 
     // Layout
     @IBOutlet var label: UILabel!
@@ -18,17 +18,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var checkbutton : FlatButton!
     @IBOutlet var scrollview: UIScrollView!
     @IBOutlet var contentview : UIView!
+    @IBOutlet var progressView : AminProgressView!
     
     @IBOutlet var contentheight: NSLayoutConstraint!
     @IBOutlet var contenttopmargin: NSLayoutConstraint!
-    
-    var progressView : GSIndeterminateProgressView!
     
     // Support variables
     var activeField : TextField?;
     
     //Exercise variables
     var checkWord = ""
+    var step : CGFloat = 1
+    var wordCount : CGFloat = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
-        //GSIndeterminateProgressBar
-        let navigationBar = self.navigationController!.navigationBar
-        progressView = GSIndeterminateProgressView(frame: CGRectMake(0, navigationBar.frame.size.height - 2,
-            navigationBar.frame.size.width, 2))
-        progressView.progressTintColor = navigationBar.barTintColor;
-        progressView.autoresizingMask = [.FlexibleWidth, .FlexibleTopMargin];
-        navigationBar.addSubview(progressView)
 
         //label
         label.font = label.font.fontWithSize(40)
@@ -64,8 +58,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textfield.titleLabelActiveColor = UIColor(netHex: 0x246746)
         textfield.clearButtonMode = .WhileEditing
 
+        //progressview settings
+        progressView.progressValue = (step/wordCount)*100
         
-
 
     }
     override func viewWillAppear(animated: Bool) {
@@ -87,7 +82,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let message = checkWord == textfield.text ? "You cool!" : "Try again :)";
         Amin.sharedInstance.showInfoMessage(message)
         
-        updateView()
+        step += 1
+        progressView.progressValue = (step/wordCount)*100
+        
+        if (step == 5)
+        {
+            Amin.sharedInstance.showInfoMessage("Result")
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+        else
+        {
+            updateView()
+        }
 
     }
     
