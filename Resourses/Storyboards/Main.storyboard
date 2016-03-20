@@ -196,10 +196,10 @@
             </objects>
             <point key="canvasLocation" x="-897" y="388"/>
         </scene>
-        <!--Topic-->
+        <!--Mode Choice-->
         <scene sceneID="Bo1-Ws-jlK">
             <objects>
-                <viewController storyboardIdentifier="Topic" id="Y3k-x1-RPt" customClass="Topic" customModule="Alif" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Topic" id="Y3k-x1-RPt" customClass="ModeChoice" customModule="Alif" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ezc-Oy-sXo"/>
                         <viewControllerLayoutGuide type="bottom" id="8W3-fa-dut"/>
@@ -372,9 +372,9 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3T-mb-Juu" customClass="AminProgressView" customModule="Alif" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="15"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="zuS-Rz-YsT"/>
+                                            <constraint firstAttribute="height" constant="20" id="zuS-Rz-YsT"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="progressValue">
