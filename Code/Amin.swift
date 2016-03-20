@@ -27,10 +27,6 @@ class Amin {
         return _AminSharedInstance
     }
     
-    internal var targetWords = [String]()
-    internal var meaningWords = [String]()
-    
-    
     /** Registed Push Notification 
     */
     func registerPushNotification() -> Void
@@ -42,25 +38,6 @@ class Amin {
         application.registerForRemoteNotifications()
     }
     
-    /** Showing JTAlertView
-    - parameter String: title
-    - parameter String: image name
-    */
-    func showJTAlertView(title: String, imageName: String) -> Void
-    {
-        if let alertView = JTAlertView(title: title, andImage: UIImage(named: imageName))
-        {
-            alertView.size = CGSizeMake(280, 230);
-            alertView.addButtonWithTitle("Later", style: .Default, action: { (alertview: JTAlertView!) in
-                
-                alertview.hide()
-                
-            })
-            
-            alertView.show()
-        }
-        
-    }
     
     /** Showing ZAlertView
      - parameter String: title
