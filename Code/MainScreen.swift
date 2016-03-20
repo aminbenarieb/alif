@@ -81,49 +81,63 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
+        if var topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
         {
-            let path = dir.stringByAppendingPathComponent(topics[indexPath.row]);
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Topic")
             
-            //reading
-            let fileUrl = NSURL(fileURLWithPath: path)
-            if let latestFileComponentsArray = NSArray(contentsOfCSVURL:fileUrl)
+            if let setUp = topicDict["setUp"] as? Bool
             {
-//                let parser = CHCSVParser(contentsOfCSVURL: fileUrl)
-                
-                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Topic")
-                
-                Amin.sharedInstance.targetWords.removeAll()
-                Amin.sharedInstance.meaningWords.removeAll()
-                
-                for (var i = 2; i < latestFileComponentsArray.count; i++)
+                if (setUp)
                 {
-                    let foo = latestFileComponentsArray[i] as! NSArray
-                    for (var j = 0; j < 2; j++)
+                    
+                    Vocabluary.sharedInstance.setUpTour(topicDict)
+                    self.navigationController?.pushViewController(unlockScreen, animated: true)
+                    
+                }
+                else
+                {
+                 
+                    if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
                     {
-                        let bar = foo[j] as! String
-                        if (bar == "")
-                        {
-                            self.navigationController?.pushViewController(unlockScreen, animated: true)
-                            return
-                        }
+                        let path = dir.stringByAppendingPathComponent(topics[indexPath.row] + ".csv");
                         
-                        switch(j)
+                        //reading
+                        let fileUrl = NSURL(fileURLWithPath: path)
+                        if let topicFile = NSArray(contentsOfCSVURL:fileUrl)
                         {
-                        case 0:
-                            Amin.sharedInstance.targetWords.append(bar)
-                        case 1:
-                            Amin.sharedInstance.meaningWords.append(bar)
-                        default:
-                            break
+                            var words = [Word]()
+                            
+                            for (var i = 2; i < topicFile.count; i++)
+                            {
+                                if let foo = topicFile[i] as? NSArray
+                                {
+                                    if let targetWord = foo[0] as? String
+                                    {
+                                        if let meaningWord = foo[1] as? String where targetWord != ""
+                                        {
+                                            if (meaningWord != "")
+                                            {
+                                                words.append(Word(target: targetWord, meaning: meaningWord, memorize : MemorizeType.Zero))
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            topicDict["setUp"] = true
+                            topicDict["words"] = NSKeyedArchiver.archivedDataWithRootObject(words)
+                            
+                            
+                            NSUserDefaults.standardUserDefaults().setObject(topicDict, forKey: topics[indexPath.row])
+                            Vocabluary.sharedInstance.setUpTour(topicDict)
+                            
+                            self.navigationController?.pushViewController(unlockScreen, animated: true)
                         }
                     }
                 }
-                
-                self.navigationController?.pushViewController(unlockScreen, animated: true)
             }
         }
+        
     }
     
     //MARK: - Section
@@ -152,12 +166,21 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
         cell.rightUtilityButtons = rightButtons() as [AnyObject]
         cell.delegate = self
         
-        let str = topics[indexPath.row]
-        let identifier = str.substringWithRange(Range<String.Index>(start: str.startIndex.advancedBy(0), end: str.endIndex.advancedBy(-4)))
-        if let name = NSUserDefaults.standardUserDefaults().stringForKey(identifier)
+        
+        if let topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
         {
-            cell.titleLabel.text = name
-            cell.pictureView.backgroundColor = NSUserDefaults.standardUserDefaults().colorForKey(identifier+"_color")
+            if let topicName = topicDict["name"] as? String
+            {
+                cell.titleLabel.text = topicName
+            }
+            if let topicColorData = topicDict["color"] as? NSData
+            {
+                if let topicColor = NSKeyedUnarchiver.unarchiveObjectWithData(topicColorData) as? UIColor
+                {
+                    cell.pictureView.backgroundColor = topicColor
+                }
+            }
+            
             
         }
         
@@ -193,7 +216,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
             {
                 if let nameCsvFile = csvFile
                 {
-                    topics.append(nameCsvFile)
+                    topics.append(nameCsvFile.substringWithRange(Range<String.Index>(start: nameCsvFile.startIndex.advancedBy(0), end: nameCsvFile.endIndex.advancedBy(-4))))
                 }
             }
             tableView.reloadData()
