@@ -13,8 +13,9 @@
 		FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A321C65E994003DBEAE /* Main.storyboard */; };
 		FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */; };
 		FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2E9A381C65F4F5003DBEAE /* Unlock.swift */; };
+		FC564A0E1C92EBC50093A933 /* Vocabluary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC564A0D1C92EBC50093A933 /* Vocabluary.swift */; };
 		FC5BE2111C66799500E15628 /* AddSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE2101C66799500E15628 /* AddSet.swift */; };
-		FC5BE21B1C66A06D00E15628 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE21A1C66A06D00E15628 /* Topic.swift */; };
+		FC5BE21B1C66A06D00E15628 /* ModeChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */; };
 		FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5BE2241C66B40C00E15628 /* SetCell.xib */; };
 		FC5BE2271C66B41900E15628 /* SetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE2261C66B41900E15628 /* SetCell.swift */; };
 		FC5FA3781C6F973700B1D4D6 /* LinearProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */; };
@@ -23,6 +24,8 @@
 		FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */; };
 		FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5441BC64C8500D72450 /* Assets.xcassets */; };
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
+		FCE1B2361C92FA9100021D01 /* DragDropWord.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCE1B2351C92FA9100021D01 /* DragDropWord.xib */; };
+		FCE1B2381C92FAA200021D01 /* DragDropWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE1B2371C92FAA200021D01 /* DragDropWord.swift */; };
 		FCF447EA1C61290F00840396 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */; };
 		FCF447EF1C6129C000840396 /* GTLDrive_Sources.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */; };
 		FCF448041C612C9500840396 /* GTL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF447FD1C612C7200840396 /* GTL.framework */; };
@@ -47,8 +50,9 @@
 		FC2E9A321C65E994003DBEAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JF Flat.ttf"; sourceTree = "<group>"; };
 		FC2E9A381C65F4F5003DBEAE /* Unlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unlock.swift; sourceTree = "<group>"; };
+		FC564A0D1C92EBC50093A933 /* Vocabluary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vocabluary.swift; sourceTree = "<group>"; };
 		FC5BE2101C66799500E15628 /* AddSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSet.swift; sourceTree = "<group>"; };
-		FC5BE21A1C66A06D00E15628 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeChoice.swift; sourceTree = "<group>"; };
 		FC5BE2241C66B40C00E15628 /* SetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCell.xib; sourceTree = "<group>"; };
 		FC5BE2261C66B41900E15628 /* SetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetCell.swift; sourceTree = "<group>"; };
 		FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearProgressView.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		FCB8E5441BC64C8500D72450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		FCE1B2351C92FA9100021D01 /* DragDropWord.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DragDropWord.xib; sourceTree = "<group>"; };
+		FCE1B2371C92FAA200021D01 /* DragDropWord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDropWord.swift; sourceTree = "<group>"; };
 		FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = "../../GitHub/google-api-objectivec-client/Deps/gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"; sourceTree = "<group>"; };
 		FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLDrive_Sources.m; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive_Sources.m"; sourceTree = "<group>"; };
 		FCF447EE1C6129C000840396 /* GTLDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDrive.h; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive.h"; sourceTree = "<group>"; };
@@ -148,11 +154,13 @@
 				FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */,
 				FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */,
 				FC2E9A201C65E4DA003DBEAE /* MainScreen.swift */,
-				FC5BE2101C66799500E15628 /* AddSet.swift */,
-				FC5BE21A1C66A06D00E15628 /* Topic.swift */,
+				FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */,
 				FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */,
+				FC5BE2101C66799500E15628 /* AddSet.swift */,
 				FC2E9A381C65F4F5003DBEAE /* Unlock.swift */,
 				FCB8E53B1BC64C5300D72450 /* Amin.swift */,
+				FC564A0D1C92EBC50093A933 /* Vocabluary.swift */,
+				FCE1B2371C92FAA200021D01 /* DragDropWord.swift */,
 				FCB8E54F1BC64CFD00D72450 /* Config.swift */,
 				FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */,
 				FC5BE2231C66B40C00E15628 /* SetCell */,
@@ -163,6 +171,7 @@
 		FCB8E5411BC64C8500D72450 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				FCE1B2341C92FA9100021D01 /* Views */,
 				FC2E9A351C65E9CB003DBEAE /* Fonts */,
 				FCB8E51A1BC63E5100D72450 /* Products */,
 				FC2E9A301C65E994003DBEAE /* Storyboards */,
@@ -172,6 +181,14 @@
 				30487E42C2132210D38958F5 /* Pods */,
 			);
 			path = Resourses;
+			sourceTree = "<group>";
+		};
+		FCE1B2341C92FA9100021D01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FCE1B2351C92FA9100021D01 /* DragDropWord.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FCF447EB1C61298D00840396 /* Google Drive */ = {
@@ -229,7 +246,7 @@
 				TargetAttributes = {
 					FCB8E5181BC63E5100D72450 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = 46ZR8VFCV3;
+						DevelopmentTeam = 5P8935L6RT;
 					};
 				};
 			};
@@ -277,6 +294,7 @@
 				FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */,
 				FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */,
 				FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */,
+				FCE1B2361C92FA9100021D01 /* DragDropWord.xib in Resources */,
 				FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,9 +367,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC564A0E1C92EBC50093A933 /* Vocabluary.swift in Sources */,
 				FC5BE2271C66B41900E15628 /* SetCell.swift in Sources */,
 				FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */,
-				FC5BE21B1C66A06D00E15628 /* Topic.swift in Sources */,
+				FC5BE21B1C66A06D00E15628 /* ModeChoice.swift in Sources */,
+				FCE1B2381C92FAA200021D01 /* DragDropWord.swift in Sources */,
 				FC2E9A211C65E4DA003DBEAE /* MainScreen.swift in Sources */,
 				FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */,
 				FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */,
@@ -383,8 +403,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Airat Kasimov (A7P4XJ8TAN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Airat Kasimov (A7P4XJ8TAN)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Amin Benarieb (34ZF3ETJMR)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = YES;
@@ -407,6 +427,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "56760922-6c8e-476c-a862-9099116598cc";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -430,8 +451,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Airat Kasimov (46ZR8VFCV3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Airat Kasimov (46ZR8VFCV3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Amin Benarieb (5P8935L6RT)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -446,6 +467,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "f78d023c-fdcf-462e-b1cb-22d89d6ec547";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -459,7 +481,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Airat Kasimov (A7P4XJ8TAN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -473,6 +495,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amin.benarieb.Alif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code/Alif-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -485,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -497,6 +521,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amin.benarieb.Alif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Code/Alif-Bridging-Header.h";
 			};
 			name = Release;
