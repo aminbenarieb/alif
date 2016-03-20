@@ -9,6 +9,7 @@
 import UIKit
 import Material
 import GSIndeterminateProgressBar
+import JTAlertView
 
 class TrainScreen: UIViewController, UITextFieldDelegate {
 
@@ -26,10 +27,6 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
     // Support variables
     var activeField : TextField?;
     
-    //Exercise variables
-    var checkWord = ""
-    var step : CGFloat = 1
-    var wordCount : CGFloat = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +56,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
         textfield.clearButtonMode = .WhileEditing
 
         //progressview settings
-        progressView.progressValue = (step/wordCount)*100
+        progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
         
 
     }
@@ -79,15 +76,26 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
     
     @IBAction func check(){
         
-        let message = checkWord == textfield.text ? "You cool!" : "Try again :)";
+        let message = Vocabluary.sharedInstance.checkWord(textfield.text) ? "You cool!" : "Try again :)";
         Amin.sharedInstance.showInfoMessage(message)
         
-        step += 1
-        progressView.progressValue = (step/wordCount)*100
+        progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
         
-        if (step == 5)
+        if (Vocabluary.sharedInstance.isFinished() )
         {
-            Amin.sharedInstance.showInfoMessage("Result")
+            
+            if let alertView = JTAlertView(title: "\(Vocabluary.sharedInstance.result.title)\n\n \(Vocabluary.sharedInstance.result.message)", andImage:Vocabluary.sharedInstance.image)
+            {
+                alertView.size = CGSizeMake(280, 230);
+                alertView.addButtonWithTitle("OK", style: .Default, action: { (alertview: JTAlertView!) in
+                    
+                    alertview.hide()
+                    
+                })
+                
+                alertView.show()
+            }
+            
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
         else
@@ -99,9 +107,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
     
     func updateView(){
         
-        let randNum = Int.random(0...(Amin.sharedInstance.targetWords).count-1)
-        label.text = Amin.sharedInstance.targetWords[randNum]
-        checkWord = Amin.sharedInstance.meaningWords[randNum]
+        label.text = Vocabluary.sharedInstance.getNextWord().target as String 
     
     }
     
@@ -142,9 +148,14 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
         }
     }
     func keyboardWillBeHidden(aNotification : NSNotification){
-        let contentInsets = UIEdgeInsetsMake((self.navigationController?.navigationBar.frame.height)!+contenttopmargin.constant, 0.0, 0, 0.0)
-        scrollview.contentInset = contentInsets
-        scrollview.scrollIndicatorInsets = contentInsets
+        
+        if let navBarHeight = self.navigationController?.navigationBar.frame.height
+        {
+            let contentInsets = UIEdgeInsetsMake(navBarHeight+contenttopmargin.constant+progressView.bounds.height, 0.0, 0, 0.0)
+            scrollview.contentInset = contentInsets
+            scrollview.scrollIndicatorInsets = contentInsets
+            
+        }
         
     }
     
