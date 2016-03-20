@@ -418,30 +418,12 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="rdN-rz-Vg7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="6Qd-gZ-RAz"/>
-                            <constraint firstItem="G0z-H1-fWe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9fM-ya-Qhm"/>
-                            <constraint firstItem="qPV-He-sBa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="BWT-oD-egA"/>
-                            <constraint firstAttribute="trailing" secondItem="G0z-H1-fWe" secondAttribute="trailing" id="GUP-as-zsF"/>
-                            <constraint firstItem="rdN-rz-Vg7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="GgT-nS-rg9"/>
-                            <constraint firstItem="G0z-H1-fWe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Mi9-UE-UhC"/>
                             <constraint firstItem="rdN-rz-Vg7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="TlB-hT-aNd"/>
                             <constraint firstAttribute="trailing" secondItem="G0z-H1-fWe" secondAttribute="trailing" id="aMV-42-YxJ"/>
                             <constraint firstItem="G0z-H1-fWe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hYv-Kd-FPJ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="G0z-H1-fWe" secondAttribute="bottom" id="jBh-3g-F4L"/>
                             <constraint firstItem="G0z-H1-fWe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jc3-2g-fCl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="G0z-H1-fWe" secondAttribute="bottom" id="lee-Mz-c0f"/>
-                            <constraint firstItem="rdN-rz-Vg7" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="qFg-FB-aGG"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9fM-ya-Qhm"/>
-                                <exclude reference="GUP-as-zsF"/>
-                                <exclude reference="Mi9-UE-UhC"/>
-                                <exclude reference="GgT-nS-rg9"/>
-                                <exclude reference="qFg-FB-aGG"/>
-                                <exclude reference="BWT-oD-egA"/>
-                                <exclude reference="jBh-3g-F4L"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="العربية" id="fwM-fv-vg1"/>
                     <nil key="simulatedTopBarMetrics"/>
