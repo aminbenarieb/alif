@@ -431,6 +431,7 @@
                     <connections>
                         <outlet property="checkbutton" destination="brj-qq-o4n" id="PsW-YS-Z6V"/>
                         <outlet property="contentheight" destination="TlB-hT-aNd" id="xzj-mM-vPx"/>
+                        <outlet property="contenttopmargin" destination="jc3-2g-fCl" id="oqg-Yq-UN0"/>
                         <outlet property="contentview" destination="rdN-rz-Vg7" id="wWO-2j-pHT"/>
                         <outlet property="label" destination="coi-PX-fw4" id="ayZ-9t-PwO"/>
                         <outlet property="progressView" destination="C3T-mb-Juu" id="nKG-0O-5Pf"/>
