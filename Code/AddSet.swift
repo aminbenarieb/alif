@@ -120,8 +120,15 @@ class AddSet : UIViewController, UITableViewDelegate, UITableViewDataSource {
                             //writing
                             if (data?.writeToFile(path, atomically: false) == true)
                             {
-                                NSUserDefaults.standardUserDefaults().setValue(file.name, forKey: file.identifier)
-                                NSUserDefaults.standardUserDefaults().setColor(UIColor.randomColor(), forKey: file.identifier+"_color")
+                                
+                                let topicDict : Dictionary<String, AnyObject> = Dictionary(dictionaryLiteral:
+                                    ("name", file.name),
+                                    ("identifier", file.identifier),
+                                    ("color", NSKeyedArchiver.archivedDataWithRootObject(UIColor.randomColor())),
+                                    ("setUp", false)
+                                )
+                                
+                                NSUserDefaults.standardUserDefaults().setObject(topicDict, forKey: file.identifier)
                                 print("Successfully saved to path: "+path)
                                 Amin.sharedInstance.showInfoMessage("Saved")
                             }
