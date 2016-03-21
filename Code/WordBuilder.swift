@@ -1,5 +1,5 @@
 //
-//  DragDropWord.swift
+//  WordBuilder.swift
 //  Alif
 //
 //  Created by Amin Benarieb on 11/03/16.
@@ -9,7 +9,7 @@
 import Foundation
 import Material
 
-class DragDropWord : UIView
+class WordBuilder : UIView
 {
     
     @IBOutlet var resultLabel: TextField!

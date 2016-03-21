@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="DHq-7f-9qc" customClass="DragDropWord" customModule="Alif" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="DHq-7f-9qc" customClass="WordBuilder" customModule="Alif" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="127"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
