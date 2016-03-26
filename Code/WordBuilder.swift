@@ -15,12 +15,24 @@ class WordBuilder : UIView
     @IBOutlet var resultLabel: TextField!
     @IBOutlet var wordCollection: UICollectionView!
     
-    override func drawRect(rect: CGRect) {
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
+        wordCollection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         
+    }
+
+    
+    func setUp(word : String)
+    {
         
-        super.drawRect(rect)
-        
+        for (var i = 0; i < word.characters.count ; i++)
+        {
+            
+//            wordCollection.ce
+            
+        }
     }
     
 }
