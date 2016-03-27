@@ -42,7 +42,32 @@ extension String {
     subscript (i: Int) -> String {
         return String(self[i] as Character)
     }
+}
 
+extension NSString
+{
+    /** Randomizes the order of characters. */
+    func shuffle() -> NSString
+    {
+        
+        var charArray = [NSString]()
+        for (var i = 0; i < self.length; i++)
+        {
+            charArray.append(self.substringWithRange(NSMakeRange(i, 1)))
+        }
+        charArray.sortInPlace { (a : NSString, b : NSString) -> Bool in
+            
+            return arc4random() < arc4random()+1
+            
+        }
+        
+        var result : NSString = ""
+        for (var i = 0; i < charArray.count; i++)
+        {
+            result = (result as String) + (charArray[i] as String)
+        }
+        return result
+    }
 }
 
 // Added random range

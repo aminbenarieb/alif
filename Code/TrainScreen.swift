@@ -38,6 +38,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
     var activeField : TextField?;
     var selectedIndexPaths : [NSIndexPath]! = []
     var letterPositions : [Letter]! = []
+    var mixedWord : NSString = ""
     
     
     override func viewDidLoad() {
@@ -153,6 +154,10 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
     func updateView(){
         
         label.text = Vocabluary.sharedInstance.getNextWord().target as String
+        
+        //mixing word for word builder
+        mixedWord = Vocabluary.sharedInstance.getCurrentWord().meaning.shuffle()
+        
         dispatch_async(dispatch_get_main_queue()) {
             self.textfield.text = ""
             self.selectedIndexPaths.removeAll()
@@ -231,7 +236,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Vocabluary.sharedInstance.getCurrentWord().meaning.length
+        return mixedWord.length
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -241,7 +246,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         
         if let titleLabel = cell.contentView.viewWithTag(1) as? UILabel
         {
-            titleLabel.text = Vocabluary.sharedInstance.getCurrentWord().meaning.substringWithRange(NSMakeRange(indexPath.row, 1))
+            titleLabel.text = mixedWord.substringWithRange(NSMakeRange(indexPath.row, 1))
         }
         else
         {
@@ -250,7 +255,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
             titleLabel.textAlignment = .Center
             titleLabel.font = titleLabel.font.fontWithSize(16)
             titleLabel.textColor = UIColor.whiteColor()
-            titleLabel.text = Vocabluary.sharedInstance.getCurrentWord().meaning.substringWithRange(NSMakeRange(indexPath.row, 1))
+            titleLabel.text = mixedWord.substringWithRange(NSMakeRange(indexPath.row, 1))
             
             
             let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
