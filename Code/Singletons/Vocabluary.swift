@@ -139,14 +139,16 @@ class Vocabluary
             }
         }
         
-         for (var i = 0; i < min(10, topic.words.count); i++)
-         {
-            let word = topic.words[i]
-            if word.memorize != .Full
+        
+        let minCount = min(10, topic.words.count)
+        while (wordList.count < minCount)
+        {
+            let word = topic.words[Int.random(0...minCount)]
+            if word.memorize != .Full && !wordList.contains(word)
             {
                 wordList.append(word)
             }
-         }
+        }
         
     }
     
