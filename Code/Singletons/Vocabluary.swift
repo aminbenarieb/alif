@@ -155,6 +155,14 @@ class Vocabluary
         return wordList[wordListIndex-1]
     }
     
+    func resetTour()
+    {
+        wordListIndex = 0
+        wordList.removeAll()
+        step = 1
+        rightAnswerCount = 0
+    }
+    
     /********************************/
     
     //WARNING : METHOD STUB
@@ -247,10 +255,7 @@ class Vocabluary
                 print("Error saving tour results with topic identifier \(topic.identifier).")
             }
             
-            wordListIndex = 0
-            wordList.removeAll()
-            step = 1
-            rightAnswerCount = 0
+            resetTour()
         }
         
         return finished
