@@ -106,7 +106,7 @@ extension UIColor {
     
     static func randomColor() -> UIColor {
       
-        let colors = [MaterialColor.yellow.lighten3, MaterialColor.orange.lighten3, MaterialColor.green.lighten3, MaterialColor.blue.lighten3, MaterialColor.cyan.lighten3, MaterialColor.purple.lighten3, MaterialColor.pink.lighten3, MaterialColor.red.lighten3, MaterialColor.yellow.lighten3]
+        let colors = [MaterialColor.brown.lighten3, MaterialColor.orange.lighten3, MaterialColor.green.lighten3, MaterialColor.blue.lighten3, MaterialColor.cyan.lighten3, MaterialColor.purple.lighten3, MaterialColor.pink.lighten3, MaterialColor.red.lighten3, MaterialColor.blueGrey.lighten3]
         
         return colors[Int.random(0...(colors.count-1))]
         
