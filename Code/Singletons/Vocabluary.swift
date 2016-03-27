@@ -182,7 +182,7 @@ class Vocabluary
     {
         targetMode = arc4random_uniform(2) == 0
         wordListIndex++
-        return targetMode ? wordList[wordListIndex].meaning : wordList[wordListIndex].target
+        return targetMode ? wordList[wordListIndex-1].meaning : wordList[wordListIndex-1].target
     }
     
     /** Get progress bar value
