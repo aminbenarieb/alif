@@ -72,6 +72,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
         
         //wordbuilder
+        wordBuilder.backgroundColor = UIColor.clearColor()
         wordBuilder.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         wordBuilder.delegate = self
         wordBuilder.dataSource = self
@@ -253,7 +254,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
             let titleLabel = UILabel(frame: CGRectMake(0,0, cell.contentView.bounds.width, cell.contentView.bounds.height))
             titleLabel.tag = 1
             titleLabel.textAlignment = .Center
-            titleLabel.font = titleLabel.font.fontWithSize(16)
+            titleLabel.font = titleLabel.font.fontWithSize(23)
             titleLabel.textColor = UIColor.whiteColor()
             titleLabel.text = mixedWord.substringWithRange(NSMakeRange(indexPath.row, 1))
             
