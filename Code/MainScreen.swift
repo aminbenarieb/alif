@@ -84,14 +84,13 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
         if var topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
         {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let modeChoice = storyBoard.instantiateViewControllerWithIdentifier("ModeChoice")
+            let modeChoice = storyBoard.instantiateViewControllerWithIdentifier("ModeChoice") as! ModeChoice
             
             if let setUp = topicDict["setUp"] as? Bool
             {
                 if (setUp)
                 {
-                    
-                    Vocabluary.sharedInstance.setUpTour(topicDict)
+                    modeChoice.topicDict = topicDict
                     self.navigationController?.pushViewController(modeChoice, animated: true)
                     
                 }
@@ -129,7 +128,8 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
                             
                             
                             NSUserDefaults.standardUserDefaults().setObject(topicDict, forKey: topics[indexPath.row])
-                            Vocabluary.sharedInstance.setUpTour(topicDict)
+
+                            modeChoice.topicDict = topicDict
                             
                             self.navigationController?.pushViewController(modeChoice, animated: true)
                         }
