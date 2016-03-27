@@ -199,7 +199,7 @@
         <!--Mode Choice-->
         <scene sceneID="Bo1-Ws-jlK">
             <objects>
-                <viewController storyboardIdentifier="Topic" id="Y3k-x1-RPt" customClass="ModeChoice" customModule="Alif" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ModeChoice" id="Y3k-x1-RPt" customClass="ModeChoice" customModule="Alif" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ezc-Oy-sXo"/>
                         <viewControllerLayoutGuide type="bottom" id="8W3-fa-dut"/>

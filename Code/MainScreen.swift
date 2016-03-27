@@ -84,7 +84,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
         if var topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
         {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Topic")
+            let modeChoice = storyBoard.instantiateViewControllerWithIdentifier("ModeChoice")
             
             if let setUp = topicDict["setUp"] as? Bool
             {
@@ -92,7 +92,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
                 {
                     
                     Vocabluary.sharedInstance.setUpTour(topicDict)
-                    self.navigationController?.pushViewController(unlockScreen, animated: true)
+                    self.navigationController?.pushViewController(modeChoice, animated: true)
                     
                 }
                 else
@@ -131,7 +131,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
                             NSUserDefaults.standardUserDefaults().setObject(topicDict, forKey: topics[indexPath.row])
                             Vocabluary.sharedInstance.setUpTour(topicDict)
                             
-                            self.navigationController?.pushViewController(unlockScreen, animated: true)
+                            self.navigationController?.pushViewController(modeChoice, animated: true)
                         }
                     }
                 }
