@@ -11,11 +11,19 @@ import Material
 import GSIndeterminateProgressBar
 import JTAlertView
 
-class TrainScreen: UIViewController, UITextFieldDelegate {
+private let reuseIdentifier = "Cell"
+
+struct Letter {
+    var position : Int
+    var sign  : String
+}
+
+class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate {
 
     // Layout
     @IBOutlet var label: UILabel!
     @IBOutlet var textfield: TextField!
+    @IBOutlet var wordBuilder : UICollectionView!
     @IBOutlet var checkbutton : FlatButton!
     @IBOutlet var scrollview: UIScrollView!
     @IBOutlet var contentview : UIView!
@@ -23,9 +31,12 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var contentheight: NSLayoutConstraint!
     @IBOutlet var contenttopmargin: NSLayoutConstraint!
+    @IBOutlet var wordBuilderHeight: NSLayoutConstraint!
     
     // Support variables
     var activeField : TextField?;
+    var selectedIndexPaths : [NSIndexPath]! = []
+    var letterPositions : [Letter]! = []
     
     
     override func viewDidLoad() {
@@ -57,6 +68,11 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
 
         //progressview settings
         progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
+        
+        //wordbuilder
+        wordBuilder.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        wordBuilder.delegate = self
+        wordBuilder.dataSource = self
         
 
     }
@@ -107,7 +123,13 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
     
     func updateView(){
         
-        label.text = Vocabluary.sharedInstance.getNextWord().target as String 
+        label.text = Vocabluary.sharedInstance.getNextWord().target as String
+        dispatch_async(dispatch_get_main_queue()) {
+            self.textfield.text = ""
+            self.selectedIndexPaths.removeAll()
+            self.wordBuilder.reloadData()
+            self.wordBuilderHeight.constant = self.wordBuilder.contentSize.height
+        }
     
     }
     
@@ -171,19 +193,110 @@ class TrainScreen: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    
+//MARK: UICollectionView Workflow
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Vocabluary.sharedInstance.getCurrentWord().meaning.length
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        cell.backgroundColor = selectedIndexPaths.contains(indexPath) ? UIColor.grayColor() : UIColor.randomColor()
+        
+        if let titleLabel = cell.contentView.viewWithTag(1) as? UILabel
+        {
+            titleLabel.text = Vocabluary.sharedInstance.getCurrentWord().meaning.substringWithRange(NSMakeRange(indexPath.row, 1))
+        }
+        else
+        {
+            let titleLabel = UILabel(frame: CGRectMake(0,0, cell.contentView.bounds.width, cell.contentView.bounds.height))
+            titleLabel.tag = 1
+            titleLabel.textAlignment = .Center
+            titleLabel.font = titleLabel.font.fontWithSize(16)
+            titleLabel.textColor = UIColor.whiteColor()
+            titleLabel.text = Vocabluary.sharedInstance.getCurrentWord().meaning.substringWithRange(NSMakeRange(indexPath.row, 1))
+            
+            
+            let tap = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+            tap.delegate = self
+            titleLabel.addGestureRecognizer(tap)
+            titleLabel.userInteractionEnabled = true
+            
+            
+            cell.contentView.addSubview(titleLabel)
+        }
+        
+        return cell
+        
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+
+        var indexPath: NSIndexPath!
+        
+        if let label = sender?.view as? UILabel
+        {
+            if let superview = label.superview {
+                if let cell = superview.superview as? UICollectionViewCell {
+                    indexPath = wordBuilder.indexPathForCell(cell)
+                }
+            }
+        
+            if let letter = label.text
+            {
+                if let index = selectedIndexPaths.indexOf(indexPath)
+                {
+                    let letter = letterPositions[index]
+                    
+                    // Removing selected letter
+                    textfield.text = (textfield.text! as NSString).stringByReplacingCharactersInRange(NSMakeRange(letter.position,1), withString: "")
+                    selectedIndexPaths.removeAtIndex(index)
+                    letterPositions.removeAtIndex(index)
+                    
+                    // Reseting letters position
+                    for (var i = 0; i < letterPositions.count; i++)
+                    {
+                        letterPositions[i].position = i
+                    }
+
+                }
+                else
+                {
+                    // Adding selected letter and saving it's data
+                    textfield.text = "\(textfield.text!)\(letter)"
+                    selectedIndexPaths.append(indexPath)
+                    letterPositions.append(Letter(position: letterPositions.count, sign: letter))
+                }
+            }
+            
+        }
+
+        
+        wordBuilder.reloadItemsAtIndexPaths([indexPath])
+        
+    }
+    
+
 
 // MARK: - ScrollView & Rotation
     
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        
-        self.viewWillAppear(true)
-    }
+//    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+//        
+//        self.viewWillAppear(true)
+//    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        contentheight.constant = checkbutton.frame.origin.y+checkbutton.bounds.height+20
-        scrollview.contentSize = CGSizeMake(self.view.frame.size.width, contentheight.constant);
+//        contentheight.constant = checkbutton.frame.origin.y+checkbutton.bounds.height+20
+//        scrollview.contentSize = CGSizeMake(self.view.frame.size.width, contentheight.constant);
     }
 
 }

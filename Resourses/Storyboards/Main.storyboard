@@ -345,7 +345,7 @@
                                                 </variation>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brj-qq-o4n" customClass="FlatButton" customModule="Material">
-                                                <rect key="frame" x="23" y="296" width="275" height="87"/>
+                                                <rect key="frame" x="23" y="357" width="275" height="87"/>
                                                 <color key="backgroundColor" red="0.30579075529999999" green="0.49841559899999999" blue="0.76757226079999996" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="87" id="HwV-aM-NxX"/>
@@ -358,9 +358,35 @@
                                                     <action selector="check" destination="BYZ-38-t0r" eventType="touchUpInside" id="zTP-WJ-OJs"/>
                                                 </connections>
                                             </button>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oxl-sq-Olp">
+                                                <rect key="frame" x="23" y="296" width="275" height="50"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="gam-k5-Y2X"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wuc-Zc-sx4">
+                                                    <size key="itemSize" width="40" height="40"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="blQ-9k-N5c">
+                                                        <rect key="frame" x="10" y="5" width="40" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="brj-qq-o4n" firstAttribute="top" secondItem="wCq-a0-kJ4" secondAttribute="bottom" constant="8" id="7mb-Ff-pCK"/>
+                                            <constraint firstItem="oxl-sq-Olp" firstAttribute="top" secondItem="wCq-a0-kJ4" secondAttribute="bottom" constant="8" id="Dvt-ib-cn8"/>
+                                            <constraint firstAttribute="trailing" secondItem="oxl-sq-Olp" secondAttribute="trailing" constant="22" id="FN5-ae-dLF"/>
+                                            <constraint firstItem="brj-qq-o4n" firstAttribute="top" secondItem="oxl-sq-Olp" secondAttribute="bottom" constant="11" id="GSy-cm-wIb"/>
                                             <constraint firstItem="qPV-He-sBa" firstAttribute="top" secondItem="rdN-rz-Vg7" secondAttribute="top" constant="30" id="H9o-CR-98q"/>
                                             <constraint firstItem="wCq-a0-kJ4" firstAttribute="top" secondItem="qPV-He-sBa" secondAttribute="bottom" constant="8" id="JaU-aX-TWL"/>
                                             <constraint firstItem="qPV-He-sBa" firstAttribute="leading" secondItem="rdN-rz-Vg7" secondAttribute="leading" constant="23" id="OPL-gn-nC3"/>
@@ -369,6 +395,7 @@
                                             <constraint firstItem="wCq-a0-kJ4" firstAttribute="leading" secondItem="rdN-rz-Vg7" secondAttribute="leading" constant="23" id="W5U-Cw-tq7"/>
                                             <constraint firstAttribute="trailing" secondItem="wCq-a0-kJ4" secondAttribute="trailing" constant="22" id="b9Q-Hp-0Vs"/>
                                             <constraint firstAttribute="trailing" secondItem="brj-qq-o4n" secondAttribute="trailing" constant="22" id="vCS-D0-nfa"/>
+                                            <constraint firstItem="oxl-sq-Olp" firstAttribute="leading" secondItem="rdN-rz-Vg7" secondAttribute="leading" constant="23" id="yE9-c0-0b9"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3T-mb-Juu" customClass="AminProgressView" customModule="Alif" customModuleProvider="target">
@@ -437,6 +464,8 @@
                         <outlet property="progressView" destination="C3T-mb-Juu" id="nKG-0O-5Pf"/>
                         <outlet property="scrollview" destination="G0z-H1-fWe" id="1pZ-u9-wAF"/>
                         <outlet property="textfield" destination="ykf-hi-2ZP" id="bMf-vi-sCi"/>
+                        <outlet property="wordBuilder" destination="oxl-sq-Olp" id="hkN-MR-tCP"/>
+                        <outlet property="wordBuilderHeight" destination="gam-k5-Y2X" id="X4e-mt-DBn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
