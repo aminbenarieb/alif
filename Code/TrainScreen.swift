@@ -10,6 +10,7 @@ import UIKit
 import Material
 import GSIndeterminateProgressBar
 import JTAlertView
+import ZAlertView
 
 private let reuseIdentifier = "Cell"
 
@@ -74,7 +75,35 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         wordBuilder.delegate = self
         wordBuilder.dataSource = self
         
+        // back button actoin
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back".localized, style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
+        self.navigationItem.leftBarButtonItem = newBackButton;
+    }
+    
+    func back(sender: UIBarButtonItem) {
 
+        
+        let dialog = ZAlertView(title: "Hold on", message: "Are you sure you want to leave the tour?",
+            isOkButtonLeft: true,
+            okButtonText: "Cancel",
+            cancelButtonText: "Leave",
+            okButtonHandler: {
+                
+                (alert : ZAlertView) -> () in
+                alert.dismiss()
+            
+            },
+            cancelButtonHandler:
+            {
+                
+                (alert : ZAlertView) -> () in
+                alert.dismiss()
+                self.navigationController?.popViewControllerAnimated(true)
+            })
+        dialog.alertType = .Confirmation
+        dialog.show()
+        
     }
     override func viewWillAppear(animated: Bool) {
 
