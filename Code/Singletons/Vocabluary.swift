@@ -150,6 +150,11 @@ class Vocabluary
         
     }
     
+    func getCurrentWord() -> Word
+    {
+        return wordList[wordListIndex-1]
+    }
+    
     /********************************/
     
     //WARNING : METHOD STUB
