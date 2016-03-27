@@ -150,9 +150,9 @@ class Vocabluary
         
     }
     
-    func getCurrentWord() -> Word
+    func getCurrentWord() -> NSString
     {
-        return wordList[wordListIndex-1]
+        return (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning).shuffle()
     }
     
     func resetTour()
@@ -178,9 +178,11 @@ class Vocabluary
     /** Get next word from tour word list
     - warning: This function is not testes
     */
-    func getNextWord() -> Word
+    func getNextWord() -> NSString
     {
-        return wordList[wordListIndex++]
+        targetMode = arc4random_uniform(2) == 0
+        wordListIndex++
+        return targetMode ? wordList[wordListIndex].meaning : wordList[wordListIndex].target
     }
     
     /** Get progress bar value
@@ -199,7 +201,7 @@ class Vocabluary
         var flag = false
         if let word = givenWord
         {
-            flag = word == wordList[wordListIndex-1].meaning
+            flag = word == (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning)
             if (flag)
             {
                 rightAnswerCount++

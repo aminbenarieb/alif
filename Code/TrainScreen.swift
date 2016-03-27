@@ -153,10 +153,10 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
     
     func updateView(){
         
-        label.text = Vocabluary.sharedInstance.getNextWord().target as String
+        label.text = Vocabluary.sharedInstance.getNextWord() as String
         
         //mixing word for word builder
-        mixedWord = Vocabluary.sharedInstance.getCurrentWord().meaning.shuffle()
+        mixedWord = Vocabluary.sharedInstance.getCurrentWord()
         
         dispatch_async(dispatch_get_main_queue()) {
             self.textfield.text = ""
