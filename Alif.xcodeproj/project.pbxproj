@@ -24,7 +24,6 @@
 		FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */; };
 		FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5441BC64C8500D72450 /* Assets.xcassets */; };
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
-		FCE1B2381C92FAA200021D01 /* WordBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE1B2371C92FAA200021D01 /* WordBuilder.swift */; };
 		FCF447EA1C61290F00840396 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */; };
 		FCF447EF1C6129C000840396 /* GTLDrive_Sources.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */; };
 		FCF448041C612C9500840396 /* GTL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF447FD1C612C7200840396 /* GTL.framework */; };
@@ -62,7 +61,6 @@
 		FCB8E5441BC64C8500D72450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		FCE1B2371C92FAA200021D01 /* WordBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordBuilder.swift; sourceTree = "<group>"; };
 		FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = "../../GitHub/google-api-objectivec-client/Deps/gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"; sourceTree = "<group>"; };
 		FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLDrive_Sources.m; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive_Sources.m"; sourceTree = "<group>"; };
 		FCF447EE1C6129C000840396 /* GTLDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDrive.h; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive.h"; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */,
 				FC5BE2101C66799500E15628 /* AddSet.swift */,
 				FC2E9A381C65F4F5003DBEAE /* Unlock.swift */,
-				FCE1B2371C92FAA200021D01 /* WordBuilder.swift */,
 				FCB8E54F1BC64CFD00D72450 /* Config.swift */,
 				FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */,
 				FC1D2EB51C9F34E70098489C /* Singletons */,
@@ -366,7 +363,6 @@
 				FC5BE2271C66B41900E15628 /* SetCell.swift in Sources */,
 				FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */,
 				FC5BE21B1C66A06D00E15628 /* ModeChoice.swift in Sources */,
-				FCE1B2381C92FAA200021D01 /* WordBuilder.swift in Sources */,
 				FC2E9A211C65E4DA003DBEAE /* MainScreen.swift in Sources */,
 				FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */,
 				FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */,
