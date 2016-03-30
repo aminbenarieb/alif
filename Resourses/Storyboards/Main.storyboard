@@ -461,6 +461,7 @@
                         <outlet property="contenttopmargin" destination="jc3-2g-fCl" id="oqg-Yq-UN0"/>
                         <outlet property="contentview" destination="rdN-rz-Vg7" id="wWO-2j-pHT"/>
                         <outlet property="label" destination="coi-PX-fw4" id="ayZ-9t-PwO"/>
+                        <outlet property="labelstatus" destination="u89-fT-Mw7" id="Gx8-Cu-a7c"/>
                         <outlet property="progressView" destination="C3T-mb-Juu" id="nKG-0O-5Pf"/>
                         <outlet property="scrollview" destination="G0z-H1-fWe" id="1pZ-u9-wAF"/>
                         <outlet property="textfield" destination="ykf-hi-2ZP" id="bMf-vi-sCi"/>

@@ -11,6 +11,7 @@ import Material
 import GSIndeterminateProgressBar
 import JTAlertView
 import ZAlertView
+import Material
 
 private let reuseIdentifier = "Cell"
 
@@ -23,6 +24,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
 
     // Layout
     @IBOutlet var label: UILabel!
+    @IBOutlet var labelstatus: UILabel!
     @IBOutlet var textfield: TextField!
     @IBOutlet var wordBuilder : UICollectionView!
     @IBOutlet var checkbutton : FlatButton!
@@ -39,6 +41,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
     var selectedIndexPaths : [NSIndexPath]! = []
     var letterPositions : [Letter]! = []
     var mixedWord : NSString = ""
+    var next : Bool = false
     
     
     override func viewDidLoad() {
@@ -123,32 +126,62 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
     
     @IBAction func check(){
         
-        let message = Vocabluary.sharedInstance.checkWord(textfield.text) ? "You cool!" : "Try again :)";
-        Amin.sharedInstance.showInfoMessage(message)
-        
-        progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
-        
-        if (Vocabluary.sharedInstance.isFinished() )
+        if (next)
         {
-            
-            if let alertView = JTAlertView(title: "\(Vocabluary.sharedInstance.result.title)\n\n \(Vocabluary.sharedInstance.result.message)", andImage:Vocabluary.sharedInstance.image)
+            if (Vocabluary.sharedInstance.isFinished() )
             {
-                alertView.size = CGSizeMake(280, 230);
-                alertView.addButtonWithTitle("OK", style: .Default, action: { (alertview: JTAlertView!) in
-                    
-                    alertview.hide()
-                    
-                })
                 
-                alertView.show()
+                if let alertView = JTAlertView(title: "\(Vocabluary.sharedInstance.result.title)\n\n \(Vocabluary.sharedInstance.result.message)", andImage:Vocabluary.sharedInstance.image)
+                {
+                    alertView.size = CGSizeMake(280, 230);
+                    alertView.addButtonWithTitle("OK", style: .Default, action: { (alertview: JTAlertView!) in
+                        
+                        alertview.hide()
+                        
+                    })
+                    
+                    alertView.show()
+                }
+                
+                self.navigationController?.popToRootViewControllerAnimated(true)
             }
-            
-            self.navigationController?.popToRootViewControllerAnimated(true)
+            else
+            {
+                labelstatus.text = "Translate it"
+                labelstatus.textColor = MaterialColor.grey.darken4
+                checkbutton.setTitle("Check", forState: .Normal)
+                checkbutton.backgroundColor = MaterialColor.blue.darken2
+
+                updateView();
+            }
         }
         else
         {
-            updateView()
+            
+            var statustext : String
+            var statuscolor : UIColor
+            let currentword = Vocabluary.sharedInstance.getCurrentWord(false)
+            
+            if (!Vocabluary.sharedInstance.checkWord(textfield.text) )
+            {
+                statustext = "Wrong, it's \"\(currentword).\""
+                statuscolor = MaterialColor.red.darken2
+                
+            }
+            else
+            {
+                statustext = "Right!"
+                statuscolor = MaterialColor.green.darken2
+            }
+            
+            labelstatus.text = statustext
+            labelstatus.textColor = statuscolor
+            checkbutton.setTitle("Next", forState: .Normal)
+            checkbutton.backgroundColor = statuscolor
         }
+        
+        next = !next
+
 
     }
     
@@ -157,7 +190,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         label.text = Vocabluary.sharedInstance.getNextWord() as String
         
         //mixing word for word builder
-        mixedWord = Vocabluary.sharedInstance.getCurrentWord()
+        mixedWord = Vocabluary.sharedInstance.getCurrentWord(true)
         
         dispatch_async(dispatch_get_main_queue()) {
             self.textfield.text = ""
@@ -167,6 +200,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         }
     
     }
+    
     
 //MARK: Handling Keyboard & TextField
     

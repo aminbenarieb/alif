@@ -152,9 +152,10 @@ class Vocabluary
         
     }
     
-    func getCurrentWord() -> NSString
+    func getCurrentWord(shuffle : Bool) -> NSString
     {
-        return (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning).shuffle()
+        let currentword = (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning);
+        return shuffle ? currentword.shuffle() : currentword
     }
     
     func resetTour()
