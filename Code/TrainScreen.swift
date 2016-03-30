@@ -191,13 +191,11 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         
         //mixing word for word builder
         mixedWord = Vocabluary.sharedInstance.getCurrentWord(true)
+    
+        textfield.text = ""
+        selectedIndexPaths.removeAll()
+        wordBuilder.reloadData()
         
-        dispatch_async(dispatch_get_main_queue()) {
-            self.textfield.text = ""
-            self.selectedIndexPaths.removeAll()
-            self.wordBuilder.reloadData()
-            self.wordBuilderHeight.constant = self.wordBuilder.contentSize.height
-        }
     
     }
     
@@ -361,11 +359,17 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
 //        self.viewWillAppear(true)
 //    }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.wordBuilderHeight.constant = self.wordBuilder.contentSize.height
+        self.wordBuilder.collectionViewLayout.invalidateLayout()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        contentheight.constant = checkbutton.frame.origin.y+checkbutton.bounds.height+20
-//        scrollview.contentSize = CGSizeMake(self.view.frame.size.width, contentheight.constant);
+        contentheight.constant = wordBuilder.frame.origin.y + wordBuilder.contentSize.height+checkbutton.bounds.height+30
+        scrollview.contentSize = CGSizeMake(self.view.frame.size.width, contentheight.constant);
     }
 
 }
