@@ -139,11 +139,12 @@ class Vocabluary
             }
         }
         
+        print(topic.words)
         
         let minCount = min(10, topic.words.count)
         while (wordList.count < minCount)
         {
-            let word = topic.words[Int.random(0...minCount)]
+            let word = topic.words[Int.random(0...minCount-1)]
             if word.memorize != .Full && !wordList.contains(word)
             {
                 wordList.append(word)
