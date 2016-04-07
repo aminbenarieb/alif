@@ -140,13 +140,12 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
                     alertView.addButtonWithTitle("OK", style: .Default, action: { (alertview: JTAlertView!) in
                         
                         alertview.hide()
+                        self.navigationController?.popToRootViewControllerAnimated(true)
                         
                     })
                     
                     alertView.show()
                 }
-                
-                self.navigationController?.popToRootViewControllerAnimated(true)
             }
             else
             {
