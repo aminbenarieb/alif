@@ -128,6 +128,9 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         
         if (next)
         {
+            // Changing progress value
+            progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
+            
             if (Vocabluary.sharedInstance.isFinished() )
             {
                 
