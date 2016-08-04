@@ -116,7 +116,7 @@ class Vocabluary
     var step : Int = 1
     var rightAnswerCount = 0
     var result : Result = Result(title: "Undefined", message: "Undefined", procent: 0)
-    var image : UIImage = UIImage()
+    var imageName : String = ""
     
     /*   NON-DOCUMENTED FUNCTIONS   */
     
@@ -193,9 +193,9 @@ class Vocabluary
     /** Get progress bar value
      - return: CGFloat procent value for progress bar
      */
-    func getProgressValue() -> CGFloat
+    func getProgressValue() -> Float
     {
-        return CGFloat(step)/CGFloat(vTourWordCount)*100
+        return Float(step)/Float(vTourWordCount)*100
     }
     
     

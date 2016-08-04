@@ -72,7 +72,7 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         textfield.clearButtonMode = .WhileEditing
 
         //progressview settings
-        progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
+        progressView.progressValue = CGFloat(Vocabluary.sharedInstance.getProgressValue())
         
         //wordbuilder
         wordBuilder.backgroundColor = UIColor.clearColor()
@@ -129,12 +129,12 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         if (next)
         {
             // Changing progress value
-            progressView.progressValue = Vocabluary.sharedInstance.getProgressValue()
+            progressView.progressValue = CGFloat(Vocabluary.sharedInstance.getProgressValue())
             
             if (Vocabluary.sharedInstance.isFinished() )
             {
                 
-                if let alertView = JTAlertView(title: "\(Vocabluary.sharedInstance.result.title)\n\n \(Vocabluary.sharedInstance.result.message)", andImage:Vocabluary.sharedInstance.image)
+                if let alertView = JTAlertView(title: "\(Vocabluary.sharedInstance.result.title)\n\n \(Vocabluary.sharedInstance.result.message)", andImage:UIImage(imageLiteral: Vocabluary.sharedInstance.imageName))
                 {
                     alertView.size = CGSizeMake(280, 230);
                     alertView.addButtonWithTitle("OK", style: .Default, action: { (alertview: JTAlertView!) in
