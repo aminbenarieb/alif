@@ -31,12 +31,12 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
         button.frame = CGRectMake(0, 0, 25, 25)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
         
-        //addbutton
-        let buttonAdd: UIButton = UIButton(type: .Custom)
-        buttonAdd.setImage(UIImage(named: "Add Icon"), forState: UIControlState.Normal)
-        buttonAdd.addTarget(self, action: "addAction", forControlEvents: UIControlEvents.TouchUpInside)
-        buttonAdd.frame = CGRectMake(0, 0, 25, 25)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonAdd)
+//        //addbutton
+//        let buttonAdd: UIButton = UIButton(type: .Custom)
+//        buttonAdd.setImage(UIImage(named: "Add Icon"), forState: UIControlState.Normal)
+//        buttonAdd.addTarget(self, action: "addAction", forControlEvents: UIControlEvents.TouchUpInside)
+//        buttonAdd.frame = CGRectMake(0, 0, 25, 25)
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonAdd)
     
         
         tableView.separatorColor = .clearColor()
