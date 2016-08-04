@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 private let vTourWordCount = 10
 
 private let _VocabluarySharedInstance = Vocabluary()

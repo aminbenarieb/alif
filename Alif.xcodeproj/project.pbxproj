@@ -24,20 +24,7 @@
 		FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */; };
 		FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5441BC64C8500D72450 /* Assets.xcassets */; };
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
-		FCF447EA1C61290F00840396 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */; };
-		FCF447EF1C6129C000840396 /* GTLDrive_Sources.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */; };
-		FCF448041C612C9500840396 /* GTL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF447FD1C612C7200840396 /* GTL.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FCF447FC1C612C7200840396 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F4469DB41C40229D00BCFAA1;
-			remoteInfo = GTLiOSCore;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Alif.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,11 +48,7 @@
 		FCB8E5441BC64C8500D72450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = "../../GitHub/google-api-objectivec-client/Deps/gtm-oauth2/Source/Touch/GTMOAuth2ViewTouch.xib"; sourceTree = "<group>"; };
-		FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLDrive_Sources.m; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive_Sources.m"; sourceTree = "<group>"; };
-		FCF447EE1C6129C000840396 /* GTLDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDrive.h; path = "../../GitHub/google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive.h"; sourceTree = "<group>"; };
 		FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alif-Bridging-Header.h"; sourceTree = "<group>"; };
-		FCF447F21C612C7200840396 /* GTLCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GTLCore.xcodeproj; path = "../../GitHub/google-api-objectivec-client/Source/GTLCore.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF448041C612C9500840396 /* GTL.framework in Frameworks */,
 				E25B2F1FA3883BC5F2DEADB0 /* Pods_Alif.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				FCB8E5391BC64C5300D72450 /* Code */,
-				FCF447EB1C61298D00840396 /* Google Drive */,
 				FCB8E5411BC64C8500D72450 /* Resourses */,
 			);
 			sourceTree = "<group>";
@@ -183,25 +164,6 @@
 				30487E42C2132210D38958F5 /* Pods */,
 			);
 			path = Resourses;
-			sourceTree = "<group>";
-		};
-		FCF447EB1C61298D00840396 /* Google Drive */ = {
-			isa = PBXGroup;
-			children = (
-				FCF447F21C612C7200840396 /* GTLCore.xcodeproj */,
-				FCF447ED1C6129C000840396 /* GTLDrive_Sources.m */,
-				FCF447EE1C6129C000840396 /* GTLDrive.h */,
-				FCF447E91C61290F00840396 /* GTMOAuth2ViewTouch.xib */,
-			);
-			name = "Google Drive";
-			sourceTree = "<group>";
-		};
-		FCF447F31C612C7200840396 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FCF447FD1C612C7200840396 /* GTL.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,12 +217,6 @@
 			mainGroup = FCB8E5101BC63E5100D72450;
 			productRefGroup = FCB8E51A1BC63E5100D72450 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FCF447F31C612C7200840396 /* Products */;
-					ProjectRef = FCF447F21C612C7200840396 /* GTLCore.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				FCB8E5181BC63E5100D72450 /* Alif */,
@@ -268,23 +224,12 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		FCF447FD1C612C7200840396 /* GTL.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GTL.framework;
-			remoteRef = FCF447FC1C612C7200840396 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		FCB8E5171BC63E5100D72450 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FC2E9A331C65E994003DBEAE /* LaunchScreen.storyboard in Resources */,
-				FCF447EA1C61290F00840396 /* GTMOAuth2ViewTouch.xib in Resources */,
 				FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */,
 				FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */,
 				FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */,
@@ -368,7 +313,6 @@
 				FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */,
 				FC5BE2111C66799500E15628 /* AddSet.swift in Sources */,
 				FC1D2EB91C9F34E70098489C /* Vocabluary.swift in Sources */,
-				FCF447EF1C6129C000840396 /* GTLDrive_Sources.m in Sources */,
 				FCB8E53F1BC64C5300D72450 /* AppDelegate.swift in Sources */,
 				FC1D2EB81C9F34E70098489C /* Amin.swift in Sources */,
 				FC5FA3781C6F973700B1D4D6 /* LinearProgressView.swift in Sources */,
