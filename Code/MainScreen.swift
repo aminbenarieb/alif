@@ -203,28 +203,11 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
         self.navigationController?.pushViewController(unlockScreen, animated: true)
     }
     func loadFiles(){
-        // We need just to get the documents folder url
-        let documentsUrl =  NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
 
-        do {
-            let directoryUrls = try  NSFileManager.defaultManager().contentsOfDirectoryAtURL(documentsUrl, includingPropertiesForKeys: nil, options: NSDirectoryEnumerationOptions())
-            
-            let csvFiles = directoryUrls.filter{ $0.pathExtension == "csv" }.map{ $0.lastPathComponent }
-            
-            topics.removeAll()
-            for csvFile in csvFiles as [String?]
-            {
-                if let nameCsvFile = csvFile
-                {
-                    topics.append(nameCsvFile.substringWithRange(Range<String.Index>(start: nameCsvFile.startIndex.advancedBy(0), end: nameCsvFile.endIndex.advancedBy(-4))))
-                }
-            }
-            tableView.reloadData()
-            
-        } catch let error as NSError {
-            
-            Amin.sharedInstance.showZAlertView("Error", message: error.localizedDescription)
-        }
+        topics.removeAll()
+        // loading topics
+        tableView.reloadData()
+
     }
     
     //MARK: - Button
