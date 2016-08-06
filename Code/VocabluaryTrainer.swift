@@ -79,64 +79,7 @@ class VocabluaryTrainer : UIViewController, UITableViewDataSource, UITableViewDe
     //MARK: - Selection
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if var topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
-        {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let modeChoice = storyBoard.instantiateViewControllerWithIdentifier("ModeChoice") as! ModeChoice
-            
-            if let setUp = topicDict["setUp"] as? Bool
-            {
-                if (setUp)
-                {
-                    modeChoice.topicDict = topicDict
-                    self.navigationController?.pushViewController(modeChoice, animated: true)
-                    
-                }
-                else
-                {
-                    
-                    if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
-                    {
-                        let path = dir.stringByAppendingPathComponent(topics[indexPath.row] + ".csv");
-                        
-                        //reading
-                        let fileUrl = NSURL(fileURLWithPath: path)
-                        if let topicFile = NSArray(contentsOfCSVURL:fileUrl)
-                        {
-                            var words = [Word]()
-                            
-                            for (var i = 2; i < topicFile.count; i++)
-                            {
-                                if let foo = topicFile[i] as? NSArray
-                                {
-                                    if let targetWord = foo[0] as? String
-                                    {
-                                        if let meaningWord = foo[1] as? String where targetWord != ""
-                                        {
-                                            if (meaningWord != "")
-                                            {
-                                                words.append(Word(target: targetWord, meaning: meaningWord, memorize : MemorizeType.Zero))
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            topicDict["setUp"] = true
-                            topicDict["words"] = NSKeyedArchiver.archivedDataWithRootObject(words)
-                            
-                            
-                            NSUserDefaults.standardUserDefaults().setObject(topicDict, forKey: topics[indexPath.row])
-                            
-                            modeChoice.topicDict = topicDict
-                            
-                            self.navigationController?.pushViewController(modeChoice, animated: true)
-                        }
-                    }
-                }
-            }
-        }
-        
+//        self.navigationController?.pushViewController(modeChoice, animated: true)
     }
     
     //MARK: - Section

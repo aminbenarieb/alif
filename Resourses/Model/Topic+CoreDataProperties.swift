@@ -14,7 +14,7 @@ import CoreData
 
 extension Topic {
 
-    @NSManaged var difficulty: Int16
+    @NSManaged var difficulty: Float
     @NSManaged var name: String?
     @NSManaged var content: String?
     @NSManaged var passed: Float

@@ -100,8 +100,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         
          let topic = topics[indexPath.row]
         
-        cell.textLabel!.text =
-            topic.valueForKey("name") as? String
+        cell.textLabel!.text = topic.valueForKey("name") as? String
         
         return cell
     }
@@ -124,7 +123,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         let managedContext = appDelegate.managedObjectContext
         
         //2
-        let fetchRequest = NSFetchRequest(entityName: "Person")
+        let fetchRequest = NSFetchRequest(entityName: "Topic")
         
         //3
         do {

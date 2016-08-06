@@ -23,6 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSLog("didFinishLaunchingWithOptions")
         
+        
+        // **** Preloading database *******
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let isPreloaded = defaults.boolForKey("databaseIsPreloaded")
+        if !isPreloaded {
+            preloadData()
+//            defaults.setBool(true, forKey: "databaseIsPreloaded")
+        }
+        
         // **** Integration *******
         
         // Fabric & Crashlytics
@@ -158,13 +168,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - CSV Parser Methods
     
-    func parseCSV (contentsOfURL: NSURL, encoding: NSStringEncoding, error: NSErrorPointer) -> [(name:String, detail:String, price: String)]? {
-        // Load the CSV file and parse it
-        let delimiter = ","
-        var items:[(name:String, detail:String, price: String)]?
+    func parseCSV (contentsOfURL: NSURL, encoding: NSStringEncoding, error: NSErrorPointer) -> [(name:String, content:String, difficulty: String, passed: String)]? {
+
+        let delimiter = "\t"
+        var items:[(name:String, content:String, difficulty: String, passed: String)]? = []
         
-        if let content = String(contentsOfURL: contentsOfURL, encoding: encoding, error: error) {
-            items = []
+        do
+        {
+            let content =  try String(contentsOfURL: contentsOfURL, encoding: encoding)
             let lines:[String] = content.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()) as [String]
             
             for line in lines {
@@ -190,7 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             values.append(value as! String)
                             
                             // Retrieve the unscanned remainder of the string
-                            if textScanner.scanLocation < count(textScanner.string) {
+                            if textScanner.scanLocation < textScanner.string.characters.count {
                                 textToScan = (textScanner.string as NSString).substringFromIndex(textScanner.scanLocation + 1)
                             } else {
                                 textToScan = ""
@@ -205,17 +216,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                     
                     // Put the values into the tuple and add it to the items array
-                    let item = (name: values[0], detail: values[1], price: values[2])
+                    let item = (name: values[0], content: values[1], difficulty: values[2], passed: values[3])
                     items?.append(item)
                 }
             }
+        }
+        catch let error as NSError
+        {
+            Amin.sharedInstance.showInfoMessage(error.localizedDescription)
         }
         
         return items
     }
     
     func preloadData () {
-        // Retrieve data from the source file
+        
+        // Get a filr url
         if let contentsOfURL = NSBundle.mainBundle().URLForResource("Alif", withExtension: "csv") {
             
             // Remove all the menu items before preloading
@@ -228,10 +244,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Preload the menu items
 
                 for item in items {
-                    let topic = NSEntityDescription.insertNewObjectForEntityForName("topic", inManagedObjectContext: managedObjectContext) as! Topic
+                    let topic = NSEntityDescription.insertNewObjectForEntityForName("Topic", inManagedObjectContext: managedObjectContext) as! Topic
                     topic.name = item.name
-                    topic.detail = item.detail
-                    topic.price = (item.price as NSString).doubleValue
+                    topic.content = item.content
+                    topic.difficulty = (item.difficulty as NSString).floatValue
+                    topic.passed = (item.passed as NSString).floatValue
                     
                     do
                     {
@@ -251,10 +268,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
     func removeData () {
         // Remove the existing items
-        let fetchRequest = NSFetchRequest(entityName: "topic")
+        let fetchRequest = NSFetchRequest(entityName: "Topic")
         
         do {
             let topics = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Topic]

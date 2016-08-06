@@ -24,10 +24,11 @@
 		FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */; };
 		FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5441BC64C8500D72450 /* Assets.xcassets */; };
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
-		FCD1175A1D53D08A009C62CE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCD117581D53D08A009C62CE /* Model.xcdatamodeld */; };
+		FCD1175A1D53D08A009C62CE /* Alif.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCD117581D53D08A009C62CE /* Alif.xcdatamodeld */; };
 		FCD1175C1D53D363009C62CE /* VocabluaryTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */; };
 		FCEF79E01D55E6D800CE9F07 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */; };
 		FCEF79E11D55E6D800CE9F07 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF79DF1D55E6D800CE9F07 /* Topic.swift */; };
+		FCEF79E31D55ED2400CE9F07 /* Alif.csv in Resources */ = {isa = PBXBuildFile; fileRef = FCEF79E21D55ED2400CE9F07 /* Alif.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,10 +53,11 @@
 		FCB8E5441BC64C8500D72450 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		FCD117591D53D08A009C62CE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FCD117591D53D08A009C62CE /* Alif.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alif.xcdatamodel; sourceTree = "<group>"; };
 		FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabluaryTrainer.swift; sourceTree = "<group>"; };
 		FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCEF79DF1D55E6D800CE9F07 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		FCEF79E21D55ED2400CE9F07 /* Alif.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Alif.csv; path = Resourses/Alif.csv; sourceTree = SOURCE_ROOT; };
 		FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alif-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,9 +181,10 @@
 		FCD117571D53D08A009C62CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FCEF79E21D55ED2400CE9F07 /* Alif.csv */,
 				FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */,
 				FCEF79DF1D55E6D800CE9F07 /* Topic.swift */,
-				FCD117581D53D08A009C62CE /* Model.xcdatamodeld */,
+				FCD117581D53D08A009C62CE /* Alif.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			files = (
 				FC2E9A331C65E994003DBEAE /* LaunchScreen.storyboard in Resources */,
 				FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */,
+				FCEF79E31D55ED2400CE9F07 /* Alif.csv in Resources */,
 				FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */,
 				FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */,
 				FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */,
@@ -339,7 +343,7 @@
 				FCD1175C1D53D363009C62CE /* VocabluaryTrainer.swift in Sources */,
 				FC1D2EB81C9F34E70098489C /* Amin.swift in Sources */,
 				FC5FA3781C6F973700B1D4D6 /* LinearProgressView.swift in Sources */,
-				FCD1175A1D53D08A009C62CE /* Model.xcdatamodeld in Sources */,
+				FCD1175A1D53D08A009C62CE /* Alif.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,13 +514,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FCD117581D53D08A009C62CE /* Model.xcdatamodeld */ = {
+		FCD117581D53D08A009C62CE /* Alif.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FCD117591D53D08A009C62CE /* Model.xcdatamodel */,
+				FCD117591D53D08A009C62CE /* Alif.xcdatamodel */,
 			);
-			currentVersion = FCD117591D53D08A009C62CE /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			currentVersion = FCD117591D53D08A009C62CE /* Alif.xcdatamodel */;
+			path = Alif.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
