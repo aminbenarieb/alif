@@ -26,6 +26,8 @@
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
 		FCD1175A1D53D08A009C62CE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCD117581D53D08A009C62CE /* Model.xcdatamodeld */; };
 		FCD1175C1D53D363009C62CE /* VocabluaryTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */; };
+		FCEF79E01D55E6D800CE9F07 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */; };
+		FCEF79E11D55E6D800CE9F07 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF79DF1D55E6D800CE9F07 /* Topic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		FCD117591D53D08A009C62CE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabluaryTrainer.swift; sourceTree = "<group>"; };
+		FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FCEF79DF1D55E6D800CE9F07 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alif-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +179,8 @@
 		FCD117571D53D08A009C62CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */,
+				FCEF79DF1D55E6D800CE9F07 /* Topic.swift */,
 				FCD117581D53D08A009C62CE /* Model.xcdatamodeld */,
 			);
 			path = Model;
@@ -320,6 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC5BE2271C66B41900E15628 /* SetCell.swift in Sources */,
+				FCEF79E11D55E6D800CE9F07 /* Topic.swift in Sources */,
+				FCEF79E01D55E6D800CE9F07 /* Topic+CoreDataProperties.swift in Sources */,
 				FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */,
 				FC5BE21B1C66A06D00E15628 /* ModeChoice.swift in Sources */,
 				FC2E9A211C65E4DA003DBEAE /* MainScreen.swift in Sources */,

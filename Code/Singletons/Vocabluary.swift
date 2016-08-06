@@ -91,7 +91,7 @@ struct Result
     var procent : Int
 }
 
-struct Topic
+struct TopicInfo
 {
     var name : String
     var identifier : String
@@ -110,7 +110,7 @@ class Vocabluary
     internal var trainMode = true
     
     
-    var topic : Topic = Topic(name: "Undefined", identifier:"Undefined", words: [Word]())
+    var topic : TopicInfo = TopicInfo(name: "Undefined", identifier:"Undefined", words: [Word]())
     var wordList = [Word]()
     var wordListIndex = 0
     var step : Int = 1
