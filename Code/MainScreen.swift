@@ -7,15 +7,14 @@
 //
 
 import Foundation
-import CHCSVParser
 import Material
-import SWTableViewCell
 import JTAlertView
+import CoreData
 
-class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate {
+class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let RowHeight : CGFloat = 75.0
-    private var topics = [String]()
+    private var topics = [NSManagedObject]()
     
     @IBOutlet var tableView : UITableView!
     
@@ -30,15 +29,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
         button.addTarget(self, action: "unlockAction", forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(0, 0, 25, 25)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-        
-//        //addbutton
-//        let buttonAdd: UIButton = UIButton(type: .Custom)
-//        buttonAdd.setImage(UIImage(named: "Add Icon"), forState: UIControlState.Normal)
-//        buttonAdd.addTarget(self, action: "addAction", forControlEvents: UIControlEvents.TouchUpInside)
-//        buttonAdd.frame = CGRectMake(0, 0, 25, 25)
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonAdd)
-    
-        
+                
         tableView.separatorColor = .clearColor()
         tableView.registerNib(UINib(nibName: "SetCell", bundle: nil), forCellReuseIdentifier: "SetCell")
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
@@ -81,63 +72,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if var topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
-        {
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            let modeChoice = storyBoard.instantiateViewControllerWithIdentifier("ModeChoice") as! ModeChoice
-            
-            if let setUp = topicDict["setUp"] as? Bool
-            {
-                if (setUp)
-                {
-                    modeChoice.topicDict = topicDict
-                    self.navigationController?.pushViewController(modeChoice, animated: true)
-                    
-                }
-                else
-                {
-                 
-                    if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
-                    {
-                        let path = dir.stringByAppendingPathComponent(topics[indexPath.row] + ".csv");
-                        
-                        //reading
-                        let fileUrl = NSURL(fileURLWithPath: path)
-                        if let topicFile = NSArray(contentsOfCSVURL:fileUrl)
-                        {
-                            var words = [Word]()
-                            
-                            for (var i = 2; i < topicFile.count; i++)
-                            {
-                                if let foo = topicFile[i] as? NSArray
-                                {
-                                    if let targetWord = foo[0] as? String
-                                    {
-                                        if let meaningWord = foo[1] as? String where targetWord != ""
-                                        {
-                                            if (meaningWord != "")
-                                            {
-                                                words.append(Word(target: targetWord, meaning: meaningWord, memorize : MemorizeType.Zero))
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            topicDict["setUp"] = true
-                            topicDict["words"] = NSKeyedArchiver.archivedDataWithRootObject(words)
-                            
-                            
-                            NSUserDefaults.standardUserDefaults().setObject(topicDict, forKey: topics[indexPath.row])
-
-                            modeChoice.topicDict = topicDict
-                            
-                            self.navigationController?.pushViewController(modeChoice, animated: true)
-                        }
-                    }
-                }
-            }
-        }
-        
+        // navigation to detailViewController
     }
     
     //MARK: - Section
@@ -163,27 +98,10 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetCell") as! SetCell
         
-        cell.rightUtilityButtons = rightButtons() as [AnyObject]
-        cell.delegate = self
+         let topic = topics[indexPath.row]
         
-        
-        if let topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
-        {
-            if let topicName = topicDict["name"] as? String
-            {
-                cell.titleLabel.text = topicName
-            }
-            if let topicColorData = topicDict["color"] as? NSData
-            {
-                if let topicColor = NSKeyedUnarchiver.unarchiveObjectWithData(topicColorData) as? UIColor
-                {
-                    cell.pictureView.backgroundColor = topicColor
-                }
-            }
-            
-            
-        }
-        
+        cell.textLabel!.text =
+            topic.valueForKey("name") as? String
         
         return cell
     }
@@ -196,60 +114,28 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate,
         let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Unlock")
         self.navigationController?.presentViewController(unlockScreen, animated: true, completion: nil)
     }
-    func addAction(){
-        
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("AddSet")
-        self.navigationController?.pushViewController(unlockScreen, animated: true)
-    }
     func loadFiles(){
 
         topics.removeAll()
-        // loading topics
-        tableView.reloadData()
 
-    }
-    
-    //MARK: - Button
-    
-    func rightButtons() -> NSArray{
-        //cell buttons
-        let rightButtons = NSMutableArray()
-        rightButtons.sw_addUtilityButtonWithColor(MaterialColor.red.darken1, title: "Delete")
+        //1
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        return rightButtons
-    }
-
-    
-    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
+        let managedContext = appDelegate.managedObjectContext
         
-        switch(index)
-        {
-        case (0):
-                if let cellIndexPath = tableView.indexPathForCell(cell)
-                {
-                    if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
-                    {
-                        let path = dir.stringByAppendingPathComponent(topics[cellIndexPath.row]);
-                        let fileManager = NSFileManager.defaultManager()
-                        
-                        do {
-                            try fileManager.removeItemAtPath(path)
-                            topics.removeAtIndex(cellIndexPath.row)
-                            tableView.deleteRowsAtIndexPaths([cellIndexPath], withRowAnimation: .Automatic)
-                            Amin.sharedInstance.showInfoMessage("Saved")
-                        }
-                        catch let error as NSError {
-                            
-                            Amin.sharedInstance.showZAlertView("Ooops! Something went wrong", message: error.localizedDescription)
-                        }
-                    }
-                }
-                break;
-        default:
-            break;
+        //2
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        //3
+        do {
+            let results = try managedContext.executeFetchRequest(fetchRequest)
+            topics = results as! [NSManagedObject]
+        } catch let error as NSError {
+            Amin.sharedInstance.showInfoMessage("Could not fetch \(error), \(error.userInfo)")
         }
         
+        tableView.reloadData()
+
     }
     
 }
