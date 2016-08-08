@@ -15,6 +15,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     private let RowHeight : CGFloat = 75.0
     private var topics = [NSManagedObject]()
+    private let topicViewController = TopicView()
     
     @IBOutlet var tableView : UITableView!
     
@@ -72,7 +73,14 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        // navigation to detailViewController
+        if let topic = topics[indexPath.row] as? Topic
+        {
+            topicViewController.fileName = topic.content
+        }
+        
+        self.navigationController?.pushViewController(topicViewController, animated: true)
+        
+        
     }
     
     //MARK: - Section
