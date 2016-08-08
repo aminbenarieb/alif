@@ -12,40 +12,44 @@ import UIKit
 
 class TopicView: UIViewController {
 
-    var webView = UIWebView()
-    var fileName : String?
-    
-    override func viewDidLoad() {
+    @IBOutlet var webView: UIWebView!
+    @IBOutlet var buttonNext: UIButton!
+    @IBOutlet var progressView: AminProgressView!
+
+    var slidesInfo : [String?] = []
+    var slideIndex : Int = 0
         
-        webView.frame = self.view.frame
-        self.view.addSubview(webView)
-        
-    }
-    
     override func viewWillAppear(animated: Bool) {
         
-        let queue = dispatch_get_main_queue()
-        dispatch_async(queue) { () -> Void in
-        
-            do
-            {
-                if let fileSourceUrl = NSBundle.mainBundle().URLForResource(self.fileName, withExtension: "html")
-                {
-                    let data = try String(contentsOfURL: fileSourceUrl, encoding: NSUTF8StringEncoding)
-                    self.webView.loadHTMLString(data, baseURL: nil)
-                }
-            }
-            catch let error as NSError
-            {
-                
-                Amin.sharedInstance.showZAlertView("Error".localized, message: error.localizedDescription)
-                self.navigationController?.popToRootViewControllerAnimated(true)
-                
-                
-            }
-        
-        }
+        self.prepareView()
     
+    }
+    
+    @IBAction func buttonTapped(){
+        if (slideIndex == slidesInfo.count)
+        {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+            self.slideIndex = 0
+        }
+        else
+        {
+            self.prepareView()
+        }
+    }
+    
+    func prepareView(){
+        
+        progressView.progressValue = CGFloat(slideIndex+1)/CGFloat(slidesInfo.count) * 100;
+        if let htmlData = self.slidesInfo[self.slideIndex++]
+        {
+            self.webView.loadHTMLString(htmlData, baseURL: nil)
+        }
+    }
+    
+    
+    static func instantiate() -> TopicView
+    {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TopicView") as! TopicView
     }
 
     

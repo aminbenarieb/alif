@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="m0y-gv-GLV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="m0y-gv-GLV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -8,6 +8,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="JF Flat.ttf">
+            <string>JFFlat-Regular</string>
             <string>JFFlat-Regular</string>
             <string>JFFlat-Regular</string>
             <string>JFFlat-Regular</string>
@@ -256,6 +257,7 @@
         <!--العربية-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Train" id="BYZ-38-t0r" customClass="TrainScreen" customModule="Alif" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -469,9 +471,90 @@
                         <outlet property="wordBuilderHeight" destination="gam-k5-Y2X" id="X4e-mt-DBn"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-183" y="650"/>
+        </scene>
+        <!--Topic View-->
+        <scene sceneID="02f-XW-KiA">
+            <objects>
+                <viewController storyboardIdentifier="TopicView" id="LbZ-mB-bHT" customClass="TopicView" customModule="Alif" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KI3-7R-9fa"/>
+                        <viewControllerLayoutGuide type="bottom" id="WIa-oG-h6k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ob0-4O-FwK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ti-fr-X0p" customClass="AminProgressView" customModule="Alif" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="65" width="320" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="ELW-7z-aoS"/>
+                                    <constraint firstAttribute="height" constant="15" id="ymx-M0-tdP"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressValue">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barThickness">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="barColor">
+                                        <color key="value" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.82744060880000003" green="0.84632348899999998" blue="0.88354384480000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ELW-7z-aoS"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NS1-MC-Aan">
+                                <rect key="frame" x="0.0" y="395" width="320" height="85"/>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="73F-ES-sXl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="22"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped" destination="LbZ-mB-bHT" eventType="touchUpInside" id="4yf-kw-DYt"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4o-Pc-8j9">
+                                <rect key="frame" x="0.0" y="80" width="320" height="315"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="top" secondItem="q4o-Pc-8j9" secondAttribute="bottom" id="0Pb-Qo-M3y"/>
+                            <constraint firstItem="WIa-oG-h6k" firstAttribute="top" secondItem="NS1-MC-Aan" secondAttribute="bottom" id="365-pB-RIp"/>
+                            <constraint firstAttribute="trailing" secondItem="q4o-Pc-8j9" secondAttribute="trailing" id="6kW-kr-10H"/>
+                            <constraint firstAttribute="trailing" secondItem="NS1-MC-Aan" secondAttribute="trailing" id="8Vs-vE-2yN"/>
+                            <constraint firstItem="8ti-fr-X0p" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" id="Fcv-Kw-gJs"/>
+                            <constraint firstItem="q4o-Pc-8j9" firstAttribute="top" secondItem="8ti-fr-X0p" secondAttribute="bottom" id="KmD-4F-Pj8"/>
+                            <constraint firstAttribute="trailing" secondItem="8ti-fr-X0p" secondAttribute="trailing" id="Nsz-VW-kGd"/>
+                            <constraint firstItem="8ti-fr-X0p" firstAttribute="top" secondItem="Ob0-4O-FwK" secondAttribute="top" constant="65" id="bAK-GP-QF9"/>
+                            <constraint firstItem="q4o-Pc-8j9" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" id="jP7-iV-VAH"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" id="tHh-34-Grm"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="buttonNext" destination="NS1-MC-Aan" id="WCJ-Gv-6Sk"/>
+                        <outlet property="progressView" destination="8ti-fr-X0p" id="2Ty-ey-ag5"/>
+                        <outlet property="webView" destination="q4o-Pc-8j9" id="jlA-3w-OeI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYG-oD-mym" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="199" y="347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wIR-nl-pMs">
