@@ -15,6 +15,7 @@
 		FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A321C65E994003DBEAE /* Main.storyboard */; };
 		FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */; };
 		FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2E9A381C65F4F5003DBEAE /* Unlock.swift */; };
+		FC54E6EC1D59149900572D27 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC54E6EB1D59149900572D27 /* TopicView.swift */; };
 		FC5BE2111C66799500E15628 /* AddSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE2101C66799500E15628 /* AddSet.swift */; };
 		FC5BE21B1C66A06D00E15628 /* ModeChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */; };
 		FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5BE2241C66B40C00E15628 /* SetCell.xib */; };
@@ -42,6 +43,7 @@
 		FC2E9A321C65E994003DBEAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JF Flat.ttf"; sourceTree = "<group>"; };
 		FC2E9A381C65F4F5003DBEAE /* Unlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unlock.swift; sourceTree = "<group>"; };
+		FC54E6EB1D59149900572D27 /* TopicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		FC5BE2101C66799500E15628 /* AddSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSet.swift; sourceTree = "<group>"; };
 		FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeChoice.swift; sourceTree = "<group>"; };
 		FC5BE2241C66B40C00E15628 /* SetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCell.xib; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */,
 				FCB8E53C1BC64C5300D72450 /* AppDelegate.swift */,
 				FC2E9A201C65E4DA003DBEAE /* MainScreen.swift */,
+				FC54E6EB1D59149900572D27 /* TopicView.swift */,
 				FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */,
 				FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */,
 				FCB8E53D1BC64C5300D72450 /* TrainScreen.swift */,
@@ -333,6 +336,7 @@
 				FCEF79E11D55E6D800CE9F07 /* Topic.swift in Sources */,
 				FCEF79E01D55E6D800CE9F07 /* Topic+CoreDataProperties.swift in Sources */,
 				FCB8E5401BC64C5300D72450 /* TrainScreen.swift in Sources */,
+				FC54E6EC1D59149900572D27 /* TopicView.swift in Sources */,
 				FC5BE21B1C66A06D00E15628 /* ModeChoice.swift in Sources */,
 				FC2E9A211C65E4DA003DBEAE /* MainScreen.swift in Sources */,
 				FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */,
