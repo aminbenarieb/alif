@@ -168,10 +168,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - CSV Parser Methods
     
-    func parseCSV (contentsOfURL: NSURL, encoding: NSStringEncoding, error: NSErrorPointer) -> [(name:String, content:String, difficulty: String, passed: String)]? {
+    func parseCSV (contentsOfURL: NSURL, encoding: NSStringEncoding, error: NSErrorPointer) -> [(name:String, content:NSData, difficulty: String, passed: String)]? {
 
         let delimiter = "\t"
-        var items:[(name:String, content:String, difficulty: String, passed: String)]? = []
+        var items:[(name:String, content:NSData, difficulty: String, passed: String)]? = []
         
         do
         {
@@ -215,8 +215,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         values = line.componentsSeparatedByString(delimiter)
                     }
                     
+                    // Parsing array for slides
+                    let contentArray = values[1].componentsSeparatedByString(",")
+                    let contentData = NSKeyedArchiver.archivedDataWithRootObject(contentArray)
+                    
                     // Put the values into the tuple and add it to the items array
-                    let item = (name: values[0], content: values[1], difficulty: values[2], passed: values[3])
+                    let item = (name: values[0], content: contentData, difficulty: values[2], passed: "0")
                     items?.append(item)
                 }
             }

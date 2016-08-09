@@ -15,7 +15,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     private let RowHeight : CGFloat = 75.0
     private var topics = [NSManagedObject]()
-    private let topicViewController = TopicView()
+    private let topicViewController = TopicView.instantiate()
     
     @IBOutlet var tableView : UITableView!
     
@@ -30,7 +30,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         button.addTarget(self, action: "unlockAction", forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(0, 0, 25, 25)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-                
+        
         tableView.separatorColor = .clearColor()
         tableView.registerNib(UINib(nibName: "SetCell", bundle: nil), forCellReuseIdentifier: "SetCell")
         tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
@@ -57,7 +57,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
             }
         }
         
-
+        
         
         
     }
@@ -73,12 +73,15 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let topic = topics[indexPath.row] as? Topic
+        if let topic = topics[indexPath.row] as? Topic, content = topic.content as NSData!
         {
-            topicViewController.fileName = topic.content
+            if let slidesInfo = NSKeyedUnarchiver.unarchiveObjectWithData(content) as? [String]
+            {
+                topicViewController.slidesInfo = slidesInfo
+                self.navigationController?.pushViewController(topicViewController, animated: true)
+            }
         }
         
-        self.navigationController?.pushViewController(topicViewController, animated: true)
         
         
     }
@@ -106,7 +109,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetCell") as! SetCell
         
-         let topic = topics[indexPath.row]
+        let topic = topics[indexPath.row]
         
         cell.textLabel!.text = topic.valueForKey("name") as? String
         
@@ -122,9 +125,9 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         self.navigationController?.presentViewController(unlockScreen, animated: true, completion: nil)
     }
     func loadFiles(){
-
+        
         topics.removeAll()
-
+        
         //1
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -142,7 +145,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         }
         
         tableView.reloadData()
-
+        
     }
     
 }

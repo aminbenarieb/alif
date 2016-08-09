@@ -2,7 +2,7 @@
 //  Topic+CoreDataProperties.swift
 //  
 //
-//  Created by Amin Benarieb on 06/08/16.
+//  Created by Amin Benarieb on 09/08/16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,9 +14,9 @@ import CoreData
 
 extension Topic {
 
-    @NSManaged var difficulty: Float
+    @NSManaged var content: NSData?
+    @NSManaged var difficulty: NSNumber?
     @NSManaged var name: String?
-    @NSManaged var content: String?
-    @NSManaged var passed: Float
+    @NSManaged var passed: NSNumber?
 
 }

@@ -16,7 +16,7 @@ class TopicView: UIViewController {
     @IBOutlet var buttonNext: UIButton!
     @IBOutlet var progressView: AminProgressView!
 
-    var slidesInfo : [String?] = []
+    var slidesInfo : [String] = []
     var slideIndex : Int = 0
         
     override func viewWillAppear(animated: Bool) {
@@ -40,10 +40,7 @@ class TopicView: UIViewController {
     func prepareView(){
         
         progressView.progressValue = CGFloat(slideIndex+1)/CGFloat(slidesInfo.count) * 100;
-        if let htmlData = self.slidesInfo[self.slideIndex++]
-        {
-            self.webView.loadHTMLString(htmlData, baseURL: nil)
-        }
+        self.webView.loadHTMLString(self.slidesInfo[self.slideIndex++], baseURL: nil)
     }
     
     
