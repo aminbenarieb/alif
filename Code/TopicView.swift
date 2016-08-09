@@ -21,6 +21,7 @@ class TopicView: UIViewController {
         
     override func viewWillAppear(animated: Bool) {
         
+        self.slideIndex = 0
         self.prepareView()
     
     }
@@ -29,7 +30,6 @@ class TopicView: UIViewController {
         if (slideIndex == slidesInfo.count)
         {
             self.navigationController?.popToRootViewControllerAnimated(true)
-            self.slideIndex = 0
         }
         else
         {
