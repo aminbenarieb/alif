@@ -26,6 +26,7 @@ let Identifier_My_Speadsheet = "1QFLz3amkLcvUfP7abk56pmJFpioea5nTxo_foL-682Y"
 let Identifier_Arabic = ""
 let Identifier_English = "814005167"
 
+let NotificationPushToTrainView = "NotificationPushToTrainView";
 
 
 // MARK: - Functions

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JTAlertView
 
 //WARNING: Retain cycle?
 
@@ -29,6 +30,21 @@ class TopicView: UIViewController {
     @IBAction func buttonTapped(){
         if (slideIndex == slidesInfo.count)
         {
+            
+            if let alertView = JTAlertView(title: "Well done!\n Do you want to train?", andImage: UIImage(named: "Topic Completed"))
+            {
+                alertView.size = CGSizeMake(280, 230);
+                alertView.addButtonWithTitle("Train", action: { (alertview : JTAlertView!) -> Void in
+                    NSNotificationCenter.defaultCenter().postNotificationName(NotificationPushToTrainView, object: nil)
+                    alertview.hide()
+                })
+                alertView.addButtonWithTitle("Later", style: .Destructive, action: { (alertview: JTAlertView!) in
+                    alertview.hide()
+                })
+                alertView.show()
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "Request Push Notificatios")
+            }
+            
             self.navigationController?.popToRootViewControllerAnimated(true)
         }
         else
