@@ -111,7 +111,8 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         let topic = topics[indexPath.row]
         
-        cell.textLabel!.text = topic.valueForKey("name") as? String
+        cell.titleLabel!.text = topic.valueForKey("name") as? String
+        cell.pictureView.backgroundColor = UIColor.lightGrayColor()
         
         return cell
     }
