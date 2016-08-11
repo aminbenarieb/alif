@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         let isPreloaded = defaults.boolForKey("databaseIsPreloaded")
         if !isPreloaded {
+            removeData()
             preloadData()
 //            defaults.setBool(true, forKey: "databaseIsPreloaded")
         }
@@ -166,110 +167,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    // MARK: - CSV Parser Methods
-    
-    func parseCSV (contentsOfURL: NSURL, encoding: NSStringEncoding, error: NSErrorPointer) -> [(name:String, content:NSData, difficulty: String, passed: String)]? {
-
-        let delimiter = "\t"
-        var items:[(name:String, content:NSData, difficulty: String, passed: String)]? = []
-        
-        do
-        {
-            let content =  try String(contentsOfURL: contentsOfURL, encoding: encoding)
-            let lines:[String] = content.componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()) as [String]
-            
-            for line in lines {
-                var values:[String] = []
-                if line != "" {
-                    // For a line with double quotes
-                    // we use NSScanner to perform the parsing
-                    if line.rangeOfString("\"") != nil {
-                        var textToScan:String = line
-                        var value:NSString?
-                        var textScanner:NSScanner = NSScanner(string: textToScan)
-                        while textScanner.string != "" {
-                            
-                            if (textScanner.string as NSString).substringToIndex(1) == "\"" {
-                                textScanner.scanLocation += 1
-                                textScanner.scanUpToString("\"", intoString: &value)
-                                textScanner.scanLocation += 1
-                            } else {
-                                textScanner.scanUpToString(delimiter, intoString: &value)
-                            }
-                            
-                            // Store the value into the values array
-                            values.append(value as! String)
-                            
-                            // Retrieve the unscanned remainder of the string
-                            if textScanner.scanLocation < textScanner.string.characters.count {
-                                textToScan = (textScanner.string as NSString).substringFromIndex(textScanner.scanLocation + 1)
-                            } else {
-                                textToScan = ""
-                            }
-                            textScanner = NSScanner(string: textToScan)
-                        }
-                        
-                        // For a line without double quotes, we can simply separate the string
-                        // by using the delimiter (e.g. comma)
-                    } else  {
-                        values = line.componentsSeparatedByString(delimiter)
-                    }
-                    
-                    // Parsing array for slides
-                    let contentArray = values[1].componentsSeparatedByString(",")
-                    let contentData = NSKeyedArchiver.archivedDataWithRootObject(contentArray)
-                    
-                    // Put the values into the tuple and add it to the items array
-                    let item = (name: values[0], content: contentData, difficulty: values[2], passed: "0")
-                    items?.append(item)
-                }
-            }
-        }
-        catch let error as NSError
-        {
-            Amin.sharedInstance.showInfoMessage(error.localizedDescription)
-        }
-        
-        return items
-    }
+    // MARK: - Pleloading data
     
     func preloadData () {
         
-        // Get a filr url
-        if let contentsOfURL = NSBundle.mainBundle().URLForResource("Alif", withExtension: "csv") {
-            
-            // Remove all the menu items before preloading
-            removeData()
-            
-            var error:NSError?
-            
-            
-            if let items = parseCSV(contentsOfURL, encoding: NSUTF8StringEncoding, error: &error) {
-                // Preload the menu items
+        if let dataInfo = LoadManager.sharedInstance.JSONFromFile("data") {
+        
+            if let items = dataInfo["data"] as? NSArray {
 
+                // Preload the menu items
                 for item in items {
-                    let topic = NSEntityDescription.insertNewObjectForEntityForName("Topic", inManagedObjectContext: managedObjectContext) as! Topic
-                    topic.name = item.name
-                    topic.content = item.content
-                    topic.difficulty = (item.difficulty as NSString).floatValue
-                    topic.passed = (item.passed as NSString).floatValue
-                    
-                    do
+
+                    if let topicInfo = item as? NSDictionary
                     {
-                        try managedObjectContext.save()
-                    }
-                    catch let error as NSError
-                    {
-                        Amin.sharedInstance.showInfoMessage(error.localizedDescription)
+                        let topic = NSEntityDescription.insertNewObjectForEntityForName("Topic", inManagedObjectContext: managedObjectContext) as! Topic
+
+                        if let name = topicInfo["topic"] as? String
+                        {
+                            topic.name = name
+                        }
+                        if let slides = topicInfo["slides"] as? NSArray
+                        {
+                            let slidesData = NSKeyedArchiver.archivedDataWithRootObject(slides)
+                            topic.slides = slidesData
+                        }
+                        
+                        do
+                        {
+                            try managedObjectContext.save()
+                        }
+                        catch let error as NSError
+                        {
+                            Amin.sharedInstance.showInfoMessage(error.localizedDescription)
+                        }
+
                     }
                 }
-            
-            }
-            else 
-            {
-                Amin.sharedInstance.showInfoMessage(error!.localizedDescription)
             }
         }
+        
     }
     
     func removeData () {
