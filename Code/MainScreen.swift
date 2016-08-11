@@ -73,9 +73,9 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if let topic = topics[indexPath.row] as? Topic, content = topic.content as NSData!
+        if let topic = topics[indexPath.row] as? Topic, slides = topic.slides as NSData!
         {
-            if let slidesInfo = NSKeyedUnarchiver.unarchiveObjectWithData(content) as? [String]
+            if let slidesInfo = NSKeyedUnarchiver.unarchiveObjectWithData(slides) as? [String]
             {
                 topicViewController.slidesInfo = slidesInfo
                 self.navigationController?.pushViewController(topicViewController, animated: true)
