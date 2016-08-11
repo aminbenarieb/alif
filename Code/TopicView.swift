@@ -17,9 +17,11 @@ class TopicView: UIViewController {
     @IBOutlet var buttonNext: UIButton!
     @IBOutlet var progressView: AminProgressView!
 
-    var slidesInfo : [String] = []
+    var slidesInfo : [NSDictionary] = []
     var slideIndex : Int = 0
-        
+    
+    //MARK: Class methods
+    
     override func viewWillAppear(animated: Bool) {
         
         self.slideIndex = 0
@@ -53,16 +55,85 @@ class TopicView: UIViewController {
         }
     }
     
+    static func instantiate() -> TopicView{
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TopicView") as! TopicView
+    }
+    
+    //MARK: Loading HTML
+    
     func prepareView(){
         
         progressView.progressValue = CGFloat(slideIndex+1)/CGFloat(slidesInfo.count) * 100;
-        self.webView.loadHTMLString(self.slidesInfo[self.slideIndex++], baseURL: nil)
+        
+        let path = NSBundle.mainBundle().bundlePath
+        let pathURL = NSURL(fileURLWithPath: path)
+        self.webView.loadHTMLString(slideHTMLString(self.slidesInfo[self.slideIndex++]), baseURL: pathURL)
     }
     
-    
-    static func instantiate() -> TopicView
-    {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TopicView") as! TopicView
+    func slideHTMLString(slideInfo: NSDictionary) -> String    {
+        
+        //FIXME: Added strategy
+        var HTMLString = ""
+        
+        if let type = slideInfo["type"] as? String where type == "text"
+        {
+            if let text = slideInfo["content"] as? String
+            {
+                HTMLString = text
+            }
+        }
+        
+        if let type = slideInfo["type"] as? String where type == "word"
+        {
+            if let dictionary = slideInfo["content"] as? NSDictionary,
+                    arabicWord = dictionary["arabic"] as? String,
+                    translation = dictionary["translation"] as? String,
+                    transcription = dictionary["transcription"] as? String,
+                    number = dictionary["number"] as? NSDictionary,
+                        arabicNumber = number["arabic"],
+                        modernNumber = number["modern"]
+            {
+                HTMLString = "<table class=\"table\">" +
+                    "<thead>" +
+                        "<tr>" +
+                            "<th>Word</th>" +
+                            "<th>Number</th>" +
+                        "</tr>" +
+                    "</thead>" +
+                    "<tbody>" +
+                        "<tr>" +
+                            "<td>" +
+                                "<div class=\"row\"> \(arabicWord) </div>" +
+                                "<div class=\"row transcription\"> \(transcription) </div>" +
+                            "</td>" +
+                            "<td class=\"arabicNumber\"> \(arabicNumber)</td>" +
+                        "</tr>" +
+                        "<tr class=\"translation\">" +
+                            "<td> \(translation)</td>" +
+                            "<td> \(modernNumber)</td>" +
+                        "</tr>" +
+                    "</tbody>" +
+                "</table>"
+            }
+        }
+        
+        HTMLString = "<!DOCTYPE html>" +
+        "<html lang=\"en\">" +
+        "<head>" +
+        "<meta charset=\"utf-8\"> " +
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">" +
+        "<link rel=\"stylesheet\" href=\"bootstrap.min.css\">" +
+        "<link rel=\"stylesheet\" href=\"custom.css\">" +
+        "</head>" +
+        "<body>" +
+        "<div class=\"container\">" +
+        "\(HTMLString)" +
+        "</div>" +
+        "</body>" +
+        "</html>"
+        
+        return HTMLString
+        
     }
 
     
