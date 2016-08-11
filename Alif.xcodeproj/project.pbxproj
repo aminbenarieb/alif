@@ -29,7 +29,7 @@
 		FCD1175C1D53D363009C62CE /* VocabluaryTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */; };
 		FCEF79E01D55E6D800CE9F07 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */; };
 		FCEF79E11D55E6D800CE9F07 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF79DF1D55E6D800CE9F07 /* Topic.swift */; };
-		FCEF79E31D55ED2400CE9F07 /* Alif.csv in Resources */ = {isa = PBXBuildFile; fileRef = FCEF79E21D55ED2400CE9F07 /* Alif.csv */; };
+		FCEF79E31D55ED2400CE9F07 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = FCEF79E21D55ED2400CE9F07 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +59,7 @@
 		FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabluaryTrainer.swift; sourceTree = "<group>"; };
 		FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCEF79DF1D55E6D800CE9F07 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
-		FCEF79E21D55ED2400CE9F07 /* Alif.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Alif.csv; path = Resourses/Alif.csv; sourceTree = SOURCE_ROOT; };
+		FCEF79E21D55ED2400CE9F07 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Resourses/data.json; sourceTree = SOURCE_ROOT; };
 		FCF447F01C6129DC00840396 /* Alif-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Alif-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,7 +184,7 @@
 		FCD117571D53D08A009C62CE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FCEF79E21D55ED2400CE9F07 /* Alif.csv */,
+				FCEF79E21D55ED2400CE9F07 /* data.json */,
 				FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */,
 				FCEF79DF1D55E6D800CE9F07 /* Topic.swift */,
 				FCD117581D53D08A009C62CE /* Alif.xcdatamodeld */,
@@ -206,6 +206,7 @@
 				C57615FE0E5CEB1D6BD63104 /* Copy Pods Resources */,
 				DFCAC04028CF84084997C11C /* Embed Pods Frameworks */,
 				FC81DDAF1C67D47100AE1DD2 /* ShellScript */,
+				FC9533071D5BAAC300F82D16 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -257,7 +258,7 @@
 			files = (
 				FC2E9A331C65E994003DBEAE /* LaunchScreen.storyboard in Resources */,
 				FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */,
-				FCEF79E31D55ED2400CE9F07 /* Alif.csv in Resources */,
+				FCEF79E31D55ED2400CE9F07 /* data.json in Resources */,
 				FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */,
 				FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */,
 				FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */,
@@ -324,6 +325,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" c6e1bd9bc0f2f24e5eb63c5eec830602024dd7be 56ec55c202f633ec35f57d14a9c24000c81d98c42216fa36210a8438f329fdf3";
+		};
+		FC9533071D5BAAC300F82D16 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
