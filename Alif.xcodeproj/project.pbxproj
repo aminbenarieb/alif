@@ -10,6 +10,7 @@
 		E25B2F1FA3883BC5F2DEADB0 /* Pods_Alif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F8EBA53E81801FEDF9C9F48 /* Pods_Alif.framework */; };
 		FC1D2EB81C9F34E70098489C /* Amin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1D2EB61C9F34E70098489C /* Amin.swift */; };
 		FC1D2EB91C9F34E70098489C /* Vocabluary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1D2EB71C9F34E70098489C /* Vocabluary.swift */; };
+		FC2DCCA81D5D3E060075F4C2 /* custom.css in Resources */ = {isa = PBXBuildFile; fileRef = FC2DCCA71D5D3E060075F4C2 /* custom.css */; };
 		FC2E9A211C65E4DA003DBEAE /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2E9A201C65E4DA003DBEAE /* MainScreen.swift */; };
 		FC2E9A331C65E994003DBEAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A311C65E994003DBEAE /* LaunchScreen.storyboard */; };
 		FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A321C65E994003DBEAE /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB8E5441BC64C8500D72450 /* Assets.xcassets */; };
 		FCB8E5501BC64CFD00D72450 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB8E54F1BC64CFD00D72450 /* Config.swift */; };
 		FCBDEDFE1D5D270300575E1F /* LoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBDEDFD1D5D270300575E1F /* LoadManager.swift */; };
+		FCBDEE011D5D3B2300575E1F /* bootstrap.min.css in Resources */ = {isa = PBXBuildFile; fileRef = FCBDEDFF1D5D3B2300575E1F /* bootstrap.min.css */; };
 		FCD1175A1D53D08A009C62CE /* Alif.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FCD117581D53D08A009C62CE /* Alif.xcdatamodeld */; };
 		FCD1175C1D53D363009C62CE /* VocabluaryTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */; };
 		FCEF79E01D55E6D800CE9F07 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */; };
@@ -39,6 +41,7 @@
 		911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Alif.release.xcconfig"; path = "Pods/Target Support Files/Pods-Alif/Pods-Alif.release.xcconfig"; sourceTree = "<group>"; };
 		FC1D2EB61C9F34E70098489C /* Amin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Amin.swift; sourceTree = "<group>"; };
 		FC1D2EB71C9F34E70098489C /* Vocabluary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vocabluary.swift; sourceTree = "<group>"; };
+		FC2DCCA71D5D3E060075F4C2 /* custom.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = custom.css; path = Resourses/custom.css; sourceTree = SOURCE_ROOT; };
 		FC2E9A201C65E4DA003DBEAE /* MainScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FC2E9A311C65E994003DBEAE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC2E9A321C65E994003DBEAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		FCB8E5491BC64C8500D72450 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB8E54F1BC64CFD00D72450 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		FCBDEDFD1D5D270300575E1F /* LoadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadManager.swift; path = ../LoadManager.swift; sourceTree = "<group>"; };
+		FCBDEDFF1D5D3B2300575E1F /* bootstrap.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = bootstrap.min.css; path = Resourses/bootstrap.min.css; sourceTree = SOURCE_ROOT; };
 		FCD117591D53D08A009C62CE /* Alif.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alif.xcdatamodel; sourceTree = "<group>"; };
 		FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabluaryTrainer.swift; sourceTree = "<group>"; };
 		FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				FCEF79E21D55ED2400CE9F07 /* data.json */,
+				FCBDEDFF1D5D3B2300575E1F /* bootstrap.min.css */,
+				FC2DCCA71D5D3E060075F4C2 /* custom.css */,
 				FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */,
 				FCEF79DF1D55E6D800CE9F07 /* Topic.swift */,
 				FCD117581D53D08A009C62CE /* Alif.xcdatamodeld */,
@@ -259,9 +265,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCBDEE011D5D3B2300575E1F /* bootstrap.min.css in Resources */,
 				FC2E9A331C65E994003DBEAE /* LaunchScreen.storyboard in Resources */,
 				FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */,
 				FCEF79E31D55ED2400CE9F07 /* data.json in Resources */,
+				FC2DCCA81D5D3E060075F4C2 /* custom.css in Resources */,
 				FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */,
 				FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */,
 				FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */,
@@ -340,7 +348,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
+			shellScript = "TAGS=\"FIXME:|WARNING:\"\nERRORTAG=\"ERROR:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$|($ERRORTAG).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\" | perl -p -e \"s/($ERRORTAG)/ error: \\$1/\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

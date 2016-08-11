@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'JT Flat';
+    src: url('JF Flat.ttf');
+}
+
+body{
+	font-size: 3em;
+	font-family: 'JT Flat';
+}
+th,td, .col-sm-3
+{
+	text-align: center;
+}
+.arabicNumber{
+	font-family: 'Helvetica';
+}
+.translation
+{
+	color: #07b286;
+}
+.transcription{
+	font-size: 0.3em;
+	color: "red"!;
+}
