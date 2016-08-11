@@ -29,12 +29,12 @@ class LoadManager
      - parameter NSData: data to parse
      - returns: NSDictionary object with json
      */
-     func JSONFromData(inputData: NSData) -> NSDictionary{
+     func JSONFromData(inputData: NSData) -> NSDictionary?{
  
-         let boardsDictionary : NSDictionary
+         let boardsDictionary : NSDictionary?
  
          do {
-             boardsDictionary = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+             boardsDictionary = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
          }
          catch let error as NSError
          {
@@ -44,4 +44,31 @@ class LoadManager
  
          return boardsDictionary
      }
+
+    /** Return dictonary of json file
+     - parameter String: name of json file
+     - returns: NSDictionary object with json
+     */
+    func JSONFromFile(fileName : String) -> NSDictionary?{
+        
+        if let path = NSBundle.mainBundle().pathForResource(fileName, ofType: "json")
+        {
+            do{
+                let jsonData = try NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe)
+                
+                if let jsonResult: NSDictionary = JSONFromData(jsonData)
+                {
+                    return jsonResult
+                }
+                
+            }
+            catch let error as NSError
+            {
+                Amin.sharedInstance.showZAlertView("Oops", message: error.localizedDescription)
+            }
+        }
+        
+        return nil
+    }
+    
 }
