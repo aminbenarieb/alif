@@ -1,185 +1,187 @@
-[
 {
-"topic" : "Numbers 0 - 10",
-"slides" :
-[
-{
+    "data" : [
+        {
+        "topic" : "Numbers 0 - 10",
+        "slides" :
+        [
+        {
 
-"type" : "text",
-"content" : "The numbering system in Arabic is derived from Indian numerals. In this tutorial we will learn numbers from 1 to 10. Let’s go."
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "صفرٌ",
-"translation" : "Zero",
-"transcription" : "sifr",
-"number" :
-{
-"arabic" : "٠",
-"modern" : "0"
-}
+        "type" : "text",
+        "content" : "The numbering system in Arabic is derived from Indian numerals. In this tutorial we will learn numbers from 1 to 10. Let’s go."
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "صفرٌ",
+        "translation" : "Zero",
+        "transcription" : "sifr",
+        "number" :
+        {
+        "arabic" : "٠",
+        "modern" : "0"
+        }
 
-}
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "واحد",
-"translation" : "one",
-"transcription" : "waahid",
-"number" :
-{
-"arabic" : "١",
-"modern" : "1"
-}
+        }
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "واحد",
+        "translation" : "one",
+        "transcription" : "waahid",
+        "number" :
+        {
+        "arabic" : "١",
+        "modern" : "1"
+        }
 
-}
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "اثنان",
-"translation" : "two",
-"transcription" : "ithnain",
-"number" :
-{
-"arabic" : "٢",
-"modern" : "2"
-}
+        }
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "اثنان",
+        "translation" : "two",
+        "transcription" : "ithnain",
+        "number" :
+        {
+        "arabic" : "٢",
+        "modern" : "2"
+        }
 
-}
-},
-{
+        }
+        },
+        {
 
-"type" : "text",
-"content" : "Cool! We learned all arabic numbers. Note this: some note. "
-},
-]
-},
-{
-"topic" : "Numbers 0 - 10",
-"slides" :
-[
-{
+        "type" : "text",
+        "content" : "Cool! We learned all arabic numbers. Note this: some note. "
+        },
+        ]
+        },
+        {
+        "topic" : "Numbers 0 - 10",
+        "slides" :
+        [
+        {
 
-"type" : "text",
-"content" : "The numbering system in Arabic is derived from Indian numerals. In this tutorial we will learn numbers from 1 to 10. Let’s go."
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "صفرٌ",
-"translation" : "Zero",
-"transcription" : "sifr",
-"number" :
-{
-"arabic" : "٠",
-"modern" : "0"
-}
+        "type" : "text",
+        "content" : "The numbering system in Arabic is derived from Indian numerals. In this tutorial we will learn numbers from 1 to 10. Let’s go."
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "صفرٌ",
+        "translation" : "Zero",
+        "transcription" : "sifr",
+        "number" :
+        {
+        "arabic" : "٠",
+        "modern" : "0"
+        }
 
-}
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "واحد",
-"translation" : "one",
-"transcription" : "waahid",
-"number" :
-{
-"arabic" : "١",
-"modern" : "1"
-}
+        }
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "واحد",
+        "translation" : "one",
+        "transcription" : "waahid",
+        "number" :
+        {
+        "arabic" : "١",
+        "modern" : "1"
+        }
 
-}
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "اثنان",
-"translation" : "two",
-"transcription" : "ithnain",
-"number" :
-{
-"arabic" : "٢",
-"modern" : "2"
-}
+        }
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "اثنان",
+        "translation" : "two",
+        "transcription" : "ithnain",
+        "number" :
+        {
+        "arabic" : "٢",
+        "modern" : "2"
+        }
 
-}
-},
-{
+        }
+        },
+        {
 
-"type" : "text",
-"content" : "Cool! We learned all arabic numbers. Note this: some note. "
-},
-]
-},
-{
-"topic" : "Numbers 0 - 10",
-"slides" :
-[
-{
+        "type" : "text",
+        "content" : "Cool! We learned all arabic numbers. Note this: some note. "
+        },
+        ]
+        },
+        {
+        "topic" : "Numbers 0 - 10",
+        "slides" :
+        [
+        {
 
-"type" : "text",
-"content" : "The numbering system in Arabic is derived from Indian numerals. In this tutorial we will learn numbers from 1 to 10. Let’s go."
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "صفرٌ",
-"translation" : "Zero",
-"transcription" : "sifr",
-"number" :
-{
-"arabic" : "٠",
-"modern" : "0"
-}
+        "type" : "text",
+        "content" : "The numbering system in Arabic is derived from Indian numerals. In this tutorial we will learn numbers from 1 to 10. Let’s go."
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "صفرٌ",
+        "translation" : "Zero",
+        "transcription" : "sifr",
+        "number" :
+        {
+        "arabic" : "٠",
+        "modern" : "0"
+        }
 
-}
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "واحد",
-"translation" : "one",
-"transcription" : "waahid",
-"number" :
-{
-"arabic" : "١",
-"modern" : "1"
-}
+        }
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "واحد",
+        "translation" : "one",
+        "transcription" : "waahid",
+        "number" :
+        {
+        "arabic" : "١",
+        "modern" : "1"
+        }
 
-}
-},
-{
-"type" : "word",
-"content" :
-{
-"arabic" : "اثنان",
-"translation" : "two",
-"transcription" : "ithnain",
-"number" :
-{
-"arabic" : "٢",
-"modern" : "2"
-}
+        }
+        },
+        {
+        "type" : "word",
+        "content" :
+        {
+        "arabic" : "اثنان",
+        "translation" : "two",
+        "transcription" : "ithnain",
+        "number" :
+        {
+        "arabic" : "٢",
+        "modern" : "2"
+        }
 
-}
-},
-{
+        }
+        },
+        {
 
-"type" : "text",
-"content" : "Cool! We learned all arabic numbers. Note this: some note. "
-},
-]
+        "type" : "text",
+        "content" : "Cool! We learned all arabic numbers. Note this: some note. "
+        },
+        ]
+        }
+    ]
 }
-]
