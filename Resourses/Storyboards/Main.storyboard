@@ -526,21 +526,22 @@
                                     <action selector="buttonTapped" destination="LbZ-mB-bHT" eventType="touchUpInside" id="4yf-kw-DYt"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4o-Pc-8j9">
-                                <rect key="frame" x="10" y="95" width="300" height="280"/>
-                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyU-bE-gi2">
+                                <rect key="frame" x="10" y="96" width="300" height="274"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="NS1-MC-Aan" firstAttribute="top" secondItem="q4o-Pc-8j9" secondAttribute="bottom" constant="20" id="0Pb-Qo-M3y"/>
                             <constraint firstItem="WIa-oG-h6k" firstAttribute="top" secondItem="NS1-MC-Aan" secondAttribute="bottom" constant="20" id="365-pB-RIp"/>
-                            <constraint firstAttribute="trailing" secondItem="q4o-Pc-8j9" secondAttribute="trailing" constant="10" id="6kW-kr-10H"/>
                             <constraint firstAttribute="trailing" secondItem="NS1-MC-Aan" secondAttribute="trailing" constant="10" id="8Vs-vE-2yN"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="top" secondItem="kyU-bE-gi2" secondAttribute="bottom" constant="25" id="AQh-Wz-kCV"/>
                             <constraint firstItem="8ti-fr-X0p" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" id="Fcv-Kw-gJs"/>
-                            <constraint firstItem="q4o-Pc-8j9" firstAttribute="top" secondItem="8ti-fr-X0p" secondAttribute="bottom" constant="20" id="KmD-4F-Pj8"/>
                             <constraint firstAttribute="trailing" secondItem="8ti-fr-X0p" secondAttribute="trailing" id="Nsz-VW-kGd"/>
+                            <constraint firstAttribute="trailing" secondItem="kyU-bE-gi2" secondAttribute="trailing" constant="10" id="QDU-7N-zGW"/>
                             <constraint firstItem="8ti-fr-X0p" firstAttribute="top" secondItem="Ob0-4O-FwK" secondAttribute="top" constant="65" id="bAK-GP-QF9"/>
-                            <constraint firstItem="q4o-Pc-8j9" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" constant="10" id="jP7-iV-VAH"/>
+                            <constraint firstItem="kyU-bE-gi2" firstAttribute="top" secondItem="8ti-fr-X0p" secondAttribute="bottom" constant="21" id="cTn-r3-JeH"/>
+                            <constraint firstItem="kyU-bE-gi2" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" constant="10" id="syL-JB-BsG"/>
                             <constraint firstItem="NS1-MC-Aan" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" constant="10" id="tHh-34-Grm"/>
                         </constraints>
                     </view>
@@ -549,7 +550,7 @@
                     <connections>
                         <outlet property="buttonNext" destination="NS1-MC-Aan" id="WCJ-Gv-6Sk"/>
                         <outlet property="progressView" destination="8ti-fr-X0p" id="2Ty-ey-ag5"/>
-                        <outlet property="webView" destination="q4o-Pc-8j9" id="jlA-3w-OeI"/>
+                        <outlet property="slideView" destination="kyU-bE-gi2" id="1Y9-LA-sVO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYG-oD-mym" userLabel="First Responder" sceneMemberID="firstResponder"/>
