@@ -13,6 +13,7 @@ class TopicView: UIViewController {
 
     @IBOutlet var slideView: UIView!
     @IBOutlet var buttonNext: UIButton!
+    @IBOutlet var buttonPrev: UIButton!
     @IBOutlet var progressView: AminProgressView!
 
     var slidesInfo : [NSDictionary] = []
@@ -27,8 +28,8 @@ class TopicView: UIViewController {
     
     }
     
-    @IBAction func buttonTapped(){
-        if (slideIndex == slidesInfo.count)
+    @IBAction func buttonNextTapped(){
+        if (slideIndex == slidesInfo.count-1)
         {
             
             if let alertView = JTAlertView(title: "Well done!\n Do you want to train?", andImage: UIImage(named: "Topic Completed"))
@@ -49,8 +50,17 @@ class TopicView: UIViewController {
         }
         else
         {
+            self.slideIndex++
             self.prepareView()
         }
+    }
+    
+    @IBAction func buttonPrevTapped(){
+        if (slideIndex > 0){
+            slideIndex--
+            self.prepareView()
+        }
+
     }
     
     static func instantiate() -> TopicView{
@@ -63,7 +73,7 @@ class TopicView: UIViewController {
         
         progressView.progressValue = CGFloat(slideIndex+1)/CGFloat(slidesInfo.count) * 100;
         
-        let slideInfo = self.slidesInfo[self.slideIndex++]
+        let slideInfo = self.slidesInfo[self.slideIndex]
         var slideSubView : SlideView?
         
         if let type = slideInfo["type"] as? String where type == "text"

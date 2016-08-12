@@ -3,11 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="JF Flat.ttf">
+            <string>JFFlat-Regular</string>
             <string>JFFlat-Regular</string>
             <string>JFFlat-Regular</string>
             <string>JFFlat-Regular</string>
@@ -513,42 +516,89 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NS1-MC-Aan">
-                                <rect key="frame" x="10" y="395" width="300" height="65"/>
+                                <rect key="frame" x="169" y="395" width="141" height="65"/>
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="73F-ES-sXl"/>
+                                    <constraint firstAttribute="height" constant="65" id="cKT-U4-glH"/>
+                                    <constraint firstAttribute="width" constant="145" id="joS-DV-Lnw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="22"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="joS-DV-Lnw"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <action selector="buttonTapped" destination="LbZ-mB-bHT" eventType="touchUpInside" id="4yf-kw-DYt"/>
+                                    <action selector="buttonNextTapped" destination="LbZ-mB-bHT" eventType="touchUpInside" id="TA9-XU-Ew3"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyU-bE-gi2">
                                 <rect key="frame" x="10" y="96" width="300" height="274"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="274" id="5kT-2Z-VXK"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U78-Um-5de">
+                                <rect key="frame" x="10" y="395" width="141" height="65"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="51f-Qu-z28"/>
+                                    <constraint firstAttribute="height" constant="65" id="l5K-K3-C90"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="22"/>
+                                <state key="normal" title="Prev">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="51f-Qu-z28"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="buttonPrevTapped" destination="LbZ-mB-bHT" eventType="touchUpInside" id="b1S-Ff-oH8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="WIa-oG-h6k" firstAttribute="top" secondItem="NS1-MC-Aan" secondAttribute="bottom" constant="20" id="365-pB-RIp"/>
-                            <constraint firstAttribute="trailing" secondItem="NS1-MC-Aan" secondAttribute="trailing" constant="10" id="8Vs-vE-2yN"/>
-                            <constraint firstItem="NS1-MC-Aan" firstAttribute="top" secondItem="kyU-bE-gi2" secondAttribute="bottom" constant="25" id="AQh-Wz-kCV"/>
+                            <constraint firstItem="U78-Um-5de" firstAttribute="width" secondItem="NS1-MC-Aan" secondAttribute="width" id="2b5-5Y-6Y6"/>
+                            <constraint firstItem="U78-Um-5de" firstAttribute="top" secondItem="kyU-bE-gi2" secondAttribute="bottom" constant="25" id="7Zt-w7-Xcp"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="leading" secondItem="U78-Um-5de" secondAttribute="trailing" constant="25" id="ANW-ki-xNF"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="trailing" secondItem="kyU-bE-gi2" secondAttribute="trailing" id="B2e-qQ-TCQ"/>
                             <constraint firstItem="8ti-fr-X0p" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" id="Fcv-Kw-gJs"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="width" secondItem="kyU-bE-gi2" secondAttribute="width" multiplier="0.47" id="JJ8-Df-8Rs"/>
+                            <constraint firstItem="U78-Um-5de" firstAttribute="top" secondItem="kyU-bE-gi2" secondAttribute="bottom" constant="25" id="Ljd-d8-FZ4"/>
                             <constraint firstAttribute="trailing" secondItem="8ti-fr-X0p" secondAttribute="trailing" id="Nsz-VW-kGd"/>
                             <constraint firstAttribute="trailing" secondItem="kyU-bE-gi2" secondAttribute="trailing" constant="10" id="QDU-7N-zGW"/>
+                            <constraint firstItem="WIa-oG-h6k" firstAttribute="top" secondItem="NS1-MC-Aan" secondAttribute="bottom" constant="20" id="a1S-Vd-9zs"/>
                             <constraint firstItem="8ti-fr-X0p" firstAttribute="top" secondItem="Ob0-4O-FwK" secondAttribute="top" constant="65" id="bAK-GP-QF9"/>
+                            <constraint firstItem="WIa-oG-h6k" firstAttribute="top" secondItem="U78-Um-5de" secondAttribute="bottom" constant="20" id="bLj-qR-eGC"/>
                             <constraint firstItem="kyU-bE-gi2" firstAttribute="top" secondItem="8ti-fr-X0p" secondAttribute="bottom" constant="21" id="cTn-r3-JeH"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="baseline" secondItem="U78-Um-5de" secondAttribute="firstBaseline" id="d7t-LS-NqO"/>
+                            <constraint firstItem="U78-Um-5de" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" constant="10" id="gd5-Ab-xUt"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="firstBaseline" secondItem="U78-Um-5de" secondAttribute="baseline" id="nV4-oe-K6W"/>
                             <constraint firstItem="kyU-bE-gi2" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" constant="10" id="syL-JB-BsG"/>
-                            <constraint firstItem="NS1-MC-Aan" firstAttribute="leading" secondItem="Ob0-4O-FwK" secondAttribute="leading" constant="10" id="tHh-34-Grm"/>
+                            <constraint firstItem="NS1-MC-Aan" firstAttribute="top" secondItem="U78-Um-5de" secondAttribute="top" id="xXO-sh-Ydl"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7Zt-w7-Xcp"/>
+                                <exclude reference="ANW-ki-xNF"/>
+                                <exclude reference="d7t-LS-NqO"/>
+                                <exclude reference="nV4-oe-K6W"/>
+                                <exclude reference="xXO-sh-Ydl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="buttonNext" destination="NS1-MC-Aan" id="WCJ-Gv-6Sk"/>
+                        <outlet property="buttonPrev" destination="U78-Um-5de" id="J7b-JS-uzl"/>
                         <outlet property="progressView" destination="8ti-fr-X0p" id="2Ty-ey-ag5"/>
                         <outlet property="slideView" destination="kyU-bE-gi2" id="1Y9-LA-sVO"/>
                     </connections>
