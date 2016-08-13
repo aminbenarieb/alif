@@ -2,7 +2,26 @@
 
 import UIKit
 
-let number = 100
+// Added random range
+extension Int
+{
+    static func random(range: Range<Int> ) -> Int
+    {
+        var offset = 0
+        
+        if range.startIndex < 0   // allow negative ranges
+        {
+            offset = abs(range.startIndex)
+        }
+        
+        let mini = UInt32(range.startIndex + offset)
+        let maxi = UInt32(range.endIndex   + offset)
+        
+        return Int(mini + arc4random_uniform(maxi - mini)) - offset
+    }
+}
+
+let number = Int.random(0...100)
 
 let numberFormatter = NSNumberFormatter()
 numberFormatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
@@ -12,6 +31,3 @@ if let wordNumber = numberFormatter.stringFromNumber((number))
     print(wordNumber)
 }
 
-//NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-//[numberFormatter setNumberStyle:NSNumberFormatterSpellOutStyle];
-//wordNumber = [numberFormatter stringFromNumber:numberValue];
