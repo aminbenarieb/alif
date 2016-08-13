@@ -14,7 +14,10 @@ class ModeChoice: UIViewController
     
     @IBOutlet var btnTrain : FlatButton!
     @IBOutlet var btnLearn : FlatButton!
-    var topicDict : Dictionary<String, AnyObject> = Dictionary()
+    var topic : Topic?
+    
+    private let topicViewController = TopicView.instantiate()
+    private let trainViewController = TrainScreen.instantiate()
     
     override func viewDidLoad() {
         
@@ -25,21 +28,33 @@ class ModeChoice: UIViewController
         }
     }
     
+    static func instantiate() -> ModeChoice{
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ModeChoice") as! ModeChoice
+    }
+    
+    
     @IBAction func pushToLearn()
     {
-        //
-        //        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        //        let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Learn")
-        //        self.navigationController?.pushViewController(unlockScreen, animated: true)
+        if let topic = topic,
+            slides = topic.slides,
+            slidesInfo = NSKeyedUnarchiver.unarchiveObjectWithData(slides) as? [NSDictionary]
+        {
+            topicViewController.slidesInfo = slidesInfo
+            self.navigationController?.pushViewController(topicViewController, animated: true)
+        }
+        
     }
     @IBAction func pushToTrain()
     {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Train")
+        if let topic = topic,
+            train_dictionary = topic.train_dictionary,
+            trainDict = NSKeyedUnarchiver.unarchiveObjectWithData(train_dictionary)
+        {
+            //        Vocabluary.sharedInstance.setUpTour(topicDict)
+//            self.navigationController?.pushViewController(trainViewController, animated: true)
+            
+        }
         
-        Vocabluary.sharedInstance.setUpTour(topicDict)
-        
-        self.navigationController?.pushViewController(unlockScreen, animated: true)
     }
 
     

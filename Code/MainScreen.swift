@@ -15,7 +15,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     private let RowHeight : CGFloat = 75.0
     private var topics = [NSManagedObject]()
-    private let topicViewController = TopicView.instantiate()
+    private let modeChoiceVC = ModeChoice.instantiate()
     
     @IBOutlet var tableView : UITableView!
     
@@ -72,17 +72,9 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     //MARK: - Selection
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if let topic = topics[indexPath.row] as? Topic, slides = topic.slides as NSData!
-        {
-            if let slidesInfo = NSKeyedUnarchiver.unarchiveObjectWithData(slides) as? [NSDictionary]
-            {
-                topicViewController.slidesInfo = slidesInfo
-                self.navigationController?.pushViewController(topicViewController, animated: true)
-            }
-        }
-        
-        
+
+        modeChoiceVC.topic = topics[indexPath.row] as? Topic
+        self.navigationController?.pushViewController(modeChoiceVC, animated: true)
         
     }
     

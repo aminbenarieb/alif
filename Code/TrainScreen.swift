@@ -86,6 +86,10 @@ class TrainScreen: UIViewController, UITextFieldDelegate, UICollectionViewDataSo
         self.navigationItem.leftBarButtonItem = newBackButton;
     }
     
+    static func instantiate() -> TrainScreen{
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TrainScreen") as! TrainScreen
+    }
+    
     func back(sender: UIBarButtonItem) {
 
         

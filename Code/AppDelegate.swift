@@ -191,6 +191,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let slidesData = NSKeyedArchiver.archivedDataWithRootObject(slides)
                             topic.slides = slidesData
                         }
+                        if let train_dictionary = topicInfo["train_dictionary"] as? NSDictionary
+                        {
+                            let trainDictionary = NSKeyedArchiver.archivedDataWithRootObject(train_dictionary)
+                            topic.train_dictionary = trainDictionary
+                        }
                         
                         do
                         {
