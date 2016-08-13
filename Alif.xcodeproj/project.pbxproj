@@ -69,6 +69,7 @@
 		FCBDEDFD1D5D270300575E1F /* LoadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadManager.swift; path = ../LoadManager.swift; sourceTree = "<group>"; };
 		FCD117591D53D08A009C62CE /* Alif.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alif.xcdatamodel; sourceTree = "<group>"; };
 		FCD1175B1D53D363009C62CE /* VocabluaryTrainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabluaryTrainer.swift; sourceTree = "<group>"; };
+		FCE23FE01D5F509A00CBDBD0 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		FCEF79DE1D55E6D800CE9F07 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FCEF79DF1D55E6D800CE9F07 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		FCEF79E21D55ED2400CE9F07 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = Resourses/data.json; sourceTree = SOURCE_ROOT; };
@@ -192,6 +193,7 @@
 				FC2E9A381C65F4F5003DBEAE /* Unlock.swift */,
 				FCB8E54F1BC64CFD00D72450 /* Config.swift */,
 				FC5FA3771C6F973700B1D4D6 /* LinearProgressView.swift */,
+				FCE23FE01D5F509A00CBDBD0 /* MyPlayground.playground */,
 				FC146FA71D5E3F0900027861 /* SlideView */,
 				FC1D2EB51C9F34E70098489C /* Singletons */,
 				FC5BE2231C66B40C00E15628 /* SetCell */,
