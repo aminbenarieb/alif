@@ -45,6 +45,32 @@ extension String {
     }
 }
 
+extension Array {
+    var shuffle:[Element] {
+        var elements = self
+        for index in indices {
+            let anotherIndex = Int(arc4random_uniform(UInt32(elements.count - index))) + index
+            anotherIndex != index ? swap(&elements[index], &elements[anotherIndex]) : ()
+        }
+        return elements
+    }
+    mutating func shuffled() {
+        self = shuffle
+    }
+    var chooseOne: Element {
+        return self[Int(arc4random_uniform(UInt32(count)))]
+    }
+    
+    func choose(x:Int) -> [Element] {
+        if x > count { return shuffle }
+        let indexes = count.indexRandom[0..<x]
+        var result: [Element] = []
+        for index in indexes {
+            result.append(self[index])
+        }
+        return result
+    }
+}
 extension NSString
 {
     /** Randomizes the order of characters. */
@@ -87,6 +113,10 @@ extension Int
         let maxi = UInt32(range.endIndex   + offset)
         
         return Int(mini + arc4random_uniform(maxi - mini)) - offset
+    }
+    
+    var indexRandom: [Int] {
+        return  Array(0..<self).shuffle
     }
 }
 
