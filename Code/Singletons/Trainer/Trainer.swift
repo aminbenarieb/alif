@@ -15,121 +15,106 @@ struct Result
     var procent : Int
 }
 
+enum TrainMode : Int {
+    case Writer = 1 // Default
+    case Constructor = 2
+    case Selector = 3
+}
+
+
 private let _TrainerSharedInstance = Trainer()
 
 class Trainer
 {
+    // MARK: Class functions
     
     class var sharedInstance: Trainer {
         return _TrainerSharedInstance
     }
+    // MARK: Variables & Constants
     
-    internal var targetMode = true
-    internal var trainMode = true
+    private let lTrainingWordCount = 10
     
-    private let vTourWordCount = 10
     var wordList = [Word]()
-    var wordListIndex = 0
-    var step : Int = 1
+    var wordIndex : Int = 0
+    var mode  = TrainMode.Writer
     var rightAnswerCount = 0
-    var result : Result = Result(title: "Undefined", message: "Undefined", procent: 0)
+    var result : Result?
     
-    /*   NON-DOCUMENTED FUNCTIONS   */
+    // MARK: Public functions
     
-    func setUpTour(topic : Topic){
+    /** Setting up training with topic info
+     - parameter Topic : topic info
+    */
+    func setUpTraining(trainDict : NSDictionary){
         
-        if let train_dictionary = topic.train_dictionary,
-                trainDict = NSKeyedUnarchiver.unarchiveObjectWithData(train_dictionary),
-                    from = trainDict["from"] as? Int,
-                    to  = trainDict["to"] as? Int
+        initializeTraining(trainDict)
+        
+    }
+
+    /** Calclulate and return next word with randrom train mode
+     */
+    func nextWord() -> (targetWord : NSString, support : [String] , mode : TrainMode){
+        let nextMode : TrainMode = TrainMode(rawValue: Int.random(1...3))!
+        let nextWord = wordList[wordIndex++]
+        var result = (targetWord : nextWord.target, support : [String]() , mode : nextMode)
+        
+        switch(nextMode)
         {
-            
-            var words = [Word]()
-            
-            for _ in 0...9
-            {
-                let number = Int.random(from...to)
-                let numberFormatter = NSNumberFormatter()
-                numberFormatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
-                numberFormatter.locale = NSLocale(localeIdentifier: "ar")
-                if let wordString = numberFormatter.stringFromNumber((number))
-                {
-                    let word = Word(target: "\(number)", meaning: wordString, memorize: .Zero)
-                    words.append(word)
-                }
-            }
-            
-            let minCount = min(10, words.count)
-            while (wordList.count < minCount)
-            {
-                let word = words[Int.random(0...minCount-1)]
-                if word.memorize != .Full && !wordList.contains(word)
-                {
-                    wordList.append(word)
-                }
-            }
-            
-            
+        case .Constructor:
+            result.targetWord = nextWord.meaning
+            result.support = nextWord.target.componentsSeparatedByCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) as [String]
+            return result
+        case .Selector:
+            result.support = wordList.filter(){$0 != nextWord}.shuffle.choose(3).map({($0.meaning as String)})
+            result.support.append(nextWord.target as String)
+            result.support = result.support.shuffle
+            return result
+        default:
+            return result
         }
         
+        
     }
     
-    func currentWord(shuffle : Bool) -> NSString {
-        let currentword = (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning);
-        return shuffle ? currentword.shuffle() : currentword
+    /** Checking given word depending on train mode and return bool
+     */
+    func checkWord(word : NSString) -> Bool{
+        
+        let prevWord = wordList[wordIndex-1]
+        var isRight : Bool = false
+        
+        switch(mode)
+        {
+        case .Constructor:
+            isRight = word == prevWord.target
+            break
+        default:
+            isRight = word == prevWord.meaning
+            break
+        }
+        rightAnswerCount += Int(isRight)
+        
+        return isRight
     }
-    
-    func resetTour(){
-        wordListIndex = 0
-        wordList.removeAll()
-        step = 1
-        rightAnswerCount = 0
-    }
-    
-    /********************************/
-     
-    /** Get next word from tour word list
-    */
-    func nextWord() -> NSString{
-        targetMode = arc4random_uniform(2) == 0
-        wordListIndex++
-        return targetMode ? wordList[wordListIndex-1].meaning : wordList[wordListIndex-1].target
-    }
-    
+
     /** Get progress bar value
      - return: CGFloat procent value for progress bar
      */
     func progressValue() -> Float{
-        return Float(step)/Float(vTourWordCount)*100
+        return Float(wordIndex + 1)/Float(lTrainingWordCount)*100
     }
     
-    
-    func checkWord(givenWord : String?) -> Bool{
-        step += 1
-        
-        var flag = false
-        if let word = givenWord
-        {
-            flag = word == (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning)
-            if (flag)
-            {
-                rightAnswerCount++
-                wordList[wordListIndex-1].levelUp()
-            }
-        }
-        
-        return flag
-    }
-    
-    /** Return flag if tour is finished
+    /** Return flag if Training is finished
      - return: Bool flag
      */
     func isFinished() -> Bool{
-        let finished = step == vTourWordCount
+        
+        let finished = wordIndex == lTrainingWordCount - 1
         if (finished)
         {
             
-            let procent = (rightAnswerCount*100)/vTourWordCount
+            let procent = (rightAnswerCount*100)/lTrainingWordCount
             var title : String
             if (procent >= 90)
             {
@@ -138,7 +123,6 @@ class Trainer
             else if (procent >= 70)
             {
                 title = "Good"
-                
             }
             else if (procent >= 40)
             {
@@ -151,11 +135,40 @@ class Trainer
             let message = "You have answered \(procent)% of words correcty."
             
             result = Result(title: title, message: message, procent: procent)
-            
-            resetTour()
         }
         
         return finished
+    }
+    
+    // MARK: Private
+    
+    /** Reseting all variables
+    */
+    private func initializeTraining(trainDict : NSDictionary){
+        
+        wordList.removeAll()
+        wordIndex = 0
+        rightAnswerCount = 0
+        
+        if let from = trainDict["from"] as? Int,
+                to  = trainDict["to"] as? Int
+        {
+            // Generating training words
+            for _ in 1...lTrainingWordCount
+            {
+                let number = Int.random(from...to)
+                let numberFormatter = NSNumberFormatter()
+                numberFormatter.numberStyle = NSNumberFormatterStyle.SpellOutStyle
+                numberFormatter.locale = NSLocale(localeIdentifier: "ar")
+                if let wordString = numberFormatter.stringFromNumber((number))
+                {
+                    let word = Word(target: wordString, meaning: "\(number)", memorize: .Zero)
+                    wordList.append(word)
+                }
+            }
+            
+        }
+        
     }
     
 }
