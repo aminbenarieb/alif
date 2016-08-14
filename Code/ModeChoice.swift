@@ -33,8 +33,7 @@ class ModeChoice: UIViewController
     }
     
     
-    @IBAction func pushToLearn()
-    {
+    @IBAction func pushToLearn(){
         if let topic = topic,
             slides = topic.slides,
             slidesInfo = NSKeyedUnarchiver.unarchiveObjectWithData(slides) as? [NSDictionary]
@@ -44,19 +43,13 @@ class ModeChoice: UIViewController
         }
         
     }
-    @IBAction func pushToTrain()
-    {
-        if let topic = topic,
-            train_dictionary = topic.train_dictionary,
-            trainDict = NSKeyedUnarchiver.unarchiveObjectWithData(train_dictionary)
+    @IBAction func pushToTrain(){
+        
+        if let topic = topic
         {
-            //        Vocabluary.sharedInstance.setUpTour(topicDict)
-//            self.navigationController?.pushViewController(trainViewController, animated: true)
+            Trainer.sharedInstance.setUpTour(topic)
+            self.navigationController?.pushViewController(trainViewController, animated: true)
             
         }
-        
     }
-
-    
-    
 }
