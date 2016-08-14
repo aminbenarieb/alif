@@ -1,6 +1,6 @@
 //
 //  Topic.swift
-//  
+//
 //
 //  Created by Amin Benarieb on 07/02/16.
 //
@@ -45,9 +45,11 @@ class ModeChoice: UIViewController
     }
     @IBAction func pushToTrain(){
         
-        if let topic = topic
+        if let topic = topic,
+            train_dictionary = topic.train_dictionary,
+            trainDict = NSKeyedUnarchiver.unarchiveObjectWithData(train_dictionary) as? NSDictionary
         {
-            Trainer.sharedInstance.setUpTour(topic)
+            Trainer.sharedInstance.setUpTraining(trainDict)
             self.navigationController?.pushViewController(trainViewController, animated: true)
             
         }
