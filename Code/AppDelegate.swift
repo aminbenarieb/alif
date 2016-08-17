@@ -54,6 +54,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // Google Analytics
+        
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        if let configureError = configureError
+        {
+            print("Error configuring Google services: \(configureError)")
+            GAI.sharedInstance().trackerWithTrackingId(Identifier_GoogleAnalytics)
+        }
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+        
         // ************************
         
         
