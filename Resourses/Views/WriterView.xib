@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="JF Flat.ttf">
+            <string>JFFlat-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="xot-Jk-fbz" customClass="WriterView" customModule="Alif" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GTp-zY-Gia">
+                    <rect key="frame" x="23" y="11" width="275" height="87"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ObZ-Vj-AWq" customClass="TextField" customModule="Material">
+                            <rect key="frame" x="8" y="40" width="259" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="sIk-XM-kld"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ObZ-Vj-AWq" firstAttribute="top" secondItem="GTp-zY-Gia" secondAttribute="top" constant="40" id="Bog-2d-rEh"/>
+                        <constraint firstItem="ObZ-Vj-AWq" firstAttribute="leading" secondItem="GTp-zY-Gia" secondAttribute="leading" constant="8" id="PyW-vK-bss"/>
+                        <constraint firstAttribute="trailing" secondItem="ObZ-Vj-AWq" secondAttribute="trailing" constant="8" id="X2R-6Y-WRm"/>
+                        <constraint firstAttribute="height" constant="87" id="uIR-Xb-Y9C"/>
+                        <constraint firstItem="ObZ-Vj-AWq" firstAttribute="centerY" secondItem="GTp-zY-Gia" secondAttribute="centerY" id="xXf-pj-XRc"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="xXf-pj-XRc"/>
+                        </mask>
+                    </variation>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lw-L3-lYj" customClass="FlatButton" customModule="Material">
+                    <rect key="frame" x="23" y="112" width="275" height="87"/>
+                    <color key="backgroundColor" red="0.30579075529999999" green="0.49841559899999999" blue="0.76757226079999996" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="87" id="ThD-Bq-aaH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="JFFlat-Regular" family="JF Flat" pointSize="27"/>
+                    <state key="normal" title="CHECK">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="check" destination="xot-Jk-fbz" eventType="touchUpInside" id="7kt-CU-Zi7"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="GTp-zY-Gia" secondAttribute="trailing" constant="22" id="5CO-PZ-ngu"/>
+                <constraint firstItem="GTp-zY-Gia" firstAttribute="top" secondItem="xot-Jk-fbz" secondAttribute="top" constant="11" id="8V1-3A-vgp"/>
+                <constraint firstAttribute="trailing" secondItem="5Lw-L3-lYj" secondAttribute="trailing" constant="22" id="IWd-8b-QSO"/>
+                <constraint firstItem="5Lw-L3-lYj" firstAttribute="top" secondItem="GTp-zY-Gia" secondAttribute="bottom" constant="14" id="O5n-Qz-39Q"/>
+                <constraint firstItem="5Lw-L3-lYj" firstAttribute="leading" secondItem="xot-Jk-fbz" secondAttribute="leading" constant="23" id="bbn-8I-AD0"/>
+                <constraint firstItem="GTp-zY-Gia" firstAttribute="leading" secondItem="xot-Jk-fbz" secondAttribute="leading" constant="23" id="pH1-RL-ZWG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="checkbutton" destination="5Lw-L3-lYj" id="Sao-EV-rNZ"/>
+                <outlet property="textField" destination="ObZ-Vj-AWq" id="mTb-Y6-Tqa"/>
+            </connections>
+        </view>
+    </objects>
+</document>
