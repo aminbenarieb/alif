@@ -55,11 +55,11 @@ class Trainer
     /** Calclulate and return next word with randrom train mode
      */
     func nextWord() -> (targetWord : NSString, support : [String] , mode : TrainMode){
-        let nextMode : TrainMode = TrainMode(rawValue: Int.random(1...3))!
+        mode  = TrainMode(rawValue: Int.random(1...3))!
         let nextWord = wordList[wordIndex++]
-        var result = (targetWord : nextWord.target, support : [String]() , mode : nextMode)
+        var result = (targetWord : nextWord.target, support : [String]() , mode : mode)
         
-        switch(nextMode)
+        switch(mode)
         {
         case .Constructor:
             result.targetWord = nextWord.meaning
