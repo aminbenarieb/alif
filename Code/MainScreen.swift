@@ -67,6 +67,12 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         self.title = "Alif"
         self.loadFiles()
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: NSStringFromClass(self.classForCoder))
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     //MARK: - Selection
@@ -135,6 +141,9 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
             topics = results as! [NSManagedObject]
         } catch let error as NSError {
             Amin.sharedInstance.showInfoMessage("Could not fetch \(error), \(error.userInfo)")
+        }
+        catch {
+            // Catch any other errors
         }
         
         tableView.reloadData()

@@ -19,6 +19,7 @@
 		FC2E9A341C65E994003DBEAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A321C65E994003DBEAE /* Main.storyboard */; };
 		FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */; };
 		FC2E9A391C65F4F5003DBEAE /* Unlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2E9A381C65F4F5003DBEAE /* Unlock.swift */; };
+		FC4331AE1D6457DE00C1CBE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC4331AD1D6457DE00C1CBE8 /* GoogleService-Info.plist */; };
 		FC54E6EC1D59149900572D27 /* TopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC54E6EB1D59149900572D27 /* TopicView.swift */; };
 		FC5BE21B1C66A06D00E15628 /* ModeChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */; };
 		FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5BE2241C66B40C00E15628 /* SetCell.xib */; };
@@ -59,6 +60,7 @@
 		FC2E9A321C65E994003DBEAE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FC2E9A361C65E9CB003DBEAE /* JF Flat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JF Flat.ttf"; sourceTree = "<group>"; };
 		FC2E9A381C65F4F5003DBEAE /* Unlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unlock.swift; sourceTree = "<group>"; };
+		FC4331AD1D6457DE00C1CBE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC54E6EB1D59149900572D27 /* TopicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicView.swift; sourceTree = "<group>"; };
 		FC5BE21A1C66A06D00E15628 /* ModeChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModeChoice.swift; sourceTree = "<group>"; };
 		FC5BE2241C66B40C00E15628 /* SetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetCell.xib; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				FC2E9A301C65E994003DBEAE /* Storyboards */,
 				FC146F9E1D5E3A8F00027861 /* Views */,
 				FCB8E5441BC64C8500D72450 /* Assets.xcassets */,
+				FC4331AD1D6457DE00C1CBE8 /* GoogleService-Info.plist */,
 				FCB8E5491BC64C8500D72450 /* Info.plist */,
 				7C554D4F0F1CBF3C7FEF6FCB /* Frameworks */,
 				30487E42C2132210D38958F5 /* Pods */,
@@ -340,6 +343,7 @@
 				FC5BE2251C66B40C00E15628 /* SetCell.xib in Resources */,
 				FC982AF21D63BE3D0013D18A /* WriterView.xib in Resources */,
 				FCEF79E31D55ED2400CE9F07 /* data.json in Resources */,
+				FC4331AE1D6457DE00C1CBE8 /* GoogleService-Info.plist in Resources */,
 				FCB8E54B1BC64C8500D72450 /* Assets.xcassets in Resources */,
 				FC146FA21D5E3A9B00027861 /* TextSlideView.xib in Resources */,
 				FC2E9A371C65E9CB003DBEAE /* JF Flat.ttf in Resources */,

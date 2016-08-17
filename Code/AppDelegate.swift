@@ -54,6 +54,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
+        // Google Analytics
+        
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        if let configureError = configureError
+        {
+            print("Error configuring Google services: \(configureError)")
+            GAI.sharedInstance().trackerWithTrackingId(Identifier_GoogleAnalytics)
+        }
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+        
         // ************************
         
         
@@ -121,18 +137,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
-        } catch {
+        } catch let error as NSError{
             // Report any error we got.
             var dict = [String: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             
-            dict[NSUnderlyingErrorKey] = error as NSError
+            dict[NSUnderlyingErrorKey] = error
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
             abort()
+        }
+        catch
+        {
+            // some catch here
         }
         
         return coordinator
