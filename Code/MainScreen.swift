@@ -67,6 +67,12 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         self.title = "Alif"
         self.loadFiles()
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: NSStringFromClass(self.classForCoder))
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     //MARK: - Selection
