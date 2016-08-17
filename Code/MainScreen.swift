@@ -136,6 +136,9 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         } catch let error as NSError {
             Amin.sharedInstance.showInfoMessage("Could not fetch \(error), \(error.userInfo)")
         }
+        catch {
+            // Catch any other errors
+        }
         
         tableView.reloadData()
         
