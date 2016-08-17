@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 import Fabric
 import Crashlytics
-import Parse
 
 
 @UIApplicationMain
@@ -39,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Fabric & Crashlytics
         Fabric.with([Crashlytics.self()])
         
-        // Parse Integration
-        Parse.setApplicationId("a1WVWqCPCETQsAjDIyoT7G84pTv7YhxfcFKNKlBi", clientKey: "yRzlTCdWULTft7krLyNmZ2qGVkSH3wGUM5QTiw2z")
         
         if application.applicationState != UIApplicationState.Background {
             // Track an app open here if we launch with a push, unless
@@ -53,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 pushPayload = options[UIApplicationLaunchOptionsRemoteNotificationKey] != nil
             }
             if (preBackgroundPush || oldPushHandlerOnly || pushPayload) {
-                PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+                //processs launch options
             }
         }
         
@@ -81,12 +78,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    //MARK: Parse Push Notification
+    //MARK: Push Notification workflow
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let installation = PFInstallation.currentInstallation()
-        installation.setDeviceTokenFromData(deviceToken)
-        installation.saveInBackground()
+        
+        // saving device tokens
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
@@ -98,10 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        PFPush.handlePush(userInfo)
-        if application.applicationState == UIApplicationState.Inactive {
-            PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
-        }
+        
+        //handle remote notification
+        
     }
 
     // MARK: - Core Data stack

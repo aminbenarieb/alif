@@ -12,12 +12,10 @@ import UIKit
 import JTAlertView
 import JTFadingInfoView
 import ZAlertView
-import Parse
 
 
 import Foundation
 import SystemConfiguration
-import Parse
 
 private let _AminSharedInstance = Amin()
 
