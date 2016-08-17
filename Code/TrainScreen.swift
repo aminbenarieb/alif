@@ -91,7 +91,7 @@ class TrainScreen: UIViewController, UIGestureRecognizerDelegate, TrainerProtoco
     func back(sender: UIBarButtonItem) {
 
         
-        let dialog = ZAlertView(title: "Hold on", message: "Are you sure you want to leave the tour?",
+        let dialog = ZAlertView(title: "Hold on", message: "Are you sure you want to leave the training?",
             isOkButtonLeft: true,
             okButtonText: "Cancel",
             cancelButtonText: "Leave",
@@ -148,9 +148,10 @@ class TrainScreen: UIViewController, UIGestureRecognizerDelegate, TrainerProtoco
             var statustext : String
             var statuscolor : UIColor
             
-            if let answer = answer where !Trainer.sharedInstance.checkWord(answer)
+            if let answer = answer,
+                   result = Trainer.sharedInstance.checkWord(answer) where result.isRight
             {
-                statustext = "Sorry, but wrong. :\\"
+                statustext = "Wrong, it's \(result.answer) :\\"
                 statuscolor = MaterialColor.red.darken2
                 
             }

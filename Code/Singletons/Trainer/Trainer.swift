@@ -79,23 +79,25 @@ class Trainer
     
     /** Checking given word depending on train mode and return bool
      */
-    func checkWord(word : NSString) -> Bool{
+    func checkWord(word : NSString) -> ( isRight: Bool, answer : NSString?)?{
         
         let prevWord = wordList[wordIndex-1]
         var isRight : Bool = false
+        var rightAnswer : NSString?
         
         switch(mode)
         {
         case .Constructor:
-            isRight = word == prevWord.target
+            rightAnswer = prevWord.target
             break
         default:
-            isRight = word == prevWord.meaning
+            rightAnswer = prevWord.meaning
             break
         }
+        isRight = word == rightAnswer
         rightAnswerCount += Int(isRight)
         
-        return isRight
+        return (isRight, rightAnswer)
     }
 
     /** Get progress bar value
