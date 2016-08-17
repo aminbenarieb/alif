@@ -285,6 +285,7 @@
 				DFCAC04028CF84084997C11C /* Embed Pods Frameworks */,
 				FC81DDAF1C67D47100AE1DD2 /* ShellScript */,
 				FC9533071D5BAAC300F82D16 /* ShellScript */,
+				FC4331AB1D64455500C1CBE8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -395,6 +396,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Alif/Pods-Alif-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FC4331AB1D64455500C1CBE8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" == \"Debug\" ]; then\n\n    VERSIONSTRING=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${INFOPLIST_FILE}\")\n\n    VERSIONSTRING = \"$VERSIONNUM debug\"\n\n    /usr/libexec/PlistBuddy -c  \"Set :CFBundleShortVersionString $VERSIONSTRING\" \"${INFOPLIST_FILE}\"\n\nfi";
 		};
 		FC81DDAF1C67D47100AE1DD2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -551,6 +565,8 @@
 			baseConfigurationReference = 8CF5F46A8C7EDFE24908E4D2 /* Pods-Alif.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID_SUFFIX = .debug;
+				BUNDLE_NAME = "Alif (debug)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -578,6 +594,8 @@
 			baseConfigurationReference = 911F3B897E5318EBACD0B799 /* Pods-Alif.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID_SUFFIX = "";
+				BUNDLE_NAME = Alif;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
