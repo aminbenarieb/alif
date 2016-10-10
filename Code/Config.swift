@@ -17,7 +17,7 @@ let BlueColor = 0xA3CDFF
 let DarkBlueColor =  0x516D8F
 let OrangeColor = 0xFBE500
 let GrayColor = 0xEFEFF4
-let Identifier_GoogleAnalytics = ""
+let Identifier_GoogleAnalytics = "UA-82083417-1"
 let Identifier_VK = ""
 let Identifier_GoogleDrive = "706417818308-bofant9bu8lfsoo7a23qi1h5hqmgqqvq.apps.googleusercontent.com"
 let DeveloperMode = false
@@ -26,6 +26,7 @@ let Identifier_My_Speadsheet = "1QFLz3amkLcvUfP7abk56pmJFpioea5nTxo_foL-682Y"
 let Identifier_Arabic = ""
 let Identifier_English = "814005167"
 
+let NotificationPushToTrainView = "NotificationPushToTrainView";
 
 
 // MARK: - Functions
@@ -34,6 +35,39 @@ let Identifier_English = "814005167"
 extension String {
     var localized: String {
         return NSLocalizedString(self, tableName: Amin.sharedInstance.currentLanguage(), bundle: NSBundle.mainBundle(), value: "", comment: "")
+    }
+    subscript (i: Int) -> Character {
+        return self[self.startIndex.advancedBy(i)]
+    }
+    
+    subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+}
+
+extension NSString
+{
+    /** Randomizes the order of characters. */
+    func shuffle() -> NSString
+    {
+        
+        var charArray = [NSString]()
+        for (var i = 0; i < self.length; i++)
+        {
+            charArray.append(self.substringWithRange(NSMakeRange(i, 1)))
+        }
+        charArray.sortInPlace { (a : NSString, b : NSString) -> Bool in
+            
+            return arc4random() < arc4random()+1
+            
+        }
+        
+        var result : NSString = ""
+        for (var i = 0; i < charArray.count; i++)
+        {
+            result = (result as String) + (charArray[i] as String)
+        }
+        return result
     }
 }
 
@@ -73,7 +107,7 @@ extension UIColor {
     
     static func randomColor() -> UIColor {
       
-        let colors = [MaterialColor.yellow.lighten3, MaterialColor.orange.lighten3, MaterialColor.green.lighten3, MaterialColor.blue.lighten3, MaterialColor.cyan.lighten3, MaterialColor.purple.lighten3, MaterialColor.pink.lighten3, MaterialColor.red.lighten3, MaterialColor.yellow.lighten3]
+        let colors = [MaterialColor.brown.lighten3, MaterialColor.orange.lighten3, MaterialColor.green.lighten3, MaterialColor.blue.lighten3, MaterialColor.cyan.lighten3, MaterialColor.purple.lighten3, MaterialColor.pink.lighten3, MaterialColor.red.lighten3, MaterialColor.blueGrey.lighten3]
         
         return colors[Int.random(0...(colors.count-1))]
         

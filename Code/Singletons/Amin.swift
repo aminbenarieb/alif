@@ -90,46 +90,6 @@ class Amin {
         return dateFormatter.dateFromString(date)!
     }
     
-    /** Download and return data form url
-    - parameter URL: source url
-    - returns: NSData data with info
-    */
-    func getDataFromURL(URL: NSURL) -> NSData?{
-        return NSData(contentsOfURL:URL)
-    }
-    
-    /** Return dictonary of json form data
-    - parameter NSData: data to parse
-    - returns: NSDictionary object with json
-    */
-//    func parseJSONFromData(inputData: NSData) -> NSDictionary{
-//
-//        let boardsDictionary : NSDictionary
-     
-//        do {
-//            boardsDictionary = try NSJSONSerialization.JSONObjectWithData(inputData, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-//        }
-//        catch let error as NSError
-//        {
-//            boardsDictionary = [:]
-//            print("Unexpected error: \(error.localizedDescription). ");
-//        }
-        
-//        return boardsDictionary
-//    }
-    /** Creates Download image form url
-    - warning: This function is not testes
-    - parameter NSURL: source url
-    - parameter completion: block to perform
-    */
-    func downloadImageWithURL(url : NSURL, completion: (succeeded : Bool, image : UIImage?) -> Void)
-    {
-        
-        NSURLConnection.sendAsynchronousRequest(NSURLRequest(URL: url), queue: NSOperationQueue.mainQueue(), completionHandler: {(response : NSURLResponse?, data : NSData?, error : NSError?) in
-            
-            completion(succeeded: (error) != nil, image: UIImage(data: data!))
-        })
-    }
     
     /**
     Return current app version

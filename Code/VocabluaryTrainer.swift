@@ -1,21 +1,20 @@
 //
-//  MainScreen.swift
+//  VocabluaryTrainer.swift
 //  Alif
 //
-//  Created by Amin Benarieb on 06/02/16.
+//  Created by Amin Benarieb on 04/08/16.
 //  Copyright © 2016 Amin Benarieb. All rights reserved.
 //
 
 import Foundation
 import Material
+import SWTableViewCell
 import JTAlertView
-import CoreData
 
-class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class VocabluaryTrainer : UIViewController, UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate {
     
     private let RowHeight : CGFloat = 75.0
-    private var topics = [NSManagedObject]()
-    private let topicViewController = TopicView.instantiate()
+    private var topics = [String]()
     
     @IBOutlet var tableView : UITableView!
     
@@ -30,6 +29,14 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         button.addTarget(self, action: "unlockAction", forControlEvents: UIControlEvents.TouchUpInside)
         button.frame = CGRectMake(0, 0, 25, 25)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+        
+        //addbutton
+        let buttonAdd: UIButton = UIButton(type: .Custom)
+        buttonAdd.setImage(UIImage(named: "Add Icon"), forState: UIControlState.Normal)
+        buttonAdd.addTarget(self, action: "addAction", forControlEvents: UIControlEvents.TouchUpInside)
+        buttonAdd.frame = CGRectMake(0, 0, 25, 25)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: buttonAdd)
+        
         
         tableView.separatorColor = .clearColor()
         tableView.registerNib(UINib(nibName: "SetCell", bundle: nil), forCellReuseIdentifier: "SetCell")
@@ -72,18 +79,7 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     //MARK: - Selection
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if let topic = topics[indexPath.row] as? Topic, slides = topic.slides as NSData!
-        {
-            if let slidesInfo = NSKeyedUnarchiver.unarchiveObjectWithData(slides) as? [NSDictionary]
-            {
-                topicViewController.slidesInfo = slidesInfo
-                self.navigationController?.pushViewController(topicViewController, animated: true)
-            }
-        }
-        
-        
-        
+//        self.navigationController?.pushViewController(modeChoice, animated: true)
     }
     
     //MARK: - Section
@@ -109,10 +105,27 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SetCell") as! SetCell
         
-        let topic = topics[indexPath.row]
+        cell.rightUtilityButtons = rightButtons() as [AnyObject]
+        cell.delegate = self
         
-        cell.titleLabel!.text = topic.valueForKey("name") as? String
-        cell.pictureView.backgroundColor = UIColor.lightGrayColor()
+        
+        if let topicDict = NSUserDefaults.standardUserDefaults().objectForKey(topics[indexPath.row]) as? Dictionary<String, AnyObject>
+        {
+            if let topicName = topicDict["name"] as? String
+            {
+                cell.titleLabel.text = topicName
+            }
+            if let topicColorData = topicDict["color"] as? NSData
+            {
+                if let topicColor = NSKeyedUnarchiver.unarchiveObjectWithData(topicColorData) as? UIColor
+                {
+                    cell.pictureView.backgroundColor = topicColor
+                }
+            }
+            
+            
+        }
+        
         
         return cell
     }
@@ -125,27 +138,59 @@ class MainScreen : UIViewController, UITableViewDataSource, UITableViewDelegate 
         let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Unlock")
         self.navigationController?.presentViewController(unlockScreen, animated: true, completion: nil)
     }
+    func addAction(){
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("AddSet")
+        self.navigationController?.pushViewController(unlockScreen, animated: true)
+    }
     func loadFiles(){
         
         topics.removeAll()
-        
-        //1
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let fetchRequest = NSFetchRequest(entityName: "Topic")
-        
-        //3
-        do {
-            let results = try managedContext.executeFetchRequest(fetchRequest)
-            topics = results as! [NSManagedObject]
-        } catch let error as NSError {
-            Amin.sharedInstance.showInfoMessage("Could not fetch \(error), \(error.userInfo)")
-        }
-        
+        // loading topics
         tableView.reloadData()
+        
+    }
+    
+    //MARK: - Button
+    
+    func rightButtons() -> NSArray{
+        //cell buttons
+        let rightButtons = NSMutableArray()
+        rightButtons.sw_addUtilityButtonWithColor(MaterialColor.red.darken1, title: "Delete")
+        
+        return rightButtons
+    }
+    
+    
+    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerRightUtilityButtonWithIndex index: Int) {
+        
+        switch(index)
+        {
+        case (0):
+            if let cellIndexPath = tableView.indexPathForCell(cell)
+            {
+                if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first
+                {
+                    let path = dir.stringByAppendingPathComponent(topics[cellIndexPath.row]);
+                    let fileManager = NSFileManager.defaultManager()
+                    
+                    do {
+                        try fileManager.removeItemAtPath(path)
+                        topics.removeAtIndex(cellIndexPath.row)
+                        tableView.deleteRowsAtIndexPaths([cellIndexPath], withRowAnimation: .Automatic)
+                        Amin.sharedInstance.showInfoMessage("Saved")
+                    }
+                    catch let error as NSError {
+                        
+                        Amin.sharedInstance.showZAlertView("Ooops! Something went wrong", message: error.localizedDescription)
+                    }
+                }
+            }
+            break;
+        default:
+            break;
+        }
         
     }
     

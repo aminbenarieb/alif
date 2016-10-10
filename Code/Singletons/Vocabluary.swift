@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 private let vTourWordCount = 10
 
 private let _VocabluarySharedInstance = Vocabluary()
@@ -90,7 +91,7 @@ struct Result
     var procent : Int
 }
 
-struct Topic
+struct TopicInfo
 {
     var name : String
     var identifier : String
@@ -109,13 +110,13 @@ class Vocabluary
     internal var trainMode = true
     
     
-    var topic : Topic = Topic(name: "Undefined", identifier:"Undefined", words: [Word]())
+    var topic : TopicInfo = TopicInfo(name: "Undefined", identifier:"Undefined", words: [Word]())
     var wordList = [Word]()
     var wordListIndex = 0
     var step : Int = 1
     var rightAnswerCount = 0
     var result : Result = Result(title: "Undefined", message: "Undefined", procent: 0)
-    var image : UIImage = UIImage()
+    var imageName : String = ""
     
     /*   NON-DOCUMENTED FUNCTIONS   */
     
@@ -139,15 +140,32 @@ class Vocabluary
             }
         }
         
-         for (var i = 0; i < min(10, topic.words.count); i++)
-         {
-            let word = topic.words[i]
-            if word.memorize != .Full
+        print(topic.words)
+        
+        let minCount = min(10, topic.words.count)
+        while (wordList.count < minCount)
+        {
+            let word = topic.words[Int.random(0...minCount-1)]
+            if word.memorize != .Full && !wordList.contains(word)
             {
                 wordList.append(word)
             }
-         }
+        }
         
+    }
+    
+    func getCurrentWord(shuffle : Bool) -> NSString
+    {
+        let currentword = (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning);
+        return shuffle ? currentword.shuffle() : currentword
+    }
+    
+    func resetTour()
+    {
+        wordListIndex = 0
+        wordList.removeAll()
+        step = 1
+        rightAnswerCount = 0
     }
     
     /********************************/
@@ -165,17 +183,19 @@ class Vocabluary
     /** Get next word from tour word list
     - warning: This function is not testes
     */
-    func getNextWord() -> Word
+    func getNextWord() -> NSString
     {
-        return wordList[wordListIndex++]
+        targetMode = arc4random_uniform(2) == 0
+        wordListIndex++
+        return targetMode ? wordList[wordListIndex-1].meaning : wordList[wordListIndex-1].target
     }
     
     /** Get progress bar value
      - return: CGFloat procent value for progress bar
      */
-    func getProgressValue() -> CGFloat
+    func getProgressValue() -> Float
     {
-        return CGFloat(step)/CGFloat(vTourWordCount)*100
+        return Float(step)/Float(vTourWordCount)*100
     }
     
     
@@ -186,7 +206,7 @@ class Vocabluary
         var flag = false
         if let word = givenWord
         {
-            flag = word == wordList[wordListIndex-1].meaning
+            flag = word == (targetMode ? wordList[wordListIndex-1].target : wordList[wordListIndex-1].meaning)
             if (flag)
             {
                 rightAnswerCount++
@@ -242,10 +262,7 @@ class Vocabluary
                 print("Error saving tour results with topic identifier \(topic.identifier).")
             }
             
-            wordListIndex = 0
-            wordList.removeAll()
-            step = 1
-            rightAnswerCount = 0
+            resetTour()
         }
         
         return finished

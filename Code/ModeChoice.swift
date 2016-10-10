@@ -14,7 +14,7 @@ class ModeChoice: UIViewController
     
     @IBOutlet var btnTrain : FlatButton!
     @IBOutlet var btnLearn : FlatButton!
-    
+    var topicDict : Dictionary<String, AnyObject> = Dictionary()
     
     override func viewDidLoad() {
         
@@ -37,6 +37,7 @@ class ModeChoice: UIViewController
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let unlockScreen = storyBoard.instantiateViewControllerWithIdentifier("Train")
         
+        Vocabluary.sharedInstance.setUpTour(topicDict)
         
         self.navigationController?.pushViewController(unlockScreen, animated: true)
     }
